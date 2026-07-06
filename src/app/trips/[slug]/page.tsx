@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { getTrip, trips } from "@/data/trips";
 import SmartImage from "@/components/SmartImage";
 import Gallery from "@/components/Gallery";
+import Itinerary from "@/components/Itinerary";
+import Places from "@/components/Places";
 import WeatherPanel from "@/components/WeatherPanel";
 
 export function generateStaticParams() {
@@ -120,17 +122,40 @@ export default function TripPage({ params }: { params: { slug: string } }) {
           <h2 className="font-display text-2xl font-semibold text-sea-900">
             Suggested {trip.days}-day itinerary
           </h2>
-          <ol className="mt-5 space-y-3">
-            {trip.itinerary.map((d) => (
-              <li key={d.day} className="flex gap-4 rounded-xl bg-white p-4 shadow-sm ring-1 ring-sea-900/5">
-                <div className="w-16 shrink-0 text-sm font-semibold text-terracotta-600">{d.day}</div>
-                <div>
-                  <div className="font-medium text-sea-900">{d.title}</div>
-                  <p className="mt-1 text-sm leading-relaxed text-sea-700">{d.detail}</p>
+          <p className="mt-1 text-sm text-sea-700/70">Tap a day&apos;s photo to open it full-screen.</p>
+          <div className="mt-5">
+            <Itinerary days={trip.itinerary} />
+          </div>
+        </section>
+
+        {/* Places to visit */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-semibold text-sea-900">Places to visit</h2>
+          <p className="mt-1 text-sm text-sea-700/70">
+            The stops worth building the trip around — tap any photo to expand.
+          </p>
+          <div className="mt-5">
+            <Places places={trip.places} />
+          </div>
+        </section>
+
+        {/* Things to do & ideas */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-semibold text-sea-900">Things to do &amp; ideas</h2>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {trip.experiences.map((e) => (
+              <li
+                key={e.title}
+                className="rounded-xl bg-white/70 px-4 py-3 ring-1 ring-sea-900/5"
+              >
+                <div className="flex items-baseline gap-2">
+                  <span className="mt-0.5 text-terracotta-500">◆</span>
+                  <span className="font-semibold text-sea-900">{e.title}</span>
                 </div>
+                <p className="mt-1 pl-5 text-sm leading-relaxed text-sea-700">{e.detail}</p>
               </li>
             ))}
-          </ol>
+          </ul>
         </section>
 
         {/* Getting around */}
