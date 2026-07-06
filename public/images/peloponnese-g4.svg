@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d2ecf3"/>
+      <stop offset="1" stop-color="#8fd0e0"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f93b5"/>
+      <stop offset="1" stop-color="#6b6f45"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/><circle cx="1179" cy="221" r="94" fill="#fff6dd" opacity="0.95"/><polygon points="0,1000 0,516 267,514 533,506 800,487 1067,477 1333,481 1600,508 1600,1000" fill="#b6a878" opacity="0.75"/><polygon points="0,1000 0,610 267,640 533,615 800,662 1067,642 1333,634 1600,632 1600,1000" fill="#8f8a5e" opacity="0.9"/><polygon points="0,1000 0,805 229,826 457,825 686,798 914,807 1143,796 1371,812 1600,830 1600,1000" fill="#6b6f45"/><ellipse cx="966" cy="602" rx="11" ry="51" fill="#6b6f45"/><ellipse cx="1022" cy="613" rx="10" ry="33" fill="#6b6f45"/><ellipse cx="986" cy="616" rx="9" ry="39" fill="#6b6f45"/><ellipse cx="1112" cy="574" rx="11" ry="50" fill="#6b6f45"/><ellipse cx="830" cy="594" rx="14" ry="46" fill="#6b6f45"/><ellipse cx="1057" cy="603" rx="11" ry="38" fill="#6b6f45"/><ellipse cx="724" cy="573" rx="13" ry="58" fill="#6b6f45"/><rect x="646" y="560" width="14" height="70" fill="#f0e8d6" opacity="0.95"/><rect x="672" y="560" width="14" height="70" fill="#f0e8d6" opacity="0.95"/><rect x="698" y="560" width="14" height="70" fill="#f0e8d6" opacity="0.95"/><rect x="724" y="560" width="14" height="70" fill="#f0e8d6" opacity="0.95"/><rect x="750" y="560" width="14" height="70" fill="#f0e8d6" opacity="0.95"/><rect x="640" y="548" width="150" height="12" fill="#f0e8d6"/>
+</svg>

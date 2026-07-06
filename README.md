@@ -20,10 +20,18 @@ Périgord (France).
 - Next.js 14 (App Router) + TypeScript, statically generated
 - Tailwind CSS
 - Custom client-side lightbox (no image libraries)
-- Photos via LoremFlickr keyword URLs, with a graceful gradient fallback if any
-  photo fails to load
+- **Self-hosted images**: each destination's hero + gallery art is generated as
+  crisp SVG "travel posters" into [`public/images`](public/images) by
+  [`scripts/gen-images.mjs`](scripts/gen-images.mjs), so photos always load from
+  Vercel and can never break. Regenerate with `node scripts/gen-images.mjs`.
 
 All trip content lives in one file: [`src/data/trips.ts`](src/data/trips.ts).
+
+### Swapping in real photos
+
+Drop a real image into `public/images` using the same filename (e.g.
+`amalfi-campania-hero.svg` → `amalfi-campania-hero.jpg`) and point that entry in
+`src/data/trips.ts` at the new path — the self-hosting means it will load reliably.
 
 ## Run locally
 

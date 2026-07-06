@@ -526,4 +526,11 @@ export const trips: Trip[] = [
   },
 ];
 
+// Wire every trip to its self-hosted SVG images so photos always load from
+// Vercel and can never break. Regenerate the art with: node scripts/gen-images.mjs
+for (const t of trips) {
+  t.heroImage = `/images/${t.slug}-hero.svg`;
+  t.gallery = t.gallery.map((g, i) => ({ ...g, url: `/images/${t.slug}-g${i + 1}.svg` }));
+}
+
 export const getTrip = (slug: string) => trips.find((t) => t.slug === slug);

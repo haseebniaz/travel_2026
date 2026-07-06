@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffdca0"/>
+      <stop offset="1" stop-color="#e8865f"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a8ca0"/>
+      <stop offset="1" stop-color="#3f2c28"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/><circle cx="920" cy="312" r="85" fill="#fff1cf" opacity="0.95"/><polygon points="0,1000 0,500 0,282 267,449 533,243 800,391 1067,148 1333,388 1600,232 1600,500 1600,1000" fill="#9a6b57"/><polygon points="0,1000 0,620 0,444 229,548 457,446 686,547 914,386 1143,534 1371,421 1600,530 1600,620 1600,1000" fill="#6f4a3f"/><polygon points="325,319 285,379 365,379" fill="#ffffff" opacity="0.85"/><polygon points="692,382 652,442 732,442" fill="#ffffff" opacity="0.85"/><polygon points="262,371 222,431 302,431" fill="#ffffff" opacity="0.85"/><polygon points="459,306 419,366 499,366" fill="#ffffff" opacity="0.85"/><polygon points="1255,394 1215,454 1295,454" fill="#ffffff" opacity="0.85"/><polygon points="0,1000 0,778 200,793 400,790 600,791 800,771 1000,754 1200,759 1400,775 1600,795 1600,1000" fill="#3f2c28"/>
+</svg>
