@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-sand-50 text-sea-900 antialiased;
+}
+
+/* Subtle paper texture via layered gradients on the page background */
+.page-bg {
+  background-image:
+    radial-gradient(1200px 600px at 100% -10%, rgba(201, 111, 67, 0.08), transparent 60%),
+    radial-gradient(1000px 500px at -10% 10%, rgba(47, 125, 140, 0.08), transparent 55%);
+}
+
+/* Fallback gradient used when a photo fails to load */
+.img-fallback {
+  background:
+    linear-gradient(135deg, #256574 0%, #2f7d8c 45%, #c96f43 100%);
+}
