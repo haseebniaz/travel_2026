@@ -26,3 +26,31 @@ body {
   background:
     linear-gradient(135deg, #256574 0%, #2f7d8c 45%, #c96f43 100%);
 }
+
+/* Airport marker on the route map (Leaflet divIcon) */
+.airport-pin {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  background: #163b45;
+  color: #faf6f0;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(15, 42, 49, 0.4);
+  border: 1px solid rgba(250, 246, 240, 0.6);
+  width: fit-content;
+}
+
+/* Keep Leaflet popups on-brand */
+.leaflet-popup-content {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 13px;
+}
+.leaflet-popup-content a {
+  color: #b25630;
+  font-weight: 600;
+}

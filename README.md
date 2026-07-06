@@ -20,6 +20,9 @@ Périgord (France).
 - Next.js 14 (App Router) + TypeScript, statically generated
 - Tailwind CSS
 - Custom client-side lightbox (no image libraries)
+- **Interactive route map** (`/map`): all ten itineraries plotted in distinct colors
+  with per-trip toggles and a major-airports switch — Leaflet + CARTO basemap,
+  route/airport data in [`src/data/routes.ts`](src/data/routes.ts)
 - **Self-hosted real photos**: every destination's hero + gallery image is a real,
   freely-licensed photo from Wikimedia Commons, downloaded into
   [`public/images`](public/images) by [`scripts/fetch-photos.mjs`](scripts/fetch-photos.mjs)

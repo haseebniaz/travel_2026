@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const display = Playfair_Display({
@@ -27,7 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
-      <body className="font-sans page-bg min-h-screen">{children}</body>
+      <body className="font-sans page-bg min-h-screen">
+        <SiteNav />
+        {children}
+      </body>
     </html>
   );
 }
