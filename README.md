@@ -20,18 +20,21 @@ Périgord (France).
 - Next.js 14 (App Router) + TypeScript, statically generated
 - Tailwind CSS
 - Custom client-side lightbox (no image libraries)
-- **Self-hosted images**: each destination's hero + gallery art is generated as
-  crisp SVG "travel posters" into [`public/images`](public/images) by
-  [`scripts/gen-images.mjs`](scripts/gen-images.mjs), so photos always load from
-  Vercel and can never break. Regenerate with `node scripts/gen-images.mjs`.
+- **Self-hosted real photos**: every destination's hero + gallery image is a real,
+  freely-licensed photo from Wikimedia Commons, downloaded into
+  [`public/images`](public/images) by [`scripts/fetch-photos.mjs`](scripts/fetch-photos.mjs)
+  (then resized to ~1600px), so they always load from Vercel. Attribution for
+  every photo is in [`public/images/CREDITS.md`](public/images/CREDITS.md).
+  Re-fetch with `node scripts/fetch-photos.mjs` (needs network access to
+  `commons.wikimedia.org` / `upload.wikimedia.org`).
 
 All trip content lives in one file: [`src/data/trips.ts`](src/data/trips.ts).
 
-### Swapping in real photos
+### Swapping in a different photo
 
-Drop a real image into `public/images` using the same filename (e.g.
-`amalfi-campania-hero.svg` → `amalfi-campania-hero.jpg`) and point that entry in
-`src/data/trips.ts` at the new path — the self-hosting means it will load reliably.
+Replace any file in `public/images` (keep the same filename, e.g.
+`amalfi-campania-hero.jpg`) and it loads automatically — the filenames are wired
+in `src/data/trips.ts`.
 
 ## Run locally
 
