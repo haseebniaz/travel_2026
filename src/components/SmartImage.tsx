@@ -8,6 +8,8 @@ type Props = {
   className?: string;
   /** Text shown on the gradient fallback if the photo fails to load */
   fallbackLabel?: string;
+  /** Load immediately instead of lazily — use for above-the-fold hero images */
+  eager?: boolean;
 };
 
 /**
@@ -15,7 +17,7 @@ type Props = {
  * swaps to a labeled gradient placeholder if the remote photo fails to load,
  * so the dashboard never shows a broken image.
  */
-export default function SmartImage({ src, alt, className, fallbackLabel }: Props) {
+export default function SmartImage({ src, alt, className, fallbackLabel, eager }: Props) {
   const [failed, setFailed] = useState(false);
 
   if (failed) {
@@ -37,7 +39,7 @@ export default function SmartImage({ src, alt, className, fallbackLabel }: Props
     <img
       src={src}
       alt={alt}
-      loading="lazy"
+      loading={eager ? "eager" : "lazy"}
       onError={() => setFailed(true)}
       className={className}
     />

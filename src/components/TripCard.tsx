@@ -8,9 +8,10 @@ import WeatherBadge from "./WeatherBadge";
 import type { Trip } from "@/data/trips";
 
 /**
- * Dashboard card. The whole card links to the trip's detail page; the small
- * expand button on the hero image opens the photo in a lightbox instead of
- * navigating (its click is stopped from bubbling to the card link).
+ * Dashboard card. A "stretched link" overlay (absolute, sibling of the content
+ * — not a wrapper) makes the whole card navigate to the detail page, so the
+ * expand button can sit above it without nesting one interactive inside another.
+ * The expand button opens the hero photo in a lightbox instead of navigating.
  */
 export default function TripCard({ trip, order }: { trip: Trip; order: number }) {
   const [open, setOpen] = useState(false);
@@ -19,7 +20,14 @@ export default function TripCard({ trip, order }: { trip: Trip; order: number })
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-sea-900/5 transition hover:-translate-y-1 hover:shadow-xl">
-      <Link href={`/trips/${trip.slug}`} className="flex flex-1 flex-col">
+      {/* Stretched link covering the whole card */}
+      <Link
+        href={`/trips/${trip.slug}`}
+        aria-label={`View the ${trip.title} trip plan`}
+        className="absolute inset-0 z-0"
+      />
+
+      <div className="pointer-events-none relative">
         <div className="relative aspect-[16/10] overflow-hidden bg-sand-100">
           <SmartImage
             src={trip.heroImage}
@@ -33,15 +41,12 @@ export default function TripCard({ trip, order }: { trip: Trip; order: number })
           <span className="absolute right-3 top-3 rounded-full bg-white/85 px-2.5 py-1 text-xs font-medium text-sea-800">
             {trip.flag} {trip.country}
           </span>
+          {/* Expand button sits above the stretched link; visible on touch, hover-revealed on desktop */}
           <button
             type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setOpen(true);
-            }}
+            onClick={() => setOpen(true)}
             aria-label={`Expand photo of ${trip.title}`}
-            className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-sea-800 opacity-0 shadow transition hover:bg-white group-hover:opacity-100"
+            className="pointer-events-auto absolute bottom-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-sea-800 shadow transition hover:bg-white sm:opacity-0 sm:group-hover:opacity-100"
           >
             ⤢
           </button>
@@ -77,7 +82,7 @@ export default function TripCard({ trip, order }: { trip: Trip; order: number })
             View trip plan →
           </div>
         </div>
-      </Link>
+      </div>
 
       {open && (
         <Lightbox

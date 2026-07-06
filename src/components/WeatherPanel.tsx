@@ -10,13 +10,24 @@ function Tile({ label, value, sub }: { label: string; value: string; sub?: strin
   );
 }
 
+/** Pick a weather glyph from the qualitative sky description. */
+function skyEmoji(sky: string): string {
+  const s = sky.toLowerCase();
+  if (s.includes("very sunny") || s === "sunny") return "☀️";
+  if (s.includes("mostly sunny")) return "🌤️";
+  if (s.includes("partly") || (s.includes("cloud") && s.includes("sun"))) return "⛅";
+  if (s.includes("cloud")) return "🌥️";
+  if (s.includes("sun")) return "☀️";
+  return "🌤️";
+}
+
 /** Full October weather breakdown for a trip detail page. */
 export default function WeatherPanel({ weather }: { weather: Weather }) {
   return (
     <div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Tile label="Avg high" value={`${weather.high}°C`} sub={`low ${weather.low}°C`} />
-        <Tile label="Sky" value={weather.sky.split(" ")[0]} sub={weather.sky} />
+        <Tile label="Sky" value={skyEmoji(weather.sky)} sub={weather.sky} />
         <Tile label="Rain" value={`~${weather.rainDays}`} sub="days in October" />
         <Tile
           label="Sea"

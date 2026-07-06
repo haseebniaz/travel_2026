@@ -25,15 +25,17 @@ export default function TripPage({ params }: { params: { slug: string } }) {
 
   return (
     <main className="pb-20">
-      {/* Hero */}
-      <div className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
+      {/* Hero — sizes to its content so long titles never clip */}
+      <header className="relative flex min-h-[440px] flex-col justify-end overflow-hidden">
         <SmartImage
           src={trip.heroImage}
           alt={trip.title}
           fallbackLabel={trip.title}
-          className="h-full w-full object-cover"
+          eager
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-sea-900/85 via-sea-900/25 to-sea-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-sea-900/90 via-sea-900/30 to-sea-900/35" />
+
         <div className="absolute inset-x-0 top-0 p-4 sm:p-6">
           <Link
             href="/"
@@ -42,36 +44,42 @@ export default function TripPage({ params }: { params: { slug: string } }) {
             ← All trips
           </Link>
         </div>
-        <div className="absolute inset-x-0 bottom-0 mx-auto max-w-5xl px-4 pb-8 sm:px-6">
+
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-12 pt-24 sm:px-6">
           <div className="text-sm font-medium uppercase tracking-wide text-sand-100">
             {trip.flag} {trip.country} · {trip.region}
           </div>
-          <h1 className="mt-2 max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
+          <h1 className="mt-2 max-w-3xl font-display text-3xl font-bold leading-tight text-white [text-wrap:balance] sm:text-5xl">
             {trip.title}
           </h1>
           <p className="mt-3 max-w-2xl text-base text-sand-50/90 sm:text-lg">{trip.tagline}</p>
         </div>
-      </div>
+      </header>
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        {/* At a glance */}
-        <section className="-mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {/* At a glance — floats over the hero edge */}
+        <section className="relative z-10 -mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {[
             { label: "Duration", value: `${trip.days} days` },
-            { label: "Route", value: "Loop drive", sub: trip.loop },
+            { label: "Route", value: "Loop" },
             { label: "Best for", value: trip.tags[0] },
             { label: "Explore by", value: "Bike / scooter" },
           ].map((s) => (
             <div
               key={s.label}
-              className="rounded-xl bg-white p-4 text-center shadow-sm ring-1 ring-sea-900/5"
+              className="rounded-xl bg-white p-4 text-center shadow-md ring-1 ring-sea-900/5"
             >
               <div className="text-[11px] uppercase tracking-wide text-sea-700/70">{s.label}</div>
               <div className="mt-1 font-display text-lg font-semibold text-sea-900">{s.value}</div>
-              {s.sub && <div className="mt-1 text-[11px] leading-snug text-sea-700/70">{s.sub}</div>}
             </div>
           ))}
         </section>
+
+        {/* Full route line */}
+        <div className="mt-3 flex items-center gap-2 rounded-xl bg-white/70 px-4 py-3 text-sm text-sea-800 ring-1 ring-sea-900/5">
+          <span className="shrink-0 text-terracotta-500">🚗</span>
+          <span className="font-medium">{trip.loop}</span>
+        </div>
 
         {/* The feel */}
         <section className="mt-12">
