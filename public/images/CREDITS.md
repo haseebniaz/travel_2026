@@ -25,7 +25,7 @@ page, author, and license. Please retain attribution if you reuse them.
 - **amalfi-campania-place4.jpg** — [File:Amalfi BW 2013-05-15 11-18-51 DxO.jpg](https://commons.wikimedia.org/wiki/File:Amalfi_BW_2013-05-15_11-18-51_DxO.jpg) · Berthold Werner · CC BY-SA 3.0
 - **amalfi-campania-place5.jpg** — [File:Sorrento Vesuv 2016.jpg](https://commons.wikimedia.org/wiki/File:Sorrento_Vesuv_2016.jpg) · Erik den yngre · CC BY-SA 4.0
 - **amalfi-campania-place6.jpg** — [File:Building of Eumachia, Pompeii Forum, Entrance.jpg](https://commons.wikimedia.org/wiki/File:Building_of_Eumachia,_Pompeii_Forum,_Entrance.jpg) · Marco Ober · CC BY-SA 4.0
-- **amalfi-campania-place7.jpg** — [File:Paestum BW 2013-05-17 13-22-35.jpg](https://commons.wikimedia.org/wiki/File:Paestum_BW_2013-05-17_13-22-35.jpg) · Berthold Werner · CC BY-SA 3.0
+- **amalfi-campania-place7.jpg** — [File:Hera temple II - Paestum - Poseidonia - July 13th 2013 - 04.jpg](https://commons.wikimedia.org/wiki/File:Hera_temple_II_-_Paestum_-_Poseidonia_-_July_13th_2013_-_04.jpg) · Norbert Nagel · CC BY-SA 3.0
 - **corsica-day1.jpg** — [File:Aerial view of the port of Bastia, Corsica, France (52723827071).jpg](https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_port_of_Bastia,_Corsica,_France_(52723827071).jpg) · dronepicr · CC BY 2.0
 - **corsica-day2.jpg** — [File:Nonza beach.jpg](https://commons.wikimedia.org/wiki/File:Nonza_beach.jpg) · DocDaysleeper · CC BY-SA 4.0
 - **corsica-day3.jpg** — [File:Calvi citadel Stevage.jpg](https://commons.wikimedia.org/wiki/File:Calvi_citadel_Stevage.jpg) · Steve Bennett · CC BY-SA 3.0
@@ -52,7 +52,7 @@ page, author, and license. Please retain attribution if you reuse them.
 - **crete-day2.jpg** — [File:Rock formation in Elafonisi Lagoon on Crete in Greece,Europe.jpg](https://commons.wikimedia.org/wiki/File:Rock_formation_in_Elafonisi_Lagoon_on_Crete_in_Greece,Europe.jpg) · Karel Stipek Austria · CC BY 4.0
 - **crete-day3.jpg** — [File:Kreta (GR), Rethymno, Fortezza -- 2023 -- 8321.jpg](https://commons.wikimedia.org/wiki/File:Kreta_(GR),_Rethymno,_Fortezza_--_2023_--_8321.jpg) · Dietmar Rabich · CC BY-SA 4.0
 - **crete-day4.jpg** — [File:Preveli Palm Beach Panorama 02.JPG](https://commons.wikimedia.org/wiki/File:Preveli_Palm_Beach_Panorama_02.JPG) · Uoaei1 · CC BY-SA 4.0
-- **crete-day5.jpg** — [File:Knossos R03.jpg](https://commons.wikimedia.org/wiki/File:Knossos_R03.jpg) · Marc Ryckaert (MJJR) · CC BY 3.0
+- **crete-day5.jpg** — [File:Knossos women fresco.jpg](https://commons.wikimedia.org/wiki/File:Knossos_women_fresco.jpg) · Gleb Simonov · Public domain
 - **crete-day6.jpg** — [File:Lasithi plateau 01.jpg](https://commons.wikimedia.org/wiki/File:Lasithi_plateau_01.jpg) · Mihael Grmek · CC BY-SA 4.0
 - **crete-day7.jpg** — [File:20090620 Spinalogka Elounta panoramic view from the mountain.jpg](https://commons.wikimedia.org/wiki/File:20090620_Spinalogka_Elounta_panoramic_view_from_the_mountain.jpg) · Ggia · CC BY-SA 3.0
 - **crete-day8.jpg** — [File:Northern coast Crete detail.jpg](https://commons.wikimedia.org/wiki/File:Northern_coast_Crete_detail.jpg) · Jebulon · CC0
@@ -61,7 +61,7 @@ page, author, and license. Please retain attribution if you reuse them.
 - **crete-g3.jpg** — [File:Rethymno old harbour lighthouse 1.jpg](https://commons.wikimedia.org/wiki/File:Rethymno_old_harbour_lighthouse_1.jpg) · This photo was taken by Anton Zelenov. Please credit this with : Photo : Anton Zelenov in the immediate vicinity of the image. If you use one of my photos, please email me (account needed) or leave me a short message on my discussion page. It would be greatly appreciated. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me to negotiate terms. · CC BY-SA 4.0
 - **crete-g4.jpg** — [File:Φαράγγι Σαμαριάς 3754.jpg](https://commons.wikimedia.org/wiki/File:%CE%A6%CE%B1%CF%81%CE%AC%CE%B3%CE%B3%CE%B9_%CE%A3%CE%B1%CE%BC%CE%B1%CF%81%CE%B9%CE%AC%CF%82_3754.jpg) · C messier · CC BY-SA 4.0
 - **crete-g5.jpg** — [File:BalosLagoonCreta.jpg](https://commons.wikimedia.org/wiki/File:BalosLagoonCreta.jpg) · Mwchalmers · CC BY-SA 4.0
-- **crete-g6.jpg** — [File:Anogeia 3.jpg](https://commons.wikimedia.org/wiki/File:Anogeia_3.jpg) · Tomisti · CC BY-SA 4.0
+- **crete-g6.jpg** — [File:Anogeia 2.jpg](https://commons.wikimedia.org/wiki/File:Anogeia_2.jpg) · Tomisti · CC BY-SA 4.0
 - **crete-hero.jpg** — [File:Lighthouse in Chania. Crete, Greece.jpg](https://commons.wikimedia.org/wiki/File:Lighthouse_in_Chania._Crete,_Greece.jpg) · Ввласенко · CC BY-SA 3.0
 - **crete-place1.jpg** — [File:Harbor and Venetian shipyards in Chania. Crete, Greece.jpg](https://commons.wikimedia.org/wiki/File:Harbor_and_Venetian_shipyards_in_Chania._Crete,_Greece.jpg) · Ввласенко · CC BY-SA 3.0
 - **crete-place2.jpg** — [File:Rock formation in Elafonisi Lagoon on Crete in Greece,Europe.jpg](https://commons.wikimedia.org/wiki/File:Rock_formation_in_Elafonisi_Lagoon_on_Crete_in_Greece,Europe.jpg) · Karel Stipek Austria · CC BY 4.0
@@ -78,7 +78,7 @@ page, author, and license. Please retain attribution if you reuse them.
 - **dalmatian-coast-day6.jpg** — [File:Ston-Fort-04.jpg](https://commons.wikimedia.org/wiki/File:Ston-Fort-04.jpg) · László Szalai (Beyond silence) · Public domain
 - **dalmatian-coast-day7.jpg** — [File:Main street-Dubrovnik-1.jpg](https://commons.wikimedia.org/wiki/File:Main_street-Dubrovnik-1.jpg) · László Szalai (Beyond silence) · Public domain
 - **dalmatian-coast-day8.jpg** — [File:City walls of Dubrovnik 05.jpg](https://commons.wikimedia.org/wiki/File:City_walls_of_Dubrovnik_05.jpg) · Bernard Gagnon · CC BY-SA 4.0
-- **dalmatian-coast-g1.jpg** — [File:View of Diocletian's Palace, Split 02.jpg](https://commons.wikimedia.org/wiki/File:View_of_Diocletian%27s_Palace,_Split_02.jpg) · Bernard Gagnon · CC BY-SA 4.0
+- **dalmatian-coast-g1.jpg** — [File:View of Diocletian's Palace, Split 01.jpg](https://commons.wikimedia.org/wiki/File:View_of_Diocletian%27s_Palace,_Split_01.jpg) · Bernard Gagnon · CC BY-SA 4.0
 - **dalmatian-coast-g2.jpg** — [File:Pjaca Sv. Stjepan, Hvar 01.jpg](https://commons.wikimedia.org/wiki/File:Pjaca_Sv._Stjepan,_Hvar_01.jpg) · Bernard Gagnon · CC BY-SA 4.0
 - **dalmatian-coast-g3.jpg** — [File:Korcula City.jpg](https://commons.wikimedia.org/wiki/File:Korcula_City.jpg) · Unknown · CC BY-SA 3.0
 - **dalmatian-coast-g4.jpg** — [File:City walls of Dubrovnik 05.jpg](https://commons.wikimedia.org/wiki/File:City_walls_of_Dubrovnik_05.jpg) · Bernard Gagnon · CC BY-SA 4.0
@@ -123,14 +123,14 @@ page, author, and license. Please retain attribution if you reuse them.
 - **montenegro-kotor-g1.jpg** — [File:Bay of Kotor from Lepetani's road.jpg](https://commons.wikimedia.org/wiki/File:Bay_of_Kotor_from_Lepetani%27s_road.jpg) · Gzzz · CC BY-SA 4.0
 - **montenegro-kotor-g2.jpg** — [File:Widok na Perast z zachodu 01.JPG](https://commons.wikimedia.org/wiki/File:Widok_na_Perast_z_zachodu_01.JPG) · Marcin Konsek · CC BY-SA 4.0
 - **montenegro-kotor-g3.jpg** — [File:Mount Lovćen and Štirovnik, Montenegro, September 2022 02.jpg](https://commons.wikimedia.org/wiki/File:Mount_Lov%C4%87en_and_%C5%A0tirovnik,_Montenegro,_September_2022_02.jpg) · Calistemon · CC BY-SA 4.0
-- **montenegro-kotor-g4.jpg** — [File:Durmitor mountains (by Pudelek) 01.jpg](https://commons.wikimedia.org/wiki/File:Durmitor_mountains_(by_Pudelek)_01.jpg) · Pudelek · CC BY-SA 4.0
+- **montenegro-kotor-g4.jpg** — [File:Durmitor national park montenegro.jpg](https://commons.wikimedia.org/wiki/File:Durmitor_national_park_montenegro.jpg) · Michael Tyler · CC BY-SA 2.0
 - **montenegro-kotor-g5.jpg** — [File:Durmitor, canyon Tara - Montenegro.JPG](https://commons.wikimedia.org/wiki/File:Durmitor,_canyon_Tara_-_Montenegro.JPG) · Pudelek (Marcin Szala) · CC BY-SA 3.0
 - **montenegro-kotor-g6.jpg** — [File:Sveti Stefan (06).jpg](https://commons.wikimedia.org/wiki/File:Sveti_Stefan_(06).jpg) · Marcin Konsek · CC BY-SA 4.0
 - **montenegro-kotor-hero.jpg** — [File:20090719 Crkva Gospa od Zdravlja Kotor Bay Montenegro.jpg](https://commons.wikimedia.org/wiki/File:20090719_Crkva_Gospa_od_Zdravlja_Kotor_Bay_Montenegro.jpg) · User:Ggia · CC BY-SA 3.0
 - **montenegro-kotor-place1.jpg** — [File:DSC-0309-kotor-old-town-montenegro-july-2017-003.jpg](https://commons.wikimedia.org/wiki/File:DSC-0309-kotor-old-town-montenegro-july-2017-003.jpg) · Rakoon · CC0
 - **montenegro-kotor-place2.jpg** — [File:Kotor bay with a ship.jpg](https://commons.wikimedia.org/wiki/File:Kotor_bay_with_a_ship.jpg) · Jaakko Luttinen · CC BY-SA 4.0
 - **montenegro-kotor-place3.jpg** — [File:Church of Our Lady of the Rocks, Perast (49631172447).jpg](https://commons.wikimedia.org/wiki/File:Church_of_Our_Lady_of_the_Rocks,_Perast_(49631172447).jpg) · Jocelyn Erskine-Kellie from London, UK · CC BY-SA 2.0
-- **montenegro-kotor-place4.jpg** — [File:Petar II Petrović-Njegoš mausoleum 28.jpg](https://commons.wikimedia.org/wiki/File:Petar_II_Petrovi%C4%87-Njego%C5%A1_mausoleum_28.jpg) · Milica Buha · CC BY-SA 4.0
+- **montenegro-kotor-place4.jpg** — [File:Jezerski vrh (Lovćen national park), Primorska Planinarska Transverzala, Montenegro 105.jpg](https://commons.wikimedia.org/wiki/File:Jezerski_vrh_(Lov%C4%87en_national_park),_Primorska_Planinarska_Transverzala,_Montenegro_105.jpg) · Michal Klajban · CC BY-SA 4.0
 - **montenegro-kotor-place5.jpg** — [File:Lago Skadar, Montenegro, 2014-04-14, DD 02.JPG](https://commons.wikimedia.org/wiki/File:Lago_Skadar,_Montenegro,_2014-04-14,_DD_02.JPG) · Diego Delso · CC BY-SA 3.0
 - **montenegro-kotor-place6.jpg** — [File:Majestic Tara Bridge.jpg](https://commons.wikimedia.org/wiki/File:Majestic_Tara_Bridge.jpg) · Arno Hoyer · CC BY 2.0
 - **montenegro-kotor-place7.jpg** — [File:Sveti Stefan (06).jpg](https://commons.wikimedia.org/wiki/File:Sveti_Stefan_(06).jpg) · Marcin Konsek · CC BY-SA 4.0
@@ -159,7 +159,7 @@ page, author, and license. Please retain attribution if you reuse them.
 - **sicily-east-day1.jpg** — [File:Catania, piazza del Duomo.jpg](https://commons.wikimedia.org/wiki/File:Catania,_piazza_del_Duomo.jpg) · Cayambe · CC BY-SA 4.0
 - **sicily-east-day2.jpg** — [File:Taormina - the greek theater, with mount Etna in the background.jpg](https://commons.wikimedia.org/wiki/File:Taormina_-_the_greek_theater,_with_mount_Etna_in_the_background.jpg) · Nicolas Chadeville · CC BY-SA 4.0
 - **sicily-east-day3.jpg** — [File:Etna eruption seen from the International Space Station.jpg](https://commons.wikimedia.org/wiki/File:Etna_eruption_seen_from_the_International_Space_Station.jpg) · NASA · Public domain
-- **sicily-east-day4.jpg** — [File:Isola Bella Island Taormina Sicily 07.jpg](https://commons.wikimedia.org/wiki/File:Isola_Bella_Island_Taormina_Sicily_07.jpg) · Scott Wylie · CC BY 4.0
+- **sicily-east-day4.jpg** — [File:Isola Bella Island Taormina Sicily 09.jpg](https://commons.wikimedia.org/wiki/File:Isola_Bella_Island_Taormina_Sicily_09.jpg) · Scott Wylie · CC BY 4.0
 - **sicily-east-day5.jpg** — [File:Ortigia, piazza duomo, palazzi.JPG](https://commons.wikimedia.org/wiki/File:Ortigia,_piazza_duomo,_palazzi.JPG) · sailko · CC BY 2.5
 - **sicily-east-day6.jpg** — [File:Ancient Greek theater, 450-400 BC, Syracuse, 121542.jpg](https://commons.wikimedia.org/wiki/File:Ancient_Greek_theater,_450-400_BC,_Syracuse,_121542.jpg) · Zde · CC BY-SA 4.0
 - **sicily-east-day7.jpg** — [File:Corso Vittorio Emanuele, Noto SR, Scily, Italy - panoramio.jpg](https://commons.wikimedia.org/wiki/File:Corso_Vittorio_Emanuele,_Noto_SR,_Scily,_Italy_-_panoramio.jpg) · trolvag · CC BY-SA 3.0
@@ -179,6 +179,41 @@ page, author, and license. Please retain attribution if you reuse them.
 - **sicily-east-place5.jpg** — [File:Ragusa Ibla in Sicily.jpg](https://commons.wikimedia.org/wiki/File:Ragusa_Ibla_in_Sicily.jpg) · Nicolas Chadeville · CC BY-SA 4.0
 - **sicily-east-place6.jpg** — [File:Along Corso Umberto Modica Sicily Sicilia Italy in 1992.jpg](https://commons.wikimedia.org/wiki/File:Along_Corso_Umberto_Modica_Sicily_Sicilia_Italy_in_1992.jpg) · Acabashi · CC BY-SA 4.0
 - **sicily-east-place7.jpg** — [File:Catania, piazza del Duomo.jpg](https://commons.wikimedia.org/wiki/File:Catania,_piazza_del_Duomo.jpg) · Cayambe · CC BY-SA 4.0
+- **sicily-guide-aeolian.jpg** — [File:Coasts of Lipari 03.jpg](https://commons.wikimedia.org/wiki/File:Coasts_of_Lipari_03.jpg) · Bernard Gagnon · CC BY 4.0
+- **sicily-guide-agrigento.jpg** — [File:Olive in the Valley of the Temples. Agrigento.jpg](https://commons.wikimedia.org/wiki/File:Olive_in_the_Valley_of_the_Temples._Agrigento.jpg) · Ввласенко · CC BY-SA 3.0
+- **sicily-guide-alcantara.jpg** — [File:Gole dell'Alcantara-pjt1.jpg](https://commons.wikimedia.org/wiki/File:Gole_dell%27Alcantara-pjt1.jpg) · pjt56 --- · CC BY-SA 3.0
+- **sicily-guide-arancini.jpg** — [File:Arancini 002.jpg](https://commons.wikimedia.org/wiki/File:Arancini_002.jpg) · No machine-readable author provided. Gmelfi assumed (based on copyright claims). · Public domain
+- **sicily-guide-calamosche.jpg** — [File:Spiaggia di Calamosche, versante destro.jpg](https://commons.wikimedia.org/wiki/File:Spiaggia_di_Calamosche,_versante_destro.jpg) · Enzo Rippa · CC BY-SA 4.0
+- **sicily-guide-caltagirone.jpg** — [File:Caltagirone.jpg](https://commons.wikimedia.org/wiki/File:Caltagirone.jpg) · No machine-readable author provided. Gmelfi assumed (based on copyright claims). · Public domain
+- **sicily-guide-cannoli.jpg** — [File:Cannoli siciliani (7472226896).jpg](https://commons.wikimedia.org/wiki/File:Cannoli_siciliani_(7472226896).jpg) · mat's eye · CC BY 2.0
+- **sicily-guide-castelmola.jpg** — [File:Arco Antico (Castelmola).jpg](https://commons.wikimedia.org/wiki/File:Arco_Antico_(Castelmola).jpg) · The Cosmonaut · CC BY-SA 2.5 ca
+- **sicily-guide-cavagrande.jpg** — [File:Cavagrande del Cassibile-pjt.jpg](https://commons.wikimedia.org/wiki/File:Cavagrande_del_Cassibile-pjt.jpg) · pjt56 · CC BY-SA 3.0
+- **sicily-guide-cefalu.jpg** — [File:Cefalù BW 2025-05-01 09-35-46.jpg](https://commons.wikimedia.org/wiki/File:Cefal%C3%B9_BW_2025-05-01_09-35-46.jpg) · Berthold Werner · CC BY-SA 4.0
+- **sicily-guide-erice.jpg** — [File:Erice Chiesa di San Giovanni Battista BW 2025-04-30 12-31-24.jpg](https://commons.wikimedia.org/wiki/File:Erice_Chiesa_di_San_Giovanni_Battista_BW_2025-04-30_12-31-24.jpg) · Berthold Werner · CC BY-SA 4.0
+- **sicily-guide-etna-wine.jpg** — [File:Etna Wine Agriturismo, Passopisciaro, Sicily, Italy.jpg](https://commons.wikimedia.org/wiki/File:Etna_Wine_Agriturismo,_Passopisciaro,_Sicily,_Italy.jpg) · Neil Weightman · CC BY 2.0
+- **sicily-guide-fontane-bianche.jpg** — [File:Spiaggia di Fontane Bianche 02.jpg](https://commons.wikimedia.org/wiki/File:Spiaggia_di_Fontane_Bianche_02.jpg) · Davide Mauro · CC BY-SA 4.0
+- **sicily-guide-forza-dagro.jpg** — [File:Forza d'Agrò.jpg](https://commons.wikimedia.org/wiki/File:Forza_d%27Agr%C3%B2.jpg) · trolvag · CC BY-SA 3.0
+- **sicily-guide-granita.jpg** — [File:Almonds granita and brioche of Syracuse.jpg](https://commons.wikimedia.org/wiki/File:Almonds_granita_and_brioche_of_Syracuse.jpg) · Stella · CC BY-SA 4.0
+- **sicily-guide-isola-correnti.jpg** — [File:Isola delle correnti.jpg](https://commons.wikimedia.org/wiki/File:Isola_delle_correnti.jpg) · 3x0=3 · CC BY 2.0
+- **sicily-guide-marina-ragusa.jpg** — [File:Cymodocea marina di ragusa.jpg](https://commons.wikimedia.org/wiki/File:Cymodocea_marina_di_ragusa.jpg) · Panek · CC BY-SA 4.0
+- **sicily-guide-marzamemi.jpg** — [File:Marzamemi (1).jpg](https://commons.wikimedia.org/wiki/File:Marzamemi_(1).jpg) · fotovideomike from Italia (Michele Ponzio, @michele_ponzio) · CC BY-SA 2.0
+- **sicily-guide-modica-chocolate.jpg** — [File:CioccolatoModicano2012-10.jpg](https://commons.wikimedia.org/wiki/File:CioccolatoModicano2012-10.jpg) · Mussklprozz · CC BY-SA 3.0
+- **sicily-guide-palermo-market.jpg** — [File:Ballarò, gente en el mercado, Palermo, Sicilia, Italia, 2015.JPG](https://commons.wikimedia.org/wiki/File:Ballar%C3%B2,_gente_en_el_mercado,_Palermo,_Sicilia,_Italia,_2015.JPG) · Benjamín Núñez González · CC BY-SA 4.0
+- **sicily-guide-palermo.jpg** — [File:Palermo Cathedral BW 2025-04-29 11-14-42.jpg](https://commons.wikimedia.org/wiki/File:Palermo_Cathedral_BW_2025-04-29_11-14-42.jpg) · Berthold Werner · CC BY-SA 4.0
+- **sicily-guide-pantalica.jpg** — [File:Nekropolis von Pantalica.jpg](https://commons.wikimedia.org/wiki/File:Nekropolis_von_Pantalica.jpg) · Clemensfranz · CC BY 2.5
+- **sicily-guide-pasta-norma.jpg** — [File:Pasta alla Norma - Wiki Loves Sicilia.jpg](https://commons.wikimedia.org/wiki/File:Pasta_alla_Norma_-_Wiki_Loves_Sicilia.jpg) · 8w9d · CC0
+- **sicily-guide-pescheria.jpg** — [File:Catania - Pescheria - Foto di Giovanni Dall'Orto.jpg](https://commons.wikimedia.org/wiki/File:Catania_-_Pescheria_-_Foto_di_Giovanni_Dall%27Orto.jpg) · G.dallorto · Attribution
+- **sicily-guide-punta-secca.jpg** — [File:Punta Secca RG, Sicily, Italy - panoramio.jpg](https://commons.wikimedia.org/wiki/File:Punta_Secca_RG,_Sicily,_Italy_-_panoramio.jpg) · trolvag · CC BY-SA 3.0
+- **sicily-guide-randazzo.jpg** — [File:Randazzo, Catania, Sicily, Italy.jpg](https://commons.wikimedia.org/wiki/File:Randazzo,_Catania,_Sicily,_Italy.jpg) · trolvag · CC BY-SA 3.0
+- **sicily-guide-salt-pans.jpg** — [File:Riserva naturale orientata Saline di Trapani e Paceco - Trapani, Italia - 1 Maggio 2023 002.jpg](https://commons.wikimedia.org/wiki/File:Riserva_naturale_orientata_Saline_di_Trapani_e_Paceco_-_Trapani,_Italia_-_1_Maggio_2023_002.jpg) · GiorgioGaleotti · CC BY-SA 4.0
+- **sicily-guide-san-vito.jpg** — [File:San Vito Lo Capo Beach.JPG](https://commons.wikimedia.org/wiki/File:San_Vito_Lo_Capo_Beach.JPG) · Lost passenger · CC BY-SA 4.0
+- **sicily-guide-savoca.jpg** — [File:Chiesa di San Michele, Savoca.jpg](https://commons.wikimedia.org/wiki/File:Chiesa_di_San_Michele,_Savoca.jpg) · The Cosmonaut · CC BY-SA 2.5 ca
+- **sicily-guide-scala-dei-turchi.jpg** — [File:Scala dei Turchi panorama.jpg](https://commons.wikimedia.org/wiki/File:Scala_dei_Turchi_panorama.jpg) · Carnby · CC BY 3.0
+- **sicily-guide-scicli.jpg** — [File:Panorama Scicli 1.jpg](https://commons.wikimedia.org/wiki/File:Panorama_Scicli_1.jpg) · codas · CC BY-SA 4.0
+- **sicily-guide-street-food.jpg** — [File:Pane e panelle.jpg](https://commons.wikimedia.org/wiki/File:Pane_e_panelle.jpg) · Dedda71 · CC BY 3.0
+- **sicily-guide-stromboli.jpg** — [File:Aerial image of Stromboli (view from the northeast).jpg](https://commons.wikimedia.org/wiki/File:Aerial_image_of_Stromboli_(view_from_the_northeast).jpg) · Carsten Steger · CC BY-SA 4.0
+- **sicily-guide-vendicari.jpg** — [File:Tonnara di Vendicari - columns.JPG](https://commons.wikimedia.org/wiki/File:Tonnara_di_Vendicari_-_columns.JPG) · Patrice78500 · CC BY-SA 3.0
+- **sicily-guide-villa-casale.jpg** — [File:Erotic Scene mosaic - Villa Romana del Casale - Italy 2015 (a) - crop.JPG](https://commons.wikimedia.org/wiki/File:Erotic_Scene_mosaic_-_Villa_Romana_del_Casale_-_Italy_2015_(a)_-_crop.JPG) · José Luiz · CC BY-SA 4.0
 - **slovenia-julian-alps-day1.jpg** — [File:Gallusovo nabrezje in Ljubljana (2).jpg](https://commons.wikimedia.org/wiki/File:Gallusovo_nabrezje_in_Ljubljana_(2).jpg) · Tournasol7 · CC BY 4.0
 - **slovenia-julian-alps-day2.jpg** — [File:Pletna Boat on Bled Lake - panoramio.jpg](https://commons.wikimedia.org/wiki/File:Pletna_Boat_on_Bled_Lake_-_panoramio.jpg) · lienyuan lee · CC BY 3.0
 - **slovenia-julian-alps-day3.jpg** — [File:Vintgar Gorge 4.jpg](https://commons.wikimedia.org/wiki/File:Vintgar_Gorge_4.jpg) · LBM1948 · CC BY-SA 4.0
@@ -219,6 +254,6 @@ page, author, and license. Please retain attribution if you reuse them.
 - **tuscany-val-dorcia-place2.jpg** — [File:Agriturismo Bonello Pienza Panorama Val d Orcia.jpg](https://commons.wikimedia.org/wiki/File:Agriturismo_Bonello_Pienza_Panorama_Val_d_Orcia.jpg) · Agriturismo Bonello · CC BY-SA 4.0
 - **tuscany-val-dorcia-place3.jpg** — [File:Vue de la piazza grande (Montepulciano).jpg](https://commons.wikimedia.org/wiki/File:Vue_de_la_piazza_grande_(Montepulciano).jpg) · Gzen92 · CC BY-SA 4.0
 - **tuscany-val-dorcia-place4.jpg** — [File:SantAngeloInColleMontalcinoTorrionePalazzaccio2.JPG](https://commons.wikimedia.org/wiki/File:SantAngeloInColleMontalcinoTorrionePalazzaccio2.JPG) · LigaDue · CC BY-SA 4.0
-- **tuscany-val-dorcia-place5.jpg** — [File:San Quirico d'Orcia - Cappella della Madonna di Vitaleta - 2025-09-27 20-15-24 001.jpg](https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia_-_Cappella_della_Madonna_di_Vitaleta_-_2025-09-27_20-15-24_001.jpg) · Mykola Pokalyuk · CC BY-SA 4.0
+- **tuscany-val-dorcia-place5.jpg** — [File:San Quirico d'Orcia - Cappella della Madonna di Vitaleta - 2025-09-07 23-47-16 001.jpg](https://commons.wikimedia.org/wiki/File:San_Quirico_d%27Orcia_-_Cappella_della_Madonna_di_Vitaleta_-_2025-09-07_23-47-16_001.jpg) · Pardi Marco · CC BY-SA 4.0
 - **tuscany-val-dorcia-place6.jpg** — [File:Bagno Vignoni (5).jpg](https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_(5).jpg) · This Photo was taken by Andrea Bertozzi. Feel free to use my photos, but please mention me as the author and send me a message. · CC BY-SA 4.0
 - **tuscany-val-dorcia-place7.jpg** — [File:Abbazia di Sant'Antimo - 01.jpg](https://commons.wikimedia.org/wiki/File:Abbazia_di_Sant%27Antimo_-_01.jpg) · Dongio · Public domain

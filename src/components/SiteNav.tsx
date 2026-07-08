@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const tabs = [
   { href: "/", label: "Trips" },
   { href: "/map", label: "Route map" },
+  { href: "/sicily", label: "Sicily ★" },
 ];
 
 /** Slim sticky tab bar shown on every page: Trips | Route map. */

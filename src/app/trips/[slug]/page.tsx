@@ -83,6 +83,21 @@ export default function TripPage({ params }: { params: { slug: string } }) {
           <span className="font-medium">{trip.loop}</span>
         </div>
 
+        {/* Sicily is the pick — point at the full guide */}
+        {trip.slug === "sicily-east" && (
+          <Link
+            href="/sicily"
+            className="mt-3 flex items-center justify-between gap-3 rounded-2xl bg-terracotta-500/10 px-5 py-4 ring-1 ring-terracotta-500/20 transition hover:bg-terracotta-500/15"
+          >
+            <span className="text-sm text-sea-800 sm:text-[15px]">
+              🎉 <span className="font-semibold text-terracotta-600">This is the pick!</span>{" "}
+              Everything the island offers — routes, hidden gems, food, beaches — lives in the
+              one-stop Sicily guide.
+            </span>
+            <span className="shrink-0 text-sm font-bold text-terracotta-600">Open guide →</span>
+          </Link>
+        )}
+
         {/* The feel */}
         <section className="mt-12">
           <h2 className="font-display text-2xl font-semibold text-sea-900">The feel</h2>

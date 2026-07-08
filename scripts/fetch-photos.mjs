@@ -7,6 +7,7 @@
 //
 //   node scripts/fetch-photos.mjs           download hero+gallery (GALLERY group)
 //   node scripts/fetch-photos.mjs --extra   download place + day photos only
+//   node scripts/fetch-photos.mjs --guide   download Sicily guide photos only
 //   node scripts/fetch-photos.mjs --all      download everything
 //   node scripts/fetch-photos.mjs --credits  (re)write CREDITS.md only, no download
 //
@@ -20,6 +21,7 @@ import { dirname, join } from "node:path";
 const args = process.argv.slice(2);
 const CREDITS_ONLY = args.includes("--credits");
 const EXTRA = args.includes("--extra");
+const GUIDE_FLAG = args.includes("--guide");
 const ALL = args.includes("--all");
 const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "images");
 const UA = "travel-2026-dashboard/1.0 (https://github.com/haseebniaz/travel_2026; haseebniaz@gmail.com)";
@@ -67,6 +69,54 @@ const DAYS = {
   "dordogne-perigord": [["Sarlat old town street", "Sarlat medieval"], ["Sarlat Place de la Liberté", "Sarlat market square"], ["Castelnaud castle Dordogne", "Marqueyssac gardens"], ["Dordogne river canoe", "La Roque-Gageac river"], ["Rocamadour panorama", "Gouffre de Padirac"], ["Saint-Cirq-Lapopie Lot", "Pont Valentré Cahors"], ["Bergerac vineyard", "Périgord bastide village"]],
 };
 
+// Sicily one-stop guide (/sicily) — named keys -> public/images/sicily-guide-<key>.jpg
+const GUIDE = {
+  // regions
+  "palermo": ["Palermo cathedral", "Quattro Canti Palermo", "Palermo panorama"],
+  "cefalu": ["Cefalù", "Cefalu Sicily beach", "Cefalù cathedral"],
+  "erice": ["Erice Sicily", "Erice castle", "Erice medieval village"],
+  "salt-pans": ["Trapani salt pans", "Saline di Trapani", "Marsala salt pans"],
+  "scala-dei-turchi": ["Scala dei Turchi", "Scala dei Turchi Sicily cliff"],
+  "agrigento": ["Valley of the Temples Agrigento", "Temple of Concordia Agrigento"],
+  "aeolian": ["Lipari Aeolian Islands", "Aeolian Islands Sicily", "Vulcano island Aeolian"],
+  "stromboli": ["Stromboli eruption", "Stromboli volcano", "Stromboli island night"],
+  // must-dos (new subjects only; the rest reuse sicily-east-* photos)
+  "villa-casale": ["Villa Romana del Casale mosaics", "Villa Romana del Casale", "Piazza Armerina mosaics"],
+  "palermo-market": ["Ballarò market Palermo", "Vucciria Palermo", "Palermo market"],
+  // off the beaten path
+  "alcantara": ["Gole dell'Alcantara", "Alcantara Gorge Sicily", "Alcantara river gorge"],
+  "marzamemi": ["Marzamemi", "Marzamemi Sicily piazza"],
+  "vendicari": ["Tonnara di Vendicari", "Vendicari nature reserve"],
+  "calamosche": ["Calamosche beach", "Calamosche Vendicari"],
+  "cavagrande": ["Cavagrande del Cassibile", "Cavagrande laghetti", "Cassibile canyon"],
+  "pantalica": ["Pantalica necropolis", "Pantalica Sicily rock tombs"],
+  "caltagirone": ["Caltagirone staircase", "Scala Santa Maria del Monte Caltagirone", "Caltagirone"],
+  "scicli": ["Scicli panorama", "Scicli Sicily baroque"],
+  "punta-secca": ["Punta Secca lighthouse", "Punta Secca", "Santa Croce Camerina Punta Secca"],
+  "savoca": ["Savoca Sicily", "Savoca village"],
+  "forza-dagro": ["Forza d'Agrò", "Forza d'Agro Sicily"],
+  "castelmola": ["Castelmola", "Castelmola Taormina"],
+  "randazzo": ["Randazzo Sicily", "Randazzo basilica"],
+  "isola-correnti": ["Isola delle Correnti", "Portopalo di Capo Passero"],
+  // food & drink (fetched with the relaxed filter below)
+  "granita": ["Granita brioche", "Granita siciliana", "Almond granita Sicily"],
+  "arancini": ["Arancini", "Arancini siciliani", "Arancino"],
+  "cannoli": ["Cannoli siciliani", "Cannolo siciliano", "Cannoli"],
+  "pasta-norma": ["Pasta alla Norma", "Pasta alla Norma Sicilian"],
+  "modica-chocolate": ["Cioccolato di Modica", "Modica chocolate bars"],
+  "etna-wine": ["Etna vineyard", "Vineyard Mount Etna", "Etna DOC wine"],
+  "street-food": ["Pane e panelle", "Palermo street food", "Sfincione"],
+  "pescheria": ["Pescheria Catania market", "Catania fish market"],
+  // beaches (new subjects only)
+  "san-vito": ["San Vito Lo Capo beach", "San Vito lo Capo"],
+  "fontane-bianche": ["Fontane Bianche", "Fontane Bianche beach Syracuse"],
+  "marina-ragusa": ["Marina di Ragusa beach", "Sampieri beach Sicily"],
+};
+// Food photos would be excluded by BAD (it blocks generic food/dish noise), so those
+// keys use a lighter filter that only strips maps/flags/logos and the like.
+const RELAXED_BAD = /(\bmap\b|flag|coat[_ ]of[_ ]arms|locator|logo|\bseal\b|diagram|blazon|chart|icon|stamp|banknote|coin)/i;
+const GUIDE_RELAXED = new Set(["granita", "arancini", "cannoli", "pasta-norma", "modica-chocolate", "street-food", "pescheria"]);
+
 function curlJSON(query) {
   const a = [
     "-sS", "--compressed", "--max-time", "40", "--retry", "2", "--retry-delay", "1",
@@ -84,7 +134,7 @@ function curlJSON(query) {
 const stripHtml = (s) => (s || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
 const md5 = (p) => createHash("md5").update(readFileSync(p)).digest("hex");
 
-function candidates(json) {
+function candidates(json, bad = BAD) {
   const pages = json?.query?.pages;
   if (!pages) return [];
   return Object.values(pages)
@@ -92,7 +142,7 @@ function candidates(json) {
     .sort((a, b) => (a.index ?? 999) - (b.index ?? 999))
     .filter((p) => {
       const i = p.imageinfo[0];
-      return !BAD.test(p.title || "") && /image\/(jpeg|png)/.test(i.mime) &&
+      return !bad.test(p.title || "") && /image\/(jpeg|png)/.test(i.mime) &&
         i.width >= 1200 && i.height && i.width > i.height && i.width / i.height <= 2.2;
     });
 }
@@ -106,11 +156,11 @@ const credits = [];
 const failures = [];
 let ok = 0;
 
-function processSlot(name, queries, { download }) {
+function processSlot(name, queries, { download, bad = BAD }) {
   const dest = join(OUT, `${name}.jpg`);
   for (const q of queries) {
     let cands;
-    try { cands = candidates(curlJSON(q)); } catch { continue; }
+    try { cands = candidates(curlJSON(q), bad); } catch { continue; }
     for (const p of cands) {
       const info = p.imageinfo[0];
       const meta = info.extmetadata || {};
@@ -139,17 +189,23 @@ function processSlot(name, queries, { download }) {
   return false;
 }
 
-const doGallery = CREDITS_ONLY || ALL || (!EXTRA);
+const doGallery = CREDITS_ONLY || ALL || (!EXTRA && !GUIDE_FLAG);
 const doExtra = CREDITS_ONLY || ALL || EXTRA;
+const doGuide = CREDITS_ONLY || ALL || GUIDE_FLAG;
 const download = !CREDITS_ONLY;
 
 for (const [slug, slots] of Object.entries(GALLERY)) {
   if (!doGallery) break;
-  slots.forEach((q, i) => processSlot(i === 0 ? `${slug}-hero` : `${slug}-g${i}`, q, { download: download && !EXTRA }));
+  slots.forEach((q, i) => processSlot(i === 0 ? `${slug}-hero` : `${slug}-g${i}`, q, { download }));
 }
 if (doExtra) {
   for (const [slug, slots] of Object.entries(PLACES)) slots.forEach((q, i) => processSlot(`${slug}-place${i + 1}`, q, { download }));
   for (const [slug, slots] of Object.entries(DAYS)) slots.forEach((q, i) => processSlot(`${slug}-day${i + 1}`, q, { download }));
+}
+if (doGuide) {
+  for (const [key, queries] of Object.entries(GUIDE)) {
+    processSlot(`sicily-guide-${key}`, queries, { download, bad: GUIDE_RELAXED.has(key) ? RELAXED_BAD : BAD });
+  }
 }
 
 // attribution file (sorted by filename)
