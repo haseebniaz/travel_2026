@@ -13,7 +13,7 @@
 //
 // New downloads are large; resize to ≤1600px q80 afterward (sharp, temporary).
 import { execFileSync } from "node:child_process";
-import { mkdirSync, writeFileSync, statSync, readdirSync, readFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, statSync, readdirSync, readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -22,6 +22,7 @@ const args = process.argv.slice(2);
 const CREDITS_ONLY = args.includes("--credits");
 const EXTRA = args.includes("--extra");
 const GUIDE_FLAG = args.includes("--guide");
+const MISSING_ONLY = args.includes("--missing"); // skip slots whose file already exists
 const ALL = args.includes("--all");
 const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "images");
 const UA = "travel-2026-dashboard/1.0 (https://github.com/haseebniaz/travel_2026; haseebniaz@gmail.com)";
@@ -111,11 +112,30 @@ const GUIDE = {
   "san-vito": ["San Vito Lo Capo beach", "San Vito lo Capo"],
   "fontane-bianche": ["Fontane Bianche", "Fontane Bianche beach Syracuse"],
   "marina-ragusa": ["Marina di Ragusa beach", "Sampieri beach Sicily"],
+  // guide expansion — west & islands, Etna deep-dive, more gems, October, extras
+  "monreale": ["Monreale cathedral mosaics", "Monreale Duomo interior", "Monreale cathedral"],
+  "mondello": ["Antico Stabilimento Balneare Mondello", "Mondello beach Palermo"],
+  "zingaro": ["Riserva dello Zingaro", "Zingaro nature reserve Sicily"],
+  "favignana": ["Favignana Cala Rossa", "Favignana", "Egadi islands"],
+  "salina": ["Salina Isole Eolie", "Salina island Pollara"],
+  "circumetnea": ["Ferrovia Circumetnea", "Circumetnea railway", "Circumetnea train"],
+  "bronte": ["Ponte dei Saraceni", "Bronte Catania veduta"],
+  "zafferana": ["Zafferana Etnea", "Zafferana Etnea church"],
+  "donnafugata": ["Castello di Donnafugata", "Donnafugata castle Ragusa"],
+  "palazzolo": ["Palazzolo Acreide", "Akrai theatre Palazzolo", "Palazzolo Acreide Sicily"],
+  "noto-antica": ["Noto Antica", "Noto Antica ruins"],
+  "plemmirio": ["Plemmirio", "Plemmirio Syracuse coast", "Maddalena peninsula Syracuse"],
+  "chiaramonte": ["Veduta di Chiaramonte Gulfi", "Chiaramonte Gulfi panorama"],
+  "militello": ["Militello Val di Catania baroque", "Militello in Val di Catania"],
+  "pupi": ["Opera dei Pupi", "Sicilian puppets", "Pupi siciliani"],
+  "san-lorenzo": ["San Lorenzo beach Noto", "Spiaggia San Lorenzo Sicily", "San Lorenzo Marzamemi"],
+  "caponata": ["Caponata", "Caponata siciliana"],
+  "pistachio": ["Pistachio ice cream", "Pistachios", "Pistacchio di Bronte gelato"],
 };
 // Food photos would be excluded by BAD (it blocks generic food/dish noise), so those
 // keys use a lighter filter that only strips maps/flags/logos and the like.
 const RELAXED_BAD = /(\bmap\b|flag|coat[_ ]of[_ ]arms|locator|logo|\bseal\b|diagram|blazon|chart|icon|stamp|banknote|coin)/i;
-const GUIDE_RELAXED = new Set(["granita", "arancini", "cannoli", "pasta-norma", "modica-chocolate", "street-food", "pescheria"]);
+const GUIDE_RELAXED = new Set(["granita", "arancini", "cannoli", "pasta-norma", "modica-chocolate", "street-food", "pescheria", "caponata", "pupi", "pistachio"]);
 
 function curlJSON(query) {
   const a = [
@@ -158,6 +178,7 @@ let ok = 0;
 
 function processSlot(name, queries, { download, bad = BAD }) {
   const dest = join(OUT, `${name}.jpg`);
+  if (download && MISSING_ONLY && existsSync(dest)) return true;
   for (const q of queries) {
     let cands;
     try { cands = candidates(curlJSON(q), bad); } catch { continue; }

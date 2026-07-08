@@ -21,6 +21,26 @@ export type SicilyRoute = {
 
 export type PracticalNote = { title: string; icon: string; detail: string };
 
+export type TownGuide = {
+  name: string;
+  area: string;
+  time: string; // how long it deserves
+  image?: string;
+  dontMiss: string[];
+  eatDrink: string[]; // named, long-standing venues — check hours / book ahead
+  parking: string;
+};
+
+export type PerfectDay = {
+  title: string;
+  blurb: string;
+  steps: { time: string; what: string }[];
+};
+
+export type DriveLeg = { from: string; to: string; time: string; note?: string };
+
+export type BudgetItem = { item: string; range: string; note?: string };
+
 const img = (file: string) => `/images/${file}.jpg`;
 
 // ---------------------------------------------------------------------------
@@ -319,6 +339,48 @@ export const hiddenGems: Place[] = [
       "Where the Ionian and Mediterranean visibly meet at a tied island with a ruined lighthouse — the 'end of Italy'. Wild, windswept, and wonderful after Marzamemi.",
     image: img("sicily-guide-isola-correnti"),
   },
+  {
+    name: "Castello di Donnafugata",
+    area: "20 min from Ragusa",
+    blurb:
+      "A theatrical 19th-century castle with 122 rooms, a Venetian loggia, and a stone hedge-maze in the gardens — plus a costume museum. A great half-day pairing with Punta Secca.",
+    image: img("sicily-guide-donnafugata"),
+  },
+  {
+    name: "Palazzolo Acreide",
+    area: "40 min from Siracusa",
+    blurb:
+      "A UNESCO Baroque town the tour buses miss entirely, with the small Greek theatre of ancient Akrai on its hilltop and two of the southeast's best salumerie for lunch.",
+    image: img("sicily-guide-palazzolo"),
+  },
+  {
+    name: "Noto Antica",
+    area: "15 min above Noto",
+    blurb:
+      "The ghost of pre-earthquake Noto — a ruined gate, overgrown streets, and silence on a plateau above the new town. Haunting, free, and completely empty.",
+    image: img("sicily-guide-noto-antica"),
+  },
+  {
+    name: "Plemmirio marine reserve",
+    area: "15 min from Ortigia",
+    blurb:
+      "The rocky Maddalena peninsula south of Siracusa: protected turquoise coves, snorkeling over seagrass and amphora fragments, and locals-only swim ladders off the rocks.",
+    image: img("sicily-guide-plemmirio"),
+  },
+  {
+    name: "Chiaramonte Gulfi",
+    area: "30 min from Ragusa",
+    blurb:
+      "The 'balcony of Sicily' — a hill town with views from Etna to the sea, famous island-wide for its pork: lunch at a rustic macelleria-trattoria here is a pilgrimage.",
+    image: img("sicily-guide-chiaramonte"),
+  },
+  {
+    name: "Militello in Val di Catania",
+    area: "1h from Catania",
+    blurb:
+      "One of the eight UNESCO Baroque towns, wholly untouristed — extravagant church facades, a sleepy piazza, and the feeling of having Sicily to yourselves.",
+    image: img("sicily-guide-militello"),
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -381,6 +443,20 @@ export const foodAndDrink: Place[] = [
       "Operatic morning theatre: swordfish heads, urchins, shouted prices, and tiny bars that grill your pick on the spot. Go hungry, before 11am.",
     image: img("sicily-guide-pescheria"),
   },
+  {
+    name: "Caponata",
+    area: "the island on a plate",
+    blurb:
+      "Sweet-and-sour eggplant stew with celery, capers, and olives — every kitchen's own version, eaten warm or cold. Order it everywhere and argue about whose nonna wins.",
+    image: img("sicily-guide-caponata"),
+  },
+  {
+    name: "Pistachio di Bronte",
+    area: "Etna's west flank",
+    blurb:
+      "The emerald-green DOP pistachio grown in lava soil — in pesto over pasta, crusted on swordfish, in gelato and granita. Anything labelled 'Bronte' is worth ordering.",
+    image: img("sicily-guide-pistachio"),
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -429,6 +505,13 @@ export const beaches: Place[] = [
       "A blinding-white marl staircase rising from turquoise water — you swim beneath a natural sculpture. Best in late-day light (access from the Majata beach side).",
     image: img("sicily-guide-scala-dei-turchi"),
   },
+  {
+    name: "San Lorenzo",
+    area: "between Noto & Marzamemi",
+    blurb:
+      "Fine white sand and shallow Caribbean-clear water minutes from Vendicari — the SE corner's favorite proper sandy beach, with lidos that stay open into early October.",
+    image: img("sicily-guide-san-lorenzo"),
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -471,4 +554,396 @@ export const practicalNotes: PracticalNote[] = [
     detail:
       "Only a handful of things need advance booking in October: an Etna summit guide, Villa Romana del Casale timed entry (optional but wise), a Stromboli night boat, and Bonajuto's chocolate tasting in Modica. Everything else — wander in.",
   },
+  {
+    title: "Money & tipping",
+    icon: "💶",
+    detail:
+      "Cards work almost everywhere now, but keep €50–100 in cash for market stalls, small bars, beach lidos, and parking meters. Tipping is not expected — round up or leave a couple of euros for great service; 'coperto' (€1–3/person) on the bill is normal, not a scam.",
+  },
+  {
+    title: "Fuel & tolls",
+    icon: "⛽",
+    detail:
+      "Self-service ('fai da te') pumps are noticeably cheaper than served lanes. The A18 Messina–Catania and Catania–Siracusa motorways have small tolls (€2–4); the SE Baroque towns are toll-free state roads. Fill up before Etna and before the Noto–Marzamemi corner — stations thin out.",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// 8 · Town-by-town — what to do, where to eat, where to park
+// ---------------------------------------------------------------------------
+export const towns: TownGuide[] = [
+  {
+    name: "Catania",
+    area: "arrival city, under Etna",
+    time: "1 easy day (first + last night)",
+    image: img("sicily-east-day1"),
+    dontMiss: [
+      "La Pescheria fish market in full voice (before 11am)",
+      "Piazza del Duomo & the lava-stone elephant fountain",
+      "Via Etnea passeggiata with Etna dead ahead",
+      "Benedictine monastery of San Nicolò (one of Europe's largest)",
+    ],
+    eatDrink: [
+      "Osteria Antica Marina — fish-market trattoria, book it",
+      "Pasticceria Savia (1897) — arancini & cassatelle opposite the Bellini garden",
+      "Prestipino Duomo — granita on the cathedral square",
+    ],
+    parking: "Use a garage near Piazza Repubblica or your hotel's deal; the center is ZTL.",
+  },
+  {
+    name: "Taormina",
+    area: "the balcony of Sicily",
+    time: "2 nights",
+    image: img("sicily-east-day2"),
+    dontMiss: [
+      "The Greek theatre at sunset, Etna smoking behind the stage",
+      "Corso Umberto & the Piazza IX Aprile terrace",
+      "Cable car down to Isola Bella for a swim",
+      "Castelmola for almond wine above it all",
+    ],
+    eatDrink: [
+      "Bam Bar — the island's most famous granita, worth the queue",
+      "Osteria RossoDiVino — small courtyard, honest cooking",
+      "Wunderbar on the piazza for one overpriced, perfect aperitivo",
+    ],
+    parking: "Porta Catania or Lumbi multi-storey, then walk/shuttle — never drive the Corso.",
+  },
+  {
+    name: "Siracusa / Ortigia",
+    area: "the island old town",
+    time: "2 nights",
+    image: img("sicily-east-day5"),
+    dontMiss: [
+      "Piazza Duomo — a temple wrapped in Baroque, glowing at dusk",
+      "The morning street market on Via de Benedictis",
+      "Neapolis: the Greek theatre & Ear of Dionysius",
+      "A rock-ladder swim off the Lungomare di Levante",
+    ],
+    eatDrink: [
+      "Caseificio Borderi — cult market sandwiches (go early, share one)",
+      "Fratelli Burgio — deli platters on the market corner",
+      "Cortile Verga for dinner in a courtyard; Gelateria Voglia Matta after",
+    ],
+    parking: "Talete garage on Ortigia's north edge — then everything is on foot.",
+  },
+  {
+    name: "Noto",
+    area: "Baroque's front page",
+    time: "half a day + golden hour",
+    image: img("sicily-east-day7"),
+    dontMiss: [
+      "Corso Vittorio Emanuele end-to-end at golden hour",
+      "The cathedral staircase & Palazzo Ducezio terrace",
+      "Palazzo Nicolaci's grotesque balconies",
+      "Climb San Carlo's tower for the rooftop line-up",
+    ],
+    eatDrink: [
+      "Caffè Sicilia (1892) — Assenza's legendary granita & cassata",
+      "Anche gli Angeli — dinner in a converted church nave",
+      "Cannolia for a filled-to-order cannolo on the corso",
+    ],
+    parking: "Free-ish streets below Porta Reale gardens; the corso is pedestrian.",
+  },
+  {
+    name: "Modica",
+    area: "chocolate in a canyon",
+    time: "half a day + dinner",
+    image: img("sicily-east-day8"),
+    dontMiss: [
+      "San Giorgio's 250-step staircase from Modica Bassa",
+      "The view over the gorge-town from Pizzo Belvedere",
+      "Chocolate tasting the 400-year-old cold-worked way",
+      "Corso Umberto's evening stroll",
+    ],
+    eatDrink: [
+      "Antica Dolceria Bonajuto (1880) — the chocolate pilgrimage",
+      "Accursio Radici — casual offshoot of the town's Michelin kitchen",
+      "Caffè dell'Arte for mpanatigghi (chocolate-and-meat pastries, trust us)",
+    ],
+    parking: "Along Corso Umberto's lower end or the Piazza Falcone-Borsellino lots.",
+  },
+  {
+    name: "Ragusa Ibla",
+    area: "the honey-stone maze",
+    time: "1–2 nights",
+    image: img("sicily-east-g5"),
+    dontMiss: [
+      "The Duomo di San Giorgio & its wedding-cake piazza",
+      "Giardino Ibleo gardens at the town's prow",
+      "The staircase path from Ragusa Superiore (Santa Maria delle Scale)",
+      "Blue-hour wandering when the lanes empty out",
+    ],
+    eatDrink: [
+      "I Banchi — Ciccio Sultano's bakery-bistro, book dinner",
+      "Gelati DiVini — gelato in wine & olive-oil flavors on the piazza",
+      "A rustic pork feast up the hill in Chiaramonte Gulfi",
+    ],
+    parking: "Lots by Giardino Ibleo or under Piazza della Repubblica; Ibla's lanes are car-hostile.",
+  },
+  {
+    name: "Scicli",
+    area: "the quiet one",
+    time: "2–3 hours",
+    image: img("sicily-guide-scicli"),
+    dontMiss: [
+      "Via Francesco Mormino Penna — a film set of a street",
+      "Palazzo Beneventano's monstrous Moorish heads",
+      "San Matteo church terrace above the rooftops",
+      "'Montalbano's police station' (the town hall)",
+    ],
+    eatDrink: [
+      "Caffè Sicilia's little rivals on Via Penna for granita",
+      "Nivera or a gelato stop before the drive on",
+    ],
+    parking: "Easy free parking along the river boulevard — the joy of untouristed towns.",
+  },
+  {
+    name: "Palermo",
+    area: "if you go west",
+    time: "2 nights (option)",
+    image: img("sicily-guide-palermo"),
+    dontMiss: [
+      "The Palatine Chapel's gold + Monreale's mosaic Christ",
+      "Ballarò & Capo markets in full theatre",
+      "Quattro Canti, the Cathedral & Teatro Massimo",
+      "Sunset seafood at Mondello's Liberty pier",
+    ],
+    eatDrink: [
+      "Antica Focacceria San Francesco (1834) — panelle & the brave pani ca meusa",
+      "Bar Marocco by the cathedral for iris pastries",
+      "Enoteca Buttitta for Sicilian wines by the glass",
+    ],
+    parking: "Garage it and forget it — Palermo traffic is a contact sport. Walk + taxis.",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// 9 · Etna, properly — five ways at the volcano
+// ---------------------------------------------------------------------------
+export const etnaGuide: Place[] = [
+  {
+    name: "The summit from the south",
+    area: "Rifugio Sapienza · half day",
+    blurb:
+      "The classic: drive to 1,900m, cable car to 2,500m, then 4x4 bus + guide toward the summit craters (~2,900m). Book a morning slot for clear air; jackets rentable at the base. This is the route in your Day 3.",
+    image: img("sicily-east-day3"),
+  },
+  {
+    name: "The quiet north side",
+    area: "Piano Provenzana · half day",
+    blurb:
+      "Etna without the coach parties: guided 4x4 or hikes from Piano Provenzana through the 2002 lava field and birch woods. Pair with lunch in lava-stone Randazzo — the connoisseur's choice.",
+    image: img("sicily-east-g2"),
+  },
+  {
+    name: "Ride the Circumetnea",
+    area: "Catania ⇄ Randazzo · half day",
+    blurb:
+      "A narrow-gauge railway that circles the volcano through lava fields, pistachio groves, and prickly pears — a slow-travel gem locals use for shopping runs. Ride a scenic leg one-way and loop back by car.",
+    image: img("sicily-guide-circumetnea"),
+  },
+  {
+    name: "Wineries on the lava",
+    area: "Randazzo–Passopisciaro–Milo · half day",
+    blurb:
+      "Etna DOC is Italy's most exciting wine story — Nerello Mascalese reds and Carricante whites from century-old vines in black ash. Cellar doors around the north-flank wine road take walk-ins; book one proper tasting.",
+    image: img("sicily-guide-etna-wine"),
+  },
+  {
+    name: "Bronte & the Simeto",
+    area: "west flank · 2–3 hours",
+    blurb:
+      "Pistachio country: the town of Bronte above the Simeto valley and the medieval Ponte dei Saraceni arching over lava gorges. Stock up on pistachio everything at a town pasticceria.",
+    image: img("sicily-guide-bronte"),
+  },
+];
+
+// ---------------------------------------------------------------------------
+// 10 · Further afield — west & islands (for the longer variants)
+// ---------------------------------------------------------------------------
+export const westAndIslands: Place[] = [
+  {
+    name: "Monreale",
+    area: "20 min above Palermo",
+    blurb:
+      "A cathedral ceiling of 6,000 m² of golden Byzantine mosaics culminating in the great Christ Pantocrator — Norman Sicily's masterpiece and worth the Palermo detour alone.",
+    image: img("sicily-guide-monreale"),
+  },
+  {
+    name: "Mondello",
+    area: "Palermo's beach",
+    blurb:
+      "A turquoise crescent under Monte Pellegrino with a fabulous Art Nouveau pier-pavilion — where Palermo swims, poses, and eats fried seafood cones on the lungomare.",
+    image: img("sicily-guide-mondello"),
+  },
+  {
+    name: "Riserva dello Zingaro",
+    area: "NW coast",
+    blurb:
+      "Sicily's first nature reserve: a car-free 7 km coastal path linking pebble coves of absurdly clear water beneath dwarf-palm slopes. Walk in from Scopello, swim your way north.",
+    image: img("sicily-guide-zingaro"),
+  },
+  {
+    name: "Erice",
+    area: "above Trapani",
+    blurb:
+      "A medieval triangle of stone lanes at 750m, often inside a cloud — castle views to the Egadi, and Maria Grammatico's convent-recipe pastries as the reason to linger.",
+    image: img("sicily-guide-erice"),
+  },
+  {
+    name: "Trapani's salt pans",
+    area: "west coast",
+    blurb:
+      "Shimmering saline, windmills, and mountains of harvested salt along the lagoon road to Marsala — best at sunset with flamingos in the shallows. Taste Marsala in a historic baglio.",
+    image: img("sicily-guide-salt-pans"),
+  },
+  {
+    name: "Favignana & the Egadi",
+    area: "30 min hydrofoil from Trapani",
+    blurb:
+      "Butterfly-shaped island of bike lanes, tuff quarries turned secret gardens, and the electric-blue Cala Rossa. Rent bikes at the port and circle it in a day.",
+    image: img("sicily-guide-favignana"),
+  },
+  {
+    name: "Salina",
+    area: "Aeolians' green island",
+    blurb:
+      "Twin volcanic peaks, caper farms, and Malvasia vineyards — the lush, quiet Aeolian. Sunset at Pollara (of 'Il Postino' fame) is the archipelago's gentlest ritual.",
+    image: img("sicily-guide-salina"),
+  },
+  {
+    name: "San Vito Lo Capo",
+    area: "NW tip",
+    blurb:
+      "The island's most beautiful sand — a white crescent under Monte Monaco, still warm in early October, with the Zingaro path starting just down the coast.",
+    image: img("sicily-guide-san-vito"),
+  },
+];
+
+// ---------------------------------------------------------------------------
+// 11 · Perfect days — hour-by-hour samples to steal from
+// ---------------------------------------------------------------------------
+export const perfectDays: PerfectDay[] = [
+  {
+    title: "Ortigia, done right",
+    blurb: "The island old town at its own tempo — market morning, sea afternoon, Baroque night.",
+    steps: [
+      { time: "08:30", what: "Coffee + cornetto standing at a bar on Piazza Archimede." },
+      { time: "09:30", what: "The street market: Borderi sandwich being built, cheese & oregano shopping at Fratelli Burgio." },
+      { time: "11:00", what: "Neapolis archaeological park — Greek theatre and the Ear of Dionysius before it heats up." },
+      { time: "13:30", what: "Market-deli lunch you carried off, on the Lungomare wall." },
+      { time: "15:00", what: "Swim + laze off the Forte Vigliena rock ladders (or Plemmirio's coves by car)." },
+      { time: "18:00", what: "Duomo square as the stone goes gold; Aperol on the steps side." },
+      { time: "20:30", what: "Courtyard dinner (book Cortile Verga), gelato stroll along Via Cavour." },
+    ],
+  },
+  {
+    title: "Etna & wine day",
+    blurb: "Volcano in the morning, vineyards in the afternoon — the east coast's signature combo.",
+    steps: [
+      { time: "07:30", what: "Leave Taormina; coffee stop in Zafferana Etnea (Sunday? — it's Ottobrata festival)." },
+      { time: "09:00", what: "Rifugio Sapienza: cable car + 4x4 + guide to the summit-crater zone." },
+      { time: "12:30", what: "Descend; picnic or rifugio lunch among the lava." },
+      { time: "14:30", what: "Drive the north flank wine road to Passopisciaro/Randazzo." },
+      { time: "15:30", what: "Booked cellar tasting — Nerello reds in a black-ash vineyard." },
+      { time: "18:00", what: "Golden-hour wander of lava-stone Randazzo; pistachio gelato." },
+      { time: "20:00", what: "Back via the coast; late dinner in Taormina, legs pleasantly wrecked." },
+    ],
+  },
+  {
+    title: "The Baroque triangle",
+    blurb: "Three UNESCO towns in one unhurried day — Modica, Scicli, Ragusa Ibla.",
+    steps: [
+      { time: "09:00", what: "Modica: San Giorgio's staircase before the light flattens; Bonajuto chocolate tasting." },
+      { time: "11:30", what: "Scicli: Via Penna, Palazzo Beneventano's grotesques, San Matteo terrace." },
+      { time: "13:30", what: "Long pork lunch up in Chiaramonte Gulfi ('the balcony of Sicily')." },
+      { time: "16:00", what: "Ragusa Ibla: Duomo piazza, Giardino Ibleo, get purposefully lost." },
+      { time: "18:30", what: "Gelati DiVini's wine-flavored scoops as the swifts come out." },
+      { time: "20:30", what: "Dinner at I Banchi — you booked it two days ago, well done." },
+    ],
+  },
+  {
+    title: "The slow coast",
+    blurb: "The southeast corner at sea level — reserve, beach, fishing village, land's end.",
+    steps: [
+      { time: "09:30", what: "Vendicari reserve: flamingo lagoons and the ruined tonnara walk." },
+      { time: "11:30", what: "Calamosche cove — the 20-minute path earns you the swim." },
+      { time: "14:00", what: "Late lunch in Marzamemi's piazza (Campisi for tuna everything)." },
+      { time: "16:00", what: "Drive to Isola delle Correnti — stand where two seas meet." },
+      { time: "17:30", what: "San Lorenzo beach for the last warm hour and a lido spritz." },
+      { time: "20:00", what: "Sunset dinner back in Marzamemi, boats knocking in the little harbor." },
+    ],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// 12 · October on the island — what's on (confirm exact dates when booking)
+// ---------------------------------------------------------------------------
+export const octoberEvents: Place[] = [
+  {
+    name: "Ottobrata Zafferanese",
+    area: "Zafferana Etnea · Sundays in October",
+    blurb:
+      "Etna's harvest festival takes over the town every Sunday of the month — mushrooms, honey, chestnuts, new wine, and pistachio everything, with the volcano smoking overhead.",
+    image: img("sicily-guide-zafferana"),
+  },
+  {
+    name: "Vendemmia on Etna",
+    area: "wine country · late Sept–Oct",
+    blurb:
+      "Harvest season on the volcano — cellars are busy, vines turn gold, and tastings come with crush-time energy. The best month of the year to visit Etna DOC country.",
+    image: img("sicily-guide-etna-wine"),
+  },
+  {
+    name: "Bronte pistachio sagra",
+    area: "Bronte · turn of Sept/Oct",
+    blurb:
+      "The pistachio town's annual blowout — stalls of green gold in every form. Dates shift year to year; if it aligns with your Etna day, detour without hesitation.",
+    image: img("sicily-guide-pistachio"),
+  },
+  {
+    name: "Le Vie dei Tesori",
+    area: "Palermo, Catania & more · Oct weekends",
+    blurb:
+      "A brilliant open-monuments festival: palazzi, rooftops, crypts, and cloisters that are normally locked open for guided visits on autumn weekends. Check the program city by city.",
+    image: img("sicily-guide-palermo"),
+  },
+  {
+    name: "Rainy-day Plan B",
+    area: "everywhere",
+    blurb:
+      "Opera dei Pupi puppet theatre (Siracusa or Palermo — UNESCO-listed knights-and-dragons), the Paolo Orsi archaeological museum, market grazing under cover, and long chocolate 'research' in Modica.",
+    image: img("sicily-guide-pupi"),
+  },
+];
+
+// ---------------------------------------------------------------------------
+// 13 · Getting around — drive times & budget ballparks
+// ---------------------------------------------------------------------------
+export const driveLegs: DriveLeg[] = [
+  { from: "Catania airport", to: "Taormina", time: "50 min", note: "A18 motorway" },
+  { from: "Taormina", to: "Etna Sud (Rifugio Sapienza)", time: "1h 10m", note: "via Zafferana" },
+  { from: "Taormina", to: "Savoca / Forza d'Agrò", time: "35–45 min", note: "Godfather loop" },
+  { from: "Catania", to: "Siracusa", time: "50 min", note: "motorway" },
+  { from: "Siracusa", to: "Noto", time: "35 min" },
+  { from: "Noto", to: "Marzamemi", time: "25 min" },
+  { from: "Noto", to: "Modica", time: "40 min" },
+  { from: "Modica", to: "Ragusa Ibla", time: "25 min" },
+  { from: "Ragusa", to: "Piazza Armerina (mosaics)", time: "1h 20m" },
+  { from: "Piazza Armerina", to: "Agrigento", time: "1h 30m" },
+  { from: "Agrigento", to: "Palermo", time: "2h" },
+  { from: "Catania", to: "Milazzo (hydrofoils)", time: "1h 30m", note: "for the Aeolians" },
+];
+
+export const budget: BudgetItem[] = [
+  { item: "Compact rental car", range: "€30–55 / day", note: "October rates; book the small one" },
+  { item: "Fuel", range: "~€1.75–1.90 / L", note: "self-service is cheaper" },
+  { item: "B&B / boutique room", range: "€70–130 / night", note: "Ortigia & Taormina at the top end" },
+  { item: "Agriturismo (with breakfast)", range: "€80–140 / night", note: "great value in the SE" },
+  { item: "Casual lunch", range: "€10–15 pp", note: "market grazing even less" },
+  { item: "Dinner for two + wine", range: "€50–90", note: "I Banchi-tier ~€120+" },
+  { item: "Etna summit (cable + 4x4 + guide)", range: "€75–95 pp" },
+  { item: "Milazzo ⇄ Lipari hydrofoil", range: "€17–22 each way" },
+  { item: "Major sites (Neapolis, Villa Casale, temples)", range: "€10–18 pp each" },
+  { item: "Granita + brioche", range: "€4–6", note: "the most important line item" },
 ];

@@ -24,8 +24,10 @@ Périgord (France).
   with per-trip toggles and a major-airports switch — Leaflet + CARTO basemap,
   route/airport data in [`src/data/routes.ts`](src/data/routes.ts)
 - **Sicily one-stop guide** (`/sicily`): the chosen trip's full menu — regions,
-  four toggleable route options on a mini map, must-dos, off-the-beaten-path
-  finds, food & drink, beaches, and October practicalities, all with photos —
+  four toggleable route options on a mini map, town-by-town mini-guides with
+  named venues, an Etna deep-dive, must-dos, 19 off-the-beaten-path finds,
+  west & islands options, food & drink, beaches, hour-by-hour perfect days,
+  October events, a drive-time matrix, and budget ballparks, all with photos —
   content in [`src/data/sicily.ts`](src/data/sicily.ts)
 - **Self-hosted real photos**: every destination's hero + gallery image is a real,
   freely-licensed photo from Wikimedia Commons, downloaded into

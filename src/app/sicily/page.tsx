@@ -2,16 +2,24 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SmartImage from "@/components/SmartImage";
 import Places from "@/components/Places";
+import Towns from "@/components/Towns";
 import WeatherPanel from "@/components/WeatherPanel";
 import SicilyRoutes from "@/components/SicilyRoutes";
 import { getTrip } from "@/data/trips";
 import {
   regions,
   sicilyRoutes,
+  towns,
+  etnaGuide,
   mustDos,
   hiddenGems,
+  westAndIslands,
   foodAndDrink,
   beaches,
+  perfectDays,
+  octoberEvents,
+  driveLegs,
+  budget,
   practicalNotes,
 } from "@/data/sicily";
 
@@ -24,10 +32,15 @@ export const metadata: Metadata = {
 const sections = [
   { id: "regions", label: "The island" },
   { id: "routes", label: "Routes" },
+  { id: "towns", label: "Towns" },
+  { id: "etna", label: "Etna" },
   { id: "mustdos", label: "Must-dos" },
   { id: "gems", label: "Hidden gems" },
+  { id: "west", label: "West & islands" },
   { id: "food", label: "Food & drink" },
   { id: "beaches", label: "Beaches" },
+  { id: "days", label: "Perfect days" },
+  { id: "october", label: "October" },
   { id: "practical", label: "Practical" },
 ];
 
@@ -150,6 +163,26 @@ export default function SicilyGuidePage() {
           <SicilyRoutes />
         </div>
 
+        {/* Towns */}
+        <SectionHeading
+          id="towns"
+          title="Town by town"
+          sub="Your bases and day-stops, decoded: what actually deserves your time, where locals (and greedy travelers) eat, and where to put the car. Venues are long-standing institutions — still, check hours and book the dinner spots a day or two out."
+        />
+        <div className="mt-6">
+          <Towns towns={towns} />
+        </div>
+
+        {/* Etna */}
+        <SectionHeading
+          id="etna"
+          title="Etna, properly"
+          sub="Europe's greatest volcano deserves more than a drive-by. Five ways at it — pick one, or pair a summit morning with a wine afternoon."
+        />
+        <div className="mt-6">
+          <Places places={etnaGuide} />
+        </div>
+
         {/* 3 · Must-dos */}
         <SectionHeading
           id="mustdos"
@@ -168,6 +201,16 @@ export default function SicilyGuidePage() {
         />
         <div className="mt-6">
           <Places places={hiddenGems} />
+        </div>
+
+        {/* West & islands */}
+        <SectionHeading
+          id="west"
+          title="Further afield: the west & the islands"
+          sub="The menu for the longer route variants — golden mosaics, salt pans, car-free coastal reserves, and the green Aeolian. If you stretch past 10 days, these earn their drive."
+        />
+        <div className="mt-6">
+          <Places places={westAndIslands} />
         </div>
 
         {/* 5 · Food & drink */}
@@ -190,6 +233,39 @@ export default function SicilyGuidePage() {
           <Places places={beaches} />
         </div>
 
+        {/* Perfect days */}
+        <SectionHeading
+          id="days"
+          title="Perfect days"
+          sub="Four hour-by-hour days to steal from wholesale — or cut up for parts. Times are relaxed; nothing here minds if you're an hour late."
+        />
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          {perfectDays.map((d) => (
+            <article key={d.title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5">
+              <h3 className="font-display text-lg font-semibold text-sea-900">{d.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-sea-700/80">{d.blurb}</p>
+              <ol className="mt-4 space-y-2">
+                {d.steps.map((s) => (
+                  <li key={s.time} className="flex gap-3 text-sm leading-relaxed">
+                    <span className="w-12 shrink-0 font-semibold text-terracotta-600">{s.time}</span>
+                    <span className="text-sea-800">{s.what}</span>
+                  </li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+
+        {/* October events */}
+        <SectionHeading
+          id="october"
+          title="October on the island"
+          sub="What the calendar adds while you're there — harvest festivals, open monuments, and the wet-weather fallback. Exact dates shift each year; confirm when booking."
+        />
+        <div className="mt-6">
+          <Places places={octoberEvents} />
+        </div>
+
         {/* 7 · Practical */}
         <SectionHeading
           id="practical"
@@ -205,6 +281,60 @@ export default function SicilyGuidePage() {
               <p className="mt-2.5 text-sm leading-relaxed text-sea-700">{n.detail}</p>
             </div>
           ))}
+        </div>
+
+        {/* Drive times + budget */}
+        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5">
+            <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-sea-900">
+              🚗 Drive times between stops
+            </h3>
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full text-sm">
+                <tbody>
+                  {driveLegs.map((l) => (
+                    <tr key={`${l.from}-${l.to}`} className="border-t border-sand-100">
+                      <td className="py-1.5 pr-2 text-sea-800">
+                        {l.from} <span className="text-sea-700/50">→</span> {l.to}
+                      </td>
+                      <td className="whitespace-nowrap py-1.5 pr-2 text-right font-semibold text-sea-900">
+                        {l.time}
+                      </td>
+                      <td className="hidden whitespace-nowrap py-1.5 text-right text-xs text-sea-700/60 sm:table-cell">
+                        {l.note ?? ""}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5">
+            <h3 className="flex items-center gap-2 font-display text-lg font-semibold text-sea-900">
+              💶 Budget ballparks
+            </h3>
+            <p className="mt-1 text-xs text-sea-700/60">
+              Recent-season October ranges — sanity-check when booking.
+            </p>
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full text-sm">
+                <tbody>
+                  {budget.map((b) => (
+                    <tr key={b.item} className="border-t border-sand-100">
+                      <td className="py-1.5 pr-2 text-sea-800">{b.item}</td>
+                      <td className="whitespace-nowrap py-1.5 pr-2 text-right font-semibold text-sea-900">
+                        {b.range}
+                      </td>
+                      <td className="hidden py-1.5 text-right text-xs text-sea-700/60 sm:table-cell">
+                        {b.note ?? ""}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
         {/* Footer nav */}

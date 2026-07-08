@@ -183,29 +183,44 @@ page, author, and license. Please retain attribution if you reuse them.
 - **sicily-guide-agrigento.jpg** — [File:Olive in the Valley of the Temples. Agrigento.jpg](https://commons.wikimedia.org/wiki/File:Olive_in_the_Valley_of_the_Temples._Agrigento.jpg) · Ввласенко · CC BY-SA 3.0
 - **sicily-guide-alcantara.jpg** — [File:Gole dell'Alcantara-pjt1.jpg](https://commons.wikimedia.org/wiki/File:Gole_dell%27Alcantara-pjt1.jpg) · pjt56 --- · CC BY-SA 3.0
 - **sicily-guide-arancini.jpg** — [File:Arancini 002.jpg](https://commons.wikimedia.org/wiki/File:Arancini_002.jpg) · No machine-readable author provided. Gmelfi assumed (based on copyright claims). · Public domain
+- **sicily-guide-bronte.jpg** — [File:Ponte dei Saraceni 02.jpg](https://commons.wikimedia.org/wiki/File:Ponte_dei_Saraceni_02.jpg) · Davide Mauro · CC BY-SA 4.0
 - **sicily-guide-calamosche.jpg** — [File:Spiaggia di Calamosche, versante destro.jpg](https://commons.wikimedia.org/wiki/File:Spiaggia_di_Calamosche,_versante_destro.jpg) · Enzo Rippa · CC BY-SA 4.0
 - **sicily-guide-caltagirone.jpg** — [File:Caltagirone.jpg](https://commons.wikimedia.org/wiki/File:Caltagirone.jpg) · No machine-readable author provided. Gmelfi assumed (based on copyright claims). · Public domain
 - **sicily-guide-cannoli.jpg** — [File:Cannoli siciliani (7472226896).jpg](https://commons.wikimedia.org/wiki/File:Cannoli_siciliani_(7472226896).jpg) · mat's eye · CC BY 2.0
+- **sicily-guide-caponata.jpg** — [File:Sicilian caponata.jpg](https://commons.wikimedia.org/wiki/File:Sicilian_caponata.jpg) · Massimoweb · CC BY-SA 3.0
 - **sicily-guide-castelmola.jpg** — [File:Arco Antico (Castelmola).jpg](https://commons.wikimedia.org/wiki/File:Arco_Antico_(Castelmola).jpg) · The Cosmonaut · CC BY-SA 2.5 ca
 - **sicily-guide-cavagrande.jpg** — [File:Cavagrande del Cassibile-pjt.jpg](https://commons.wikimedia.org/wiki/File:Cavagrande_del_Cassibile-pjt.jpg) · pjt56 · CC BY-SA 3.0
 - **sicily-guide-cefalu.jpg** — [File:Cefalù BW 2025-05-01 09-35-46.jpg](https://commons.wikimedia.org/wiki/File:Cefal%C3%B9_BW_2025-05-01_09-35-46.jpg) · Berthold Werner · CC BY-SA 4.0
+- **sicily-guide-chiaramonte.jpg** — [File:Veduta di Chiaramonte Gulfi.jpg](https://commons.wikimedia.org/wiki/File:Veduta_di_Chiaramonte_Gulfi.jpg) · Davide Mauro · CC BY-SA 4.0
+- **sicily-guide-circumetnea.jpg** — [File:La carrozza n. 322 della ferrovia Circumetnea, in sosta presso la stazione di Randazzo.JPG](https://commons.wikimedia.org/wiki/File:La_carrozza_n._322_della_ferrovia_Circumetnea,_in_sosta_presso_la_stazione_di_Randazzo.JPG) · VincentLR · CC BY-SA 4.0
+- **sicily-guide-donnafugata.jpg** — [File:Castello di Donnafugata.jpg](https://commons.wikimedia.org/wiki/File:Castello_di_Donnafugata.jpg) · gdiquattro · Public domain
 - **sicily-guide-erice.jpg** — [File:Erice Chiesa di San Giovanni Battista BW 2025-04-30 12-31-24.jpg](https://commons.wikimedia.org/wiki/File:Erice_Chiesa_di_San_Giovanni_Battista_BW_2025-04-30_12-31-24.jpg) · Berthold Werner · CC BY-SA 4.0
 - **sicily-guide-etna-wine.jpg** — [File:Etna Wine Agriturismo, Passopisciaro, Sicily, Italy.jpg](https://commons.wikimedia.org/wiki/File:Etna_Wine_Agriturismo,_Passopisciaro,_Sicily,_Italy.jpg) · Neil Weightman · CC BY 2.0
+- **sicily-guide-favignana.jpg** — [File:Cala Rossa, Favignana 02.jpg](https://commons.wikimedia.org/wiki/File:Cala_Rossa,_Favignana_02.jpg) · Davide Mauro · CC BY-SA 4.0
 - **sicily-guide-fontane-bianche.jpg** — [File:Spiaggia di Fontane Bianche 02.jpg](https://commons.wikimedia.org/wiki/File:Spiaggia_di_Fontane_Bianche_02.jpg) · Davide Mauro · CC BY-SA 4.0
 - **sicily-guide-forza-dagro.jpg** — [File:Forza d'Agrò.jpg](https://commons.wikimedia.org/wiki/File:Forza_d%27Agr%C3%B2.jpg) · trolvag · CC BY-SA 3.0
 - **sicily-guide-granita.jpg** — [File:Almonds granita and brioche of Syracuse.jpg](https://commons.wikimedia.org/wiki/File:Almonds_granita_and_brioche_of_Syracuse.jpg) · Stella · CC BY-SA 4.0
 - **sicily-guide-isola-correnti.jpg** — [File:Isola delle correnti.jpg](https://commons.wikimedia.org/wiki/File:Isola_delle_correnti.jpg) · 3x0=3 · CC BY 2.0
 - **sicily-guide-marina-ragusa.jpg** — [File:Cymodocea marina di ragusa.jpg](https://commons.wikimedia.org/wiki/File:Cymodocea_marina_di_ragusa.jpg) · Panek · CC BY-SA 4.0
 - **sicily-guide-marzamemi.jpg** — [File:Marzamemi (1).jpg](https://commons.wikimedia.org/wiki/File:Marzamemi_(1).jpg) · fotovideomike from Italia (Michele Ponzio, @michele_ponzio) · CC BY-SA 2.0
+- **sicily-guide-militello.jpg** — [File:Militello. S. Maria della Stella (XVIII sec.).JPG](https://commons.wikimedia.org/wiki/File:Militello._S._Maria_della_Stella_(XVIII_sec.).JPG) · Donmalgioglio · CC BY-SA 3.0
 - **sicily-guide-modica-chocolate.jpg** — [File:CioccolatoModicano2012-10.jpg](https://commons.wikimedia.org/wiki/File:CioccolatoModicano2012-10.jpg) · Mussklprozz · CC BY-SA 3.0
+- **sicily-guide-mondello.jpg** — [File:Mondello BW 2012-10-09 14-18-56.JPG](https://commons.wikimedia.org/wiki/File:Mondello_BW_2012-10-09_14-18-56.JPG) · Berthold Werner · CC BY-SA 3.0
+- **sicily-guide-monreale.jpg** — [File:Ceiling of left chapel in Cathedral (Monreale) - Mosaic of Christ Pantocrator.jpg](https://commons.wikimedia.org/wiki/File:Ceiling_of_left_chapel_in_Cathedral_(Monreale)_-_Mosaic_of_Christ_Pantocrator.jpg) · Livioandronico2013 · CC BY-SA 4.0
+- **sicily-guide-noto-antica.jpg** — [File:Noto-antica-stadttor.jpg](https://commons.wikimedia.org/wiki/File:Noto-antica-stadttor.jpg) · Mboesch · CC BY-SA 3.0
+- **sicily-guide-palazzolo.jpg** — [File:Palazzolo Acreide overview AvL.jpg](https://commons.wikimedia.org/wiki/File:Palazzolo_Acreide_overview_AvL.jpg) · AlexanderVanLoon · CC BY-SA 4.0
 - **sicily-guide-palermo-market.jpg** — [File:Ballarò, gente en el mercado, Palermo, Sicilia, Italia, 2015.JPG](https://commons.wikimedia.org/wiki/File:Ballar%C3%B2,_gente_en_el_mercado,_Palermo,_Sicilia,_Italia,_2015.JPG) · Benjamín Núñez González · CC BY-SA 4.0
 - **sicily-guide-palermo.jpg** — [File:Palermo Cathedral BW 2025-04-29 11-14-42.jpg](https://commons.wikimedia.org/wiki/File:Palermo_Cathedral_BW_2025-04-29_11-14-42.jpg) · Berthold Werner · CC BY-SA 4.0
 - **sicily-guide-pantalica.jpg** — [File:Nekropolis von Pantalica.jpg](https://commons.wikimedia.org/wiki/File:Nekropolis_von_Pantalica.jpg) · Clemensfranz · CC BY 2.5
 - **sicily-guide-pasta-norma.jpg** — [File:Pasta alla Norma - Wiki Loves Sicilia.jpg](https://commons.wikimedia.org/wiki/File:Pasta_alla_Norma_-_Wiki_Loves_Sicilia.jpg) · 8w9d · CC0
 - **sicily-guide-pescheria.jpg** — [File:Catania - Pescheria - Foto di Giovanni Dall'Orto.jpg](https://commons.wikimedia.org/wiki/File:Catania_-_Pescheria_-_Foto_di_Giovanni_Dall%27Orto.jpg) · G.dallorto · Attribution
+- **sicily-guide-plemmirio.jpg** — [File:Varco 27, Plemmirio 1.jpg](https://commons.wikimedia.org/wiki/File:Varco_27,_Plemmirio_1.jpg) · Davide Mauro · CC BY-SA 4.0
 - **sicily-guide-punta-secca.jpg** — [File:Punta Secca RG, Sicily, Italy - panoramio.jpg](https://commons.wikimedia.org/wiki/File:Punta_Secca_RG,_Sicily,_Italy_-_panoramio.jpg) · trolvag · CC BY-SA 3.0
+- **sicily-guide-pupi.jpg** — [File:Pupi, Catania.JPG](https://commons.wikimedia.org/wiki/File:Pupi,_Catania.JPG) · Lucarelli · CC BY-SA 3.0
 - **sicily-guide-randazzo.jpg** — [File:Randazzo, Catania, Sicily, Italy.jpg](https://commons.wikimedia.org/wiki/File:Randazzo,_Catania,_Sicily,_Italy.jpg) · trolvag · CC BY-SA 3.0
+- **sicily-guide-salina.jpg** — [File:Salina Isole Eolie.jpg](https://commons.wikimedia.org/wiki/File:Salina_Isole_Eolie.jpg) · I viaggi della Van · CC BY-SA 4.0
 - **sicily-guide-salt-pans.jpg** — [File:Riserva naturale orientata Saline di Trapani e Paceco - Trapani, Italia - 1 Maggio 2023 002.jpg](https://commons.wikimedia.org/wiki/File:Riserva_naturale_orientata_Saline_di_Trapani_e_Paceco_-_Trapani,_Italia_-_1_Maggio_2023_002.jpg) · GiorgioGaleotti · CC BY-SA 4.0
+- **sicily-guide-san-lorenzo.jpg** — [File:San Lorenzo (SR) - panoramio (5).jpg](https://commons.wikimedia.org/wiki/File:San_Lorenzo_(SR)_-_panoramio_(5).jpg) · Eugenio Bonifacio · CC BY 3.0
 - **sicily-guide-san-vito.jpg** — [File:San Vito Lo Capo Beach.JPG](https://commons.wikimedia.org/wiki/File:San_Vito_Lo_Capo_Beach.JPG) · Lost passenger · CC BY-SA 4.0
 - **sicily-guide-savoca.jpg** — [File:Chiesa di San Michele, Savoca.jpg](https://commons.wikimedia.org/wiki/File:Chiesa_di_San_Michele,_Savoca.jpg) · The Cosmonaut · CC BY-SA 2.5 ca
 - **sicily-guide-scala-dei-turchi.jpg** — [File:Scala dei Turchi panorama.jpg](https://commons.wikimedia.org/wiki/File:Scala_dei_Turchi_panorama.jpg) · Carnby · CC BY 3.0
@@ -214,6 +229,8 @@ page, author, and license. Please retain attribution if you reuse them.
 - **sicily-guide-stromboli.jpg** — [File:Aerial image of Stromboli (view from the northeast).jpg](https://commons.wikimedia.org/wiki/File:Aerial_image_of_Stromboli_(view_from_the_northeast).jpg) · Carsten Steger · CC BY-SA 4.0
 - **sicily-guide-vendicari.jpg** — [File:Tonnara di Vendicari - columns.JPG](https://commons.wikimedia.org/wiki/File:Tonnara_di_Vendicari_-_columns.JPG) · Patrice78500 · CC BY-SA 3.0
 - **sicily-guide-villa-casale.jpg** — [File:Erotic Scene mosaic - Villa Romana del Casale - Italy 2015 (a) - crop.JPG](https://commons.wikimedia.org/wiki/File:Erotic_Scene_mosaic_-_Villa_Romana_del_Casale_-_Italy_2015_(a)_-_crop.JPG) · José Luiz · CC BY-SA 4.0
+- **sicily-guide-zafferana.jpg** — [File:Zafferana Etnea após erupção (8580580527).jpg](https://commons.wikimedia.org/wiki/File:Zafferana_Etnea_ap%C3%B3s_erup%C3%A7%C3%A3o_(8580580527).jpg) · Leandro Neumann Ciuffo · CC BY 2.0
+- **sicily-guide-zingaro.jpg** — [File:Riserva Naturale dello Zingaro (TP).jpg](https://commons.wikimedia.org/wiki/File:Riserva_Naturale_dello_Zingaro_(TP).jpg) · 53cri021 · CC BY-SA 4.0
 - **slovenia-julian-alps-day1.jpg** — [File:Gallusovo nabrezje in Ljubljana (2).jpg](https://commons.wikimedia.org/wiki/File:Gallusovo_nabrezje_in_Ljubljana_(2).jpg) · Tournasol7 · CC BY 4.0
 - **slovenia-julian-alps-day2.jpg** — [File:Pletna Boat on Bled Lake - panoramio.jpg](https://commons.wikimedia.org/wiki/File:Pletna_Boat_on_Bled_Lake_-_panoramio.jpg) · lienyuan lee · CC BY 3.0
 - **slovenia-julian-alps-day3.jpg** — [File:Vintgar Gorge 4.jpg](https://commons.wikimedia.org/wiki/File:Vintgar_Gorge_4.jpg) · LBM1948 · CC BY-SA 4.0
