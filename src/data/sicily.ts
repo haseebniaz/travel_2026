@@ -41,6 +41,22 @@ export type DriveLeg = { from: string; to: string; time: string; note?: string }
 
 export type BudgetItem = { item: string; range: string; note?: string };
 
+export type Booking = {
+  icon: string;
+  title: string;
+  when: string;
+  status: "booked" | "todo" | "optional";
+  detail: string;
+};
+
+export type TimelineDay = {
+  date: string; // e.g. "Sat 31 Oct"
+  title: string;
+  detail: string;
+  night: string; // where you sleep
+  flight?: boolean; // travel day styling
+};
+
 const img = (file: string) => `/images/${file}.jpg`;
 
 // ---------------------------------------------------------------------------
@@ -946,4 +962,143 @@ export const budget: BudgetItem[] = [
   { item: "Milazzo ⇄ Lipari hydrofoil", range: "€17–22 each way" },
   { item: "Major sites (Neapolis, Villa Casale, temples)", range: "€10–18 pp each" },
   { item: "Granita + brioche", range: "€4–6", note: "the most important line item" },
+];
+
+// ---------------------------------------------------------------------------
+// 14 · The trip is real: timeline & bookings (flights booked Oct 30 – Nov 7)
+// ---------------------------------------------------------------------------
+export const timeline: TimelineDay[] = [
+  {
+    date: "Fri 30 Oct",
+    title: "Fly out",
+    detail: "Delta 142, Seattle 15:25 → Amsterdam (overnight). Sleep on the plane — tomorrow is a real day.",
+    night: "In the air",
+    flight: true,
+  },
+  {
+    date: "Sat 31 Oct",
+    title: "Arrive in Sicily",
+    detail:
+      "Land Amsterdam 09:25, connect on Delta 9294 (KLM) 12:40 → Catania 15:25. Grab the car and drive straight up to Taormina (50 min). First passeggiata on Corso Umberto, early jet-lag dinner.",
+    night: "Taormina",
+    flight: true,
+  },
+  {
+    date: "Sun 1 Nov",
+    title: "Taormina day",
+    detail:
+      "Greek theatre at opening, cable car down to Isola Bella for a swim, Castelmola and almond wine for sunset. It's All Saints' Day — sights are open and towns are out in their Sunday best; book dinner.",
+    night: "Taormina",
+  },
+  {
+    date: "Mon 2 Nov",
+    title: "Etna → Siracusa",
+    detail:
+      "Summit morning from Rifugio Sapienza (guide booked, jackets rented there), lunch among the vines on the way down, then the drive south to Siracusa. Evening stroll onto Ortigia.",
+    night: "Ortigia",
+  },
+  {
+    date: "Tue 3 Nov",
+    title: "Ortigia, done right",
+    detail:
+      "The 'perfect day' from above, verbatim: market morning and a Borderi sandwich, Neapolis ruins, a rock-ladder swim, Duomo square at golden hour, courtyard dinner.",
+    night: "Ortigia",
+  },
+  {
+    date: "Wed 4 Nov",
+    title: "Noto & the slow coast",
+    detail:
+      "Noto's corso with a Caffè Sicilia granita, then Vendicari or Calamosche for the afternoon, sunset dinner in Marzamemi, and the hour's drive up to Ragusa.",
+    night: "Ragusa Ibla",
+  },
+  {
+    date: "Thu 5 Nov",
+    title: "The Baroque triangle",
+    detail:
+      "Modica (Bonajuto tasting), Scicli's Via Penna, optional Chiaramonte pork lunch, then back to Ibla for blue hour and the I Banchi dinner you reserved.",
+    night: "Ragusa Ibla",
+  },
+  {
+    date: "Fri 6 Nov",
+    title: "Wind back east",
+    detail:
+      "Slow Ibla morning, then one last pick en route north — Caltagirone's staircase or Donnafugata's castle — and a final seafood dinner by Catania's Pescheria.",
+    night: "Catania",
+  },
+  {
+    date: "Sat 7 Nov",
+    title: "Fly home",
+    detail:
+      "Car back by ~08:30. Delta 245, Catania 10:55 → JFK 15:39, then Delta 688, 18:40 → Seattle 22:12. Granita withdrawal begins.",
+    night: "Home",
+    flight: true,
+  },
+];
+
+export const bookings: Booking[] = [
+  {
+    icon: "✈️",
+    title: "Flights",
+    when: "Oct 30 → Nov 7",
+    status: "booked",
+    detail:
+      "SEA→AMS Delta 142 (Oct 30, 15:25) · AMS→CTA Delta 9294/KLM (Oct 31, 12:40→15:25) · CTA→JFK Delta 245 (Nov 7, 10:55→15:39) · JFK→SEA Delta 688 (18:40→22:12).",
+  },
+  {
+    icon: "🚗",
+    title: "Rental car — Catania airport",
+    when: "Oct 31 ~16:00 → Nov 7 ~08:30",
+    status: "todo",
+    detail:
+      "Compact, full-to-full, both drivers named. Confirm the ZTL/toll handling policy and airport drop-off logistics for the early return.",
+  },
+  {
+    icon: "🛏️",
+    title: "Stay 1 — Taormina",
+    when: "Oct 31 – Nov 2 · 2 nights",
+    status: "todo",
+    detail: "Old-town B&B with a terrace if possible; have the hotel sort parking (Porta Catania side).",
+  },
+  {
+    icon: "🛏️",
+    title: "Stay 2 — Ortigia, Siracusa",
+    when: "Nov 2 – 4 · 2 nights",
+    status: "todo",
+    detail: "Sleep on the island itself — the evenings are the point. Talete garage for the car.",
+  },
+  {
+    icon: "🛏️",
+    title: "Stay 3 — Ragusa Ibla",
+    when: "Nov 4 – 6 · 2 nights",
+    status: "todo",
+    detail: "Stay down in Ibla (not Superiore) so the lanes are yours after dark.",
+  },
+  {
+    icon: "🛏️",
+    title: "Stay 4 — Catania",
+    when: "Nov 6 – 7 · 1 night",
+    status: "todo",
+    detail: "Center or airport-side, whatever makes the 10:55 departure painless.",
+  },
+  {
+    icon: "🌋",
+    title: "Etna summit guide",
+    when: "Mon Nov 2, first morning slot",
+    status: "todo",
+    detail: "Cable car + 4x4 + guide from Rifugio Sapienza (~€75–95 pp). Book a few days out; check activity status.",
+  },
+  {
+    icon: "🍽️",
+    title: "Dinner reservations",
+    when: "day-of or a day ahead",
+    status: "optional",
+    detail: "I Banchi (Ragusa, Nov 5) · Cortile Verga (Ortigia, Nov 3) · a Taormina table for All Saints' Sunday (Nov 1).",
+  },
+  {
+    icon: "🍫",
+    title: "Bonajuto chocolate tasting",
+    when: "Thu Nov 5, midday",
+    status: "optional",
+    detail: "The guided tasting in the 1880 shop is worth the couple-of-days-ahead booking.",
+  },
 ];

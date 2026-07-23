@@ -21,6 +21,8 @@ import {
   driveLegs,
   budget,
   practicalNotes,
+  timeline,
+  bookings,
 } from "@/data/sicily";
 
 export const metadata: Metadata = {
@@ -30,6 +32,8 @@ export const metadata: Metadata = {
 };
 
 const sections = [
+  { id: "timeline", label: "Timeline" },
+  { id: "bookings", label: "Bookings" },
   { id: "regions", label: "The island" },
   { id: "routes", label: "Routes" },
   { id: "towns", label: "Towns" },
@@ -78,7 +82,7 @@ export default function SicilyGuidePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-sea-900/90 via-sea-900/30 to-sea-900/30" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-12 pt-24 sm:px-6">
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-sand-100">
-            🎉 The pick · October
+            🎉 The pick · Oct 31 → Nov 7 · flights booked
           </div>
           <h1 className="mt-2 max-w-3xl font-display text-4xl font-bold leading-tight text-white [text-wrap:balance] sm:text-5xl">
             Sicily, the one-stop guide
@@ -114,6 +118,75 @@ export default function SicilyGuidePage() {
         <section className="mt-8">
           <WeatherPanel weather={trip.weather} />
         </section>
+
+        {/* Timeline */}
+        <SectionHeading
+          id="timeline"
+          title="The timeline"
+          sub="Flights are locked: 7 nights on the island, Oct 31 → Nov 7. Here's the whole trip on one line — the day pages and 'perfect days' below plug straight into it."
+        />
+        <ol className="relative mt-8 space-y-8 border-l-2 border-sand-200 pl-6">
+          {timeline.map((d) => (
+            <li key={d.date} className="relative">
+              <span
+                className={`absolute -left-[31px] top-1 flex h-4 w-4 items-center justify-center rounded-full ring-4 ring-sand-50 ${
+                  d.flight ? "bg-terracotta-500" : "bg-sea-700"
+                }`}
+              />
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <span className="text-xs font-bold uppercase tracking-wide text-terracotta-600">
+                  {d.date}
+                </span>
+                <h3 className="font-display text-lg font-semibold text-sea-900">
+                  {d.flight ? "✈️ " : ""}
+                  {d.title}
+                </h3>
+                <span className="ml-auto rounded-full bg-sea-500/10 px-2.5 py-0.5 text-xs font-semibold text-sea-700">
+                  🌙 {d.night}
+                </span>
+              </div>
+              <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-sea-700">{d.detail}</p>
+            </li>
+          ))}
+        </ol>
+
+        {/* Bookings */}
+        <SectionHeading
+          id="bookings"
+          title="Bookings tracker"
+          sub="What's locked and what still needs doing, in trip order. Green means done — the goal is an all-green board before wheels-up."
+        />
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {bookings.map((b) => (
+            <article
+              key={b.title}
+              className={`flex flex-col rounded-2xl bg-white p-4 shadow-sm ring-1 ${
+                b.status === "booked" ? "ring-green-600/20" : "ring-sea-900/5"
+              }`}
+            >
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="flex items-center gap-2 font-display text-base font-semibold leading-snug text-sea-900">
+                  <span>{b.icon}</span> {b.title}
+                </h3>
+                <span
+                  className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                    b.status === "booked"
+                      ? "bg-green-100 text-green-800"
+                      : b.status === "todo"
+                        ? "bg-amber-100 text-amber-800"
+                        : "bg-sand-100 text-sea-700"
+                  }`}
+                >
+                  {b.status === "booked" ? "✓ Booked" : b.status === "todo" ? "To book" : "Optional"}
+                </span>
+              </div>
+              <div className="mt-1 text-xs font-medium uppercase tracking-wide text-terracotta-600">
+                {b.when}
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-sea-700">{b.detail}</p>
+            </article>
+          ))}
+        </div>
 
         {/* 1 · Regions */}
         <SectionHeading
