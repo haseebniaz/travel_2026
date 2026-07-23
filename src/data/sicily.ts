@@ -994,7 +994,7 @@ export const timeline: TimelineDay[] = [
     date: "Mon 2 Nov",
     title: "Etna → Siracusa",
     detail:
-      "Summit morning from Rifugio Sapienza (guide booked, jackets rented there), lunch among the vines on the way down, then the drive south to Siracusa. Evening stroll onto Ortigia.",
+      "Summit morning from Rifugio Sapienza if the mood says volcano (book a guide a day or two out; jackets rentable there), lunch among the vines on the way down, then the drive south to Siracusa. Evening stroll onto Ortigia.",
     night: "Ortigia",
   },
   {
@@ -1015,7 +1015,7 @@ export const timeline: TimelineDay[] = [
     date: "Thu 5 Nov",
     title: "The Baroque triangle",
     detail:
-      "Modica (Bonajuto tasting), Scicli's Via Penna, optional Chiaramonte pork lunch, then back to Ibla for blue hour and the I Banchi dinner you reserved.",
+      "Modica (Bonajuto tasting), Scicli's Via Penna, optional Chiaramonte pork lunch, then back to Ibla for blue hour — and I Banchi, if you feel like calling ahead for a table.",
     night: "Ragusa Ibla",
   },
   {
@@ -1043,62 +1043,5 @@ export const bookings: Booking[] = [
     status: "booked",
     detail:
       "SEA→AMS Delta 142 (Oct 30, 15:25) · AMS→CTA Delta 9294/KLM (Oct 31, 12:40→15:25) · CTA→JFK Delta 245 (Nov 7, 10:55→15:39) · JFK→SEA Delta 688 (18:40→22:12).",
-  },
-  {
-    icon: "🚗",
-    title: "Rental car — Catania airport",
-    when: "Oct 31 ~16:00 → Nov 7 ~08:30",
-    status: "todo",
-    detail:
-      "Compact, full-to-full, both drivers named. Confirm the ZTL/toll handling policy and airport drop-off logistics for the early return.",
-  },
-  {
-    icon: "🛏️",
-    title: "Stay 1 — Taormina",
-    when: "Oct 31 – Nov 2 · 2 nights",
-    status: "todo",
-    detail: "Old-town B&B with a terrace if possible; have the hotel sort parking (Porta Catania side).",
-  },
-  {
-    icon: "🛏️",
-    title: "Stay 2 — Ortigia, Siracusa",
-    when: "Nov 2 – 4 · 2 nights",
-    status: "todo",
-    detail: "Sleep on the island itself — the evenings are the point. Talete garage for the car.",
-  },
-  {
-    icon: "🛏️",
-    title: "Stay 3 — Ragusa Ibla",
-    when: "Nov 4 – 6 · 2 nights",
-    status: "todo",
-    detail: "Stay down in Ibla (not Superiore) so the lanes are yours after dark.",
-  },
-  {
-    icon: "🛏️",
-    title: "Stay 4 — Catania",
-    when: "Nov 6 – 7 · 1 night",
-    status: "todo",
-    detail: "Center or airport-side, whatever makes the 10:55 departure painless.",
-  },
-  {
-    icon: "🌋",
-    title: "Etna summit guide",
-    when: "Mon Nov 2, first morning slot",
-    status: "todo",
-    detail: "Cable car + 4x4 + guide from Rifugio Sapienza (~€75–95 pp). Book a few days out; check activity status.",
-  },
-  {
-    icon: "🍽️",
-    title: "Dinner reservations",
-    when: "day-of or a day ahead",
-    status: "optional",
-    detail: "I Banchi (Ragusa, Nov 5) · Cortile Verga (Ortigia, Nov 3) · a Taormina table for All Saints' Sunday (Nov 1).",
-  },
-  {
-    icon: "🍫",
-    title: "Bonajuto chocolate tasting",
-    when: "Thu Nov 5, midday",
-    status: "optional",
-    detail: "The guided tasting in the 1880 shop is worth the couple-of-days-ahead booking.",
   },
 ];

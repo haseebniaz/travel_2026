@@ -123,7 +123,7 @@ export default function SicilyGuidePage() {
         <SectionHeading
           id="timeline"
           title="The timeline"
-          sub="Flights are locked: 7 nights on the island, Oct 31 → Nov 7. Here's the whole trip on one line — the day pages and 'perfect days' below plug straight into it."
+          sub="Flights are locked: 7 nights on the island, Oct 31 → Nov 7. The days in between are a suggested shape, not a schedule — swap, stretch, or skip based on the morning's mood."
         />
         <ol className="relative mt-8 space-y-8 border-l-2 border-sand-200 pl-6">
           {timeline.map((d) => (
@@ -153,8 +153,8 @@ export default function SicilyGuidePage() {
         {/* Bookings */}
         <SectionHeading
           id="bookings"
-          title="Bookings tracker"
-          sub="What's locked and what still needs doing, in trip order. Green means done — the goal is an all-green board before wheels-up."
+          title="Booked & confirmed"
+          sub="Only things that are actually locked live here — everything else on this page is a menu of suggestions to decide on the fly. As we book something, it gets added to this board."
         />
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {bookings.map((b) => (
