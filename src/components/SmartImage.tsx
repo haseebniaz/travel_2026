@@ -20,7 +20,8 @@ type Props = {
 export default function SmartImage({ src, alt, className, fallbackLabel, eager }: Props) {
   const [failed, setFailed] = useState(false);
 
-  if (failed) {
+  // No src (e.g. a venue without a photo) renders the fallback directly.
+  if (failed || !src) {
     return (
       <div
         className={`img-fallback flex items-center justify-center ${className ?? ""}`}

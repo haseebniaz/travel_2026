@@ -34,8 +34,13 @@ Périgord (France).
   day-capacity trip timeline plus a matching per-day flow strip on every day
   card, a toggleable one-color-per-day Leaflet route map, per-day mini maps with
   numbered stops, hour-by-hour schedules, family/safety notes, practical notes,
-  and persistent book-&-pack checklists — content in
-  [`src/data/iceland.ts`](src/data/iceland.ts)
+  a where-to-stay neighborhood guide with a pin map, and persistent book-&-pack
+  checklists — content in [`src/data/iceland.ts`](src/data/iceland.ts)
+- **Iceland day guides** (`/iceland/wednesday` … `/iceland/monday`): a
+  drill-down field guide per trip day — worthwhile stops, off-the-beaten-path
+  finds, photo spots, things to try, and places to eat, all as photo cards for
+  quick on-the-day decisions — content in
+  [`src/data/iceland-guides.ts`](src/data/iceland-guides.ts)
 - **Self-hosted real photos**: every destination's hero + gallery image is a real,
   freely-licensed photo from Wikimedia Commons, downloaded into
   [`public/images`](public/images) by [`scripts/fetch-photos.mjs`](scripts/fetch-photos.mjs)

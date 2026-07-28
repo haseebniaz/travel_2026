@@ -77,6 +77,15 @@ export type ChecklistGroup = { title: string; icon: string; items: string[] };
 export type SourceLink = { title: string; detail: string; href: string };
 export type PracticalNote = { title: string; icon: string; detail: string };
 
+export type StayArea = {
+  name: string;
+  tag: string; // one-line verdict shown as the card's kicker
+  blurb: string;
+  image?: string;
+  lat: number;
+  lng: number;
+};
+
 const img = (file: string) => `/images/${file}.jpg`;
 
 // ---------------------------------------------------------------------------
@@ -858,6 +867,96 @@ export const sources: SourceLink[] = [
     title: "Icelandair · Keflavík airport guide",
     detail: "Timing and passport-control notes for KEF",
     href: "https://www.icelandair.com/support/airports/keflavik-kef/",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Where to stay — Reykjavík hotel-search guide
+// ---------------------------------------------------------------------------
+export const stayAreas: StayArea[] = [
+  {
+    name: "Miðborg core — Skólavörðustígur & the Þingholt side streets",
+    tag: "The pick · walk out to everything",
+    blurb:
+      "The blocks between Rainbow Street, Hallgrímskirkja, and Tjörnin put every evening stroll on your doorstep: bakeries at breakfast, the church tower after dinner, duck-feeding at the pond. Book on a side street (Óðinsgata, Njarðargata, Bergstaðastræti…) rather than on Laugavegur itself and weekend bar noise disappears.",
+    image: img("iceland-rainbow-street"),
+    lat: 64.1424,
+    lng: -21.9268,
+  },
+  {
+    name: "Old Harbour & Grandi",
+    tag: "Flat, quiet & stroller-friendly",
+    blurb:
+      "Waterfront walking with zero hills: Harpa, the Sun Voyager, food halls, Valdís ice cream, and the whale museum all within ten flat minutes. Evenings are calmer than downtown, and you're closest to Sunday's harbour finale. Slightly fewer grocery options — check the map for a Krambúð.",
+    image: img("iceland-old-harbour"),
+    lat: 64.1522,
+    lng: -21.9466,
+  },
+  {
+    name: "East Laugavegur & Hlemmur",
+    tag: "Value · still very walkable",
+    blurb:
+      "The quieter end of the main street, anchored by the Hlemmur food hall: apartments here run cheaper and bigger — great for a family needing two rooms — and the city core is still a 10–12 minute stroller push. The trade-off is a busier road outside and a little less charm.",
+    image: img("iceland-laugavegur"),
+    lat: 64.1432,
+    lng: -21.9153,
+  },
+  {
+    name: "Vesturbær",
+    tag: "Local-neighborhood Reykjavík",
+    blurb:
+      "Where Reykjavík families actually live: corner bakeries, the beloved Vesturbæjarlaug pool, and seafront paths out toward Grótta lighthouse. It's a 15-minute walk into the center — fine with the stroller, quiet at night, and the most 'live like a local' option of the bunch.",
+    image: img("iceland-grotta"),
+    lat: 64.1445,
+    lng: -21.9584,
+  },
+  {
+    name: "Laugardalur",
+    tag: "Space & value · needs the car or bus",
+    blurb:
+      "Next to the city's biggest pool, the family park & zoo, and the botanical garden — a kid paradise with larger, cheaper rooms. But it's a drive or bus into the center, so evening strolls happen in the park rather than downtown. Works because you have the rental anyway; pick it only if space wins over walkability.",
+    image: img("iceland-laugardalslaug"),
+    lat: 64.1414,
+    lng: -21.8801,
+  },
+];
+
+export const stayTips: PracticalNote[] = [
+  {
+    title: "Book for four, explicitly",
+    icon: "🛏️",
+    detail:
+      "Standard Icelandic hotel rooms genuinely fit 2 adults + 1 child; a family of four usually needs a family room, connecting rooms, or an apartment. Aparthotels (Room With A View, Reykjavík Residence–style) add a kitchen for toddler breakfasts and a washer for lagoon-day laundry.",
+  },
+  {
+    title: "The walk-out test",
+    icon: "🚶",
+    detail:
+      "Aim for: a bakery within 5 minutes, a playground within 10 (Hljómskálagarður by Tjörnin and Klambratún are the good ones), and Laugavegur or the harbour within 10–12. That's what turns evenings and the free Sunday into effortless family time.",
+  },
+  {
+    title: "Parking reality",
+    icon: "🅿️",
+    detail:
+      "Downtown streets are paid zones (P1–P4, ~9:00–18:00 or later); free hotel parking is rare in 101. Confirm parking when booking or budget for the Traðarkot/Kolaport garages. The car mostly sits parked except on the two road-trip days, so a garage two blocks away is fine.",
+  },
+  {
+    title: "Noise & light at night",
+    icon: "🌙",
+    detail:
+      "Laugavegur, Austurstræti, and Bankastræti are loud until 3–4 AM on Friday and Saturday — your Thursday and Saturday nights. One block off the strip is genuinely quiet. Also check reviews for blackout curtains: late-August sunset is ~8:45 PM and the 2-year-old will notice.",
+  },
+  {
+    title: "Stroller & stairs",
+    icon: "🛗",
+    detail:
+      "A lot of charming 101 guesthouses are third-floor walk-ups in old timber houses. With a toddler, luggage, and a stroller, filter for an elevator or ground-floor unit — future-you at 6:00 AM on departure day will be grateful.",
+  },
+  {
+    title: "Breakfast strategy",
+    icon: "🥐",
+    detail:
+      "Skip paying four hotel breakfasts: grab skyr, fruit, and bread in a Bónus/Krónan run on arrival day, then let one morning be a bakery treat (Brauð & Co or Sandholt). Faster with kids, cheaper, and better.",
   },
 ];
 

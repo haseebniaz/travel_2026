@@ -141,7 +141,7 @@ const ICELAND = {
   "reykjavik": ["Reykjavík colorful houses", "Reykjavik rooftops", "Reykjavík city centre"],
   "hallgrimskirkja": ["Hallgrímskirkja", "Hallgrimskirkja Reykjavik", "Hallgrímskirkja church Iceland"],
   "harpa": ["Harpa concert hall", "Harpa Reykjavík", "Harpa Reykjavik waterfront"],
-  "old-harbour": ["Reykjavík Old Harbour", "Reykjavik harbour boats", "Reykjavík harbour"],
+  "old-harbour": ["Reykjavik old harbour panorama", "Reykjavíkurhöfn", "Old harbour Reykjavik boats"],
   "sun-voyager": ["Aurora over the Sun Voyager", "Sun Voyager sculpture", "Sólfarið"],
   "perlan": ["Perlan Reykjavík", "Perlan museum Reykjavik", "Perlan building Iceland"],
   "laugardalslaug": ["Laugardalslaug pool", "Sundlaugin Laugardalslaug", "Laugardalslaug Reykjavík"],
@@ -153,7 +153,52 @@ const ICELAND = {
   "dyrholaey": ["Dyrhólaey", "Dyrholaey arch Iceland", "Dyrhólaey viewpoint"],
   "reynisfjara": ["Reynisfjara", "Reynisfjara black sand beach", "Reynisdrangar Vík"],
   "kef-airport": ["Keflavík International Airport", "Keflavik airport terminal", "Keflavík Airport Leifur Eiríksson"],
+  // where-to-stay section
+  "rainbow-street": ["Skólavörðustígur rainbow", "Rainbow street Reykjavík", "Skólavörðustígur"],
+  "laugavegur": ["Laugavegur street Reykjavík", "Laugavegur shopping street", "Laugavegur in Reykjavík"],
+  "tjornin": ["Tjörnin", "Tjörnin Reykjavík", "Reykjavik pond Tjornin"],
+  "grotta": ["Grótta", "Grotta lighthouse", "Grótta Seltjarnarnes"],
 };
+
+// Day-guide drill-down pages (/iceland/<day>) — keys -> iceland-guide-<key>.jpg
+const ICELAND_GUIDE = {
+  // Golden Circle extras (Friday)
+  "oxararfoss": ["Öxarárfoss", "Öxarárfoss waterfall", "Oxararfoss Thingvellir"],
+  "silfra": ["Silfra", "Silfra fissure", "Silfra Þingvellir"],
+  "kerid": ["Kerið", "Kerid crater", "Kerið crater lake"],
+  "faxi": ["Faxi waterfall", "Faxafoss", "Faxi Iceland Tungufljót"],
+  "fridheimar": ["Friðheimar", "Fridheimar greenhouse", "Tomato greenhouse Iceland"],
+  "efstidalur": ["Icelandic cattle", "Cows pasture Iceland", "Icelandic cow"],
+  "laugarvatn": ["Laugarvatn", "Laugarvatn Iceland", "Laugarvatn Fontana"],
+  "skalholt": ["Skálholt", "Skalholt cathedral", "Skálholt church Iceland"],
+  "bruarfoss": ["Brúarfoss", "Bruarfoss waterfall", "Brúarfoss Iceland"],
+  "icelandic-horse": ["Icelandic horses", "Icelandic horse", "Icelandic horse field"],
+  // South Coast extras (Saturday)
+  "gljufrabui": ["Gljúfrabúi", "Gljufrabui waterfall", "Gljúfrabúi Hamragarðar"],
+  "kvernufoss": ["Kvernufoss", "Kvernufoss waterfall", "Kvernufoss Iceland"],
+  "skogar-museum": ["Skógasafn", "Skogar museum turf houses", "Skógar folk museum"],
+  "solheimajokull": ["Sólheimajökull", "Solheimajokull glacier", "Sólheimajökull glacier tongue"],
+  "dyrholaey-lighthouse": ["Dyrhólaey lighthouse", "Dyrholaey lighthouse Iceland", "Dyrhólaeyjarviti"],
+  "vik-church": ["Vík í Mýrdal church", "Vik church Iceland", "Víkurkirkja"],
+  "eyjafjallajokull": ["Eyjafjallajökull", "Eyjafjallajokull from ring road", "Eyjafjallajökull volcano"],
+  "plane-wreck": ["Sólheimasandur plane wreck", "Solheimasandur DC-3", "DC-3 wreck Iceland"],
+  "seljavallalaug": ["Seljavallalaug", "Seljavallalaug pool", "Seljavallalaug swimming pool"],
+  // Reykjavík day extras (Thursday evening / Sunday)
+  "whales-of-iceland": ["Whales of Iceland", "Whales of Iceland museum", "Whale museum Reykjavik"],
+  "arbaer": ["Árbæjarsafn", "Arbaer open air museum", "Árbær museum turf"],
+  "husdyragardurinn": ["Húsdýragarðurinn", "Reykjavik family park and zoo", "Reykjavik petting zoo"],
+  "videy": ["Viðey", "Videy island", "Viðey Reykjavík"],
+  "botanical-garden": ["Grasagarður Reykjavíkur", "Reykjavik botanic garden", "Reykjavík botanical garden"],
+  "harpa-inside": ["Harpa interior", "Harpa concert hall interior", "Harpa glass facade inside"],
+  // food & treats (relaxed filter)
+  "hot-dog": ["Bæjarins beztu pylsur", "Icelandic hot dog", "Pylsa"],
+  "skyr": ["Skyr", "Skyr Iceland", "Skyr dessert"],
+  "kleina": ["Kleina", "Kleinur", "Kleina pastry"],
+  "cinnamon-bun": ["Snúður", "Cinnamon bun bakery", "Cinnamon roll"],
+  "lamb-soup": ["Kjötsúpa", "Icelandic meat soup", "Icelandic lamb soup"],
+  "rye-bread": ["Rúgbrauð", "Icelandic rye bread", "Rugbraud"],
+};
+const ICELAND_RELAXED = new Set(["hot-dog", "skyr", "kleina", "cinnamon-bun", "lamb-soup", "rye-bread", "fridheimar", "efstidalur"]);
 
 // Food photos would be excluded by BAD (it blocks generic food/dish noise), so those
 // keys use a lighter filter that only strips maps/flags/logos and the like.
@@ -254,6 +299,9 @@ if (doGuide) {
 }
 if (doIceland) {
   for (const [key, queries] of Object.entries(ICELAND)) processSlot(`iceland-${key}`, queries, { download });
+  for (const [key, queries] of Object.entries(ICELAND_GUIDE)) {
+    processSlot(`iceland-guide-${key}`, queries, { download, bad: ICELAND_RELAXED.has(key) ? RELAXED_BAD : BAD });
+  }
 }
 
 // attribution file (sorted by filename)

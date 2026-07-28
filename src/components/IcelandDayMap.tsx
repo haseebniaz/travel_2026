@@ -14,10 +14,14 @@ export default function IcelandDayMap({
   stops,
   color,
   label,
+  showLine = true,
+  maxZoom = 12,
 }: {
   stops: MapStop[];
   color: string;
   label: string;
+  showLine?: boolean; // false = pins only (e.g. neighborhood markers)
+  maxZoom?: number;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<Leaflet.Map | null>(null);
@@ -45,10 +49,12 @@ export default function IcelandDayMap({
         }
       ).addTo(map);
 
-      L.polyline(
-        stops.map((s) => [s.lat, s.lng]),
-        { color, weight: 4, opacity: 0.85, dashArray: "1 8", lineCap: "round" }
-      ).addTo(map);
+      if (showLine) {
+        L.polyline(
+          stops.map((s) => [s.lat, s.lng]),
+          { color, weight: 4, opacity: 0.85, dashArray: "1 8", lineCap: "round" }
+        ).addTo(map);
+      }
 
       // One numbered pin per distinct location; loop returns merge into it.
       const seen = new Map<string, { n: number; names: string[]; notes: string[] }>();
@@ -76,7 +82,7 @@ export default function IcelandDayMap({
 
       map.fitBounds(
         stops.map((s) => [s.lat, s.lng] as [number, number]),
-        { padding: [34, 34], maxZoom: 12 }
+        { padding: [34, 34], maxZoom }
       );
     })();
 

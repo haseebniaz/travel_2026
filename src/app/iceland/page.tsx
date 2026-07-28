@@ -15,10 +15,13 @@ import {
   dayRoutes,
   routeFlow,
   practicalNotes,
+  stayAreas,
+  stayTips,
   checklists,
   sources,
   bottomLine,
 } from "@/data/iceland";
+import { dayGuides } from "@/data/iceland-guides";
 
 export const metadata: Metadata = {
   title: "Iceland family trip — Aug 26–31, 2026 · Drive & Explore",
@@ -34,8 +37,14 @@ const sections = [
   { id: "days", label: "Day by day" },
   { id: "logic", label: "Route logic" },
   { id: "practical", label: "Practical" },
+  { id: "stay", label: "Stay" },
   { id: "checklists", label: "Checklists" },
 ];
+
+/** Map each plan day to its drill-down guide slug. */
+const guideSlug: Record<string, string> = Object.fromEntries(
+  dayGuides.map((g) => [g.dayId, g.slug])
+);
 
 /** Map each day card to its overview-route color for the mini maps. */
 const dayColor: Record<string, string> = Object.fromEntries(
@@ -194,7 +203,7 @@ export default function IcelandTripPage() {
         <SectionHeading
           id="days"
           title="Day by day"
-          sub="Each day gets its own flow strip — the same language as the trip timeline — plus its route map, hour-by-hour plan, and the family notes that make it work. Friday and Saturday swap freely on weather."
+          sub="Each day gets its own flow strip — the same language as the trip timeline — plus its route map, hour-by-hour plan, and the family notes that make it work. The day-guide button on each card opens that day's full menu of stops, food, and photo spots — built to be used on the day itself. Friday and Saturday swap freely on weather."
         />
         <div className="mt-8 space-y-8">
           {days.map((d) => (
@@ -228,9 +237,19 @@ export default function IcelandTripPage() {
                         {d.intro}
                       </p>
                     </div>
-                    <span className="shrink-0 rounded-full bg-sea-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-sea-700">
-                      {d.badge}
-                    </span>
+                    <div className="flex shrink-0 flex-col items-end gap-2">
+                      <span className="rounded-full bg-sea-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-sea-700">
+                        {d.badge}
+                      </span>
+                      {guideSlug[d.id] && (
+                        <Link
+                          href={`/iceland/${guideSlug[d.id]}`}
+                          className="rounded-full bg-terracotta-600 px-3 py-1.5 text-xs font-bold text-white shadow-sm transition hover:bg-terracotta-500"
+                        >
+                          Open the day guide →
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -373,6 +392,70 @@ export default function IcelandTripPage() {
                 <span>{n.icon}</span> {n.title}
               </h3>
               <p className="mt-2.5 text-sm leading-relaxed text-sea-700">{n.detail}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Where to stay */}
+        <SectionHeading
+          id="stay"
+          title="Where to stay: the hotel search guide"
+          sub="One base for all four nights, so the neighborhood IS the decision. Aim for somewhere you can walk out of after dinner and be somewhere lovely in five minutes — these are the areas that deliver that, best first."
+        />
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {stayAreas.map((a, idx) => (
+            <article
+              key={a.name}
+              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-sea-900/5"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden bg-sand-100">
+                <SmartImage
+                  src={a.image ?? ""}
+                  alt={a.name}
+                  fallbackLabel={a.name}
+                  className="h-full w-full object-cover"
+                />
+                <span className="absolute left-2.5 top-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-sea-900/85 text-xs font-extrabold text-sand-50">
+                  {idx + 1}
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col p-4">
+                <div className="text-[11px] font-extrabold uppercase tracking-wider text-terracotta-600">
+                  {a.tag}
+                </div>
+                <h3 className="mt-1 font-display text-lg font-semibold leading-tight text-sea-900">
+                  {a.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-sea-700">{a.blurb}</p>
+              </div>
+            </article>
+          ))}
+          <div className="rounded-2xl bg-sand-50/60 p-3.5 ring-1 ring-sea-900/5">
+            <div className="text-[11px] font-extrabold uppercase tracking-wider text-terracotta-600">
+              The areas on the map
+            </div>
+            <div className="mt-2.5">
+              <IcelandDayMap
+                stops={stayAreas.map((a) => ({ name: a.name, lat: a.lat, lng: a.lng, note: a.tag }))}
+                color="#1d4f5c"
+                label="Map of recommended Reykjavík neighborhoods"
+                showLine={false}
+                maxZoom={13}
+              />
+            </div>
+            <p className="mt-2.5 text-xs leading-relaxed text-sea-700/80">
+              Numbers match the cards. Everything except Laugardalur keeps you in evening-stroll
+              range of the center.
+            </p>
+          </div>
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {stayTips.map((t) => (
+            <div key={t.title} className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-sea-900/5">
+              <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
+                <span>{t.icon}</span> {t.title}
+              </div>
+              <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{t.detail}</p>
             </div>
           ))}
         </div>
