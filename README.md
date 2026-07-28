@@ -75,6 +75,16 @@ vercel deploy --prod --yes --token <YOUR_VERCEL_TOKEN>
 Push this repo and, in the Vercel dashboard, choose **Add New → Project → Import Git
 Repository**. Next.js is detected automatically; no configuration needed.
 
+**Branch previews**
+
+The Git-connected project only builds production from `main`, so
+[`.github/workflows/vercel-preview.yml`](.github/workflows/vercel-preview.yml) deploys the
+Iceland branch to a Vercel *preview* on every push. It needs three repo secrets —
+`VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` (see the workflow header) — and skips
+with a warning until they exist. If you instead enable all-branch preview deployments in
+the Vercel dashboard (travel-2026 → Settings → Git), delete the workflow to avoid double
+builds.
+
 ## Notes
 
 - Spain and Portugal are intentionally excluded.

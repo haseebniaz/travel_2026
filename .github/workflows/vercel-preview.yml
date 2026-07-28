@@ -1,0 +1,72 @@
+# Deploys this branch to the travel-2026 Vercel project as a *preview*
+# deployment on every push (production from main is untouched).
+#
+# Needed once, in GitHub → Settings → Secrets and variables → Actions:
+#   VERCEL_TOKEN       vercel.com → Account Settings → Tokens
+#   VERCEL_ORG_ID      .vercel/project.json "orgId" (after `vercel link`), or team settings
+#   VERCEL_PROJECT_ID  .vercel/project.json "projectId", or travel-2026 → Settings → General
+#
+# Until the secrets exist, runs end early with a warning instead of failing.
+# Alternative with zero CI: enable preview deployments for all branches in the
+# Vercel dashboard (travel-2026 → Settings → Git) — if you do that, delete this
+# workflow so pushes don't build twice.
+
+name: Vercel preview deploy
+
+on:
+  push:
+    branches:
+      - claude/family-trip-flight-plan-vbh7wz # widen with a glob (e.g. "claude/**") to cover more branches
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Vercel secrets
+        id: guard
+        run: |
+          if [ -n "${{ secrets.VERCEL_TOKEN }}" ] && [ -n "${{ secrets.VERCEL_ORG_ID }}" ] && [ -n "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID secrets not set — skipping deploy. Add them in repo Settings → Secrets and variables → Actions."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.guard.outputs.ok == 'true'
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        if: steps.guard.outputs.ok == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Vercel CLI
+        if: steps.guard.outputs.ok == 'true'
+        run: npm install --global vercel
+
+      - name: Pull Vercel project settings
+        if: steps.guard.outputs.ok == 'true'
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build
+        if: steps.guard.outputs.ok == 'true'
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy preview
+        if: steps.guard.outputs.ok == 'true'
+        run: |
+          URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          echo "Preview deployed: $URL"
+          echo "### ✅ Vercel preview" >> "$GITHUB_STEP_SUMMARY"
+          echo "$URL" >> "$GITHUB_STEP_SUMMARY"
