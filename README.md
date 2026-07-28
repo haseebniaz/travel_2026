@@ -29,13 +29,21 @@ Périgord (France).
   west & islands options, food & drink, beaches, hour-by-hour perfect days,
   October events, a drive-time matrix, and budget ballparks, all with photos —
   content in [`src/data/sicily.ts`](src/data/sicily.ts)
+- **Iceland family trip** (`/iceland`): a separate, booked plan (SEA ⇄ KEF on
+  Icelandair, Aug 26–31 2026, two adults + kids 7 & 2) — flight cards, a visual
+  day-capacity trip timeline plus a matching per-day flow strip on every day
+  card, a toggleable one-color-per-day Leaflet route map, per-day mini maps with
+  numbered stops, hour-by-hour schedules, family/safety notes, practical notes,
+  and persistent book-&-pack checklists — content in
+  [`src/data/iceland.ts`](src/data/iceland.ts)
 - **Self-hosted real photos**: every destination's hero + gallery image is a real,
   freely-licensed photo from Wikimedia Commons, downloaded into
   [`public/images`](public/images) by [`scripts/fetch-photos.mjs`](scripts/fetch-photos.mjs)
   (then resized to ~1600px), so they always load from Vercel. Attribution for
   every photo is in [`public/images/CREDITS.md`](public/images/CREDITS.md).
   Re-fetch with `node scripts/fetch-photos.mjs` (needs network access to
-  `commons.wikimedia.org` / `upload.wikimedia.org`).
+  `commons.wikimedia.org` / `upload.wikimedia.org`); the Iceland set is
+  `node scripts/fetch-photos.mjs --iceland`.
 
 All trip content lives in one file: [`src/data/trips.ts`](src/data/trips.ts).
 

@@ -8,6 +8,7 @@
 //   node scripts/fetch-photos.mjs           download hero+gallery (GALLERY group)
 //   node scripts/fetch-photos.mjs --extra   download place + day photos only
 //   node scripts/fetch-photos.mjs --guide   download Sicily guide photos only
+//   node scripts/fetch-photos.mjs --iceland  download Iceland family-trip photos only
 //   node scripts/fetch-photos.mjs --all      download everything
 //   node scripts/fetch-photos.mjs --credits  (re)write CREDITS.md only, no download
 //
@@ -22,6 +23,7 @@ const args = process.argv.slice(2);
 const CREDITS_ONLY = args.includes("--credits");
 const EXTRA = args.includes("--extra");
 const GUIDE_FLAG = args.includes("--guide");
+const ICELAND_FLAG = args.includes("--iceland");
 const MISSING_ONLY = args.includes("--missing"); // skip slots whose file already exists
 const ALL = args.includes("--all");
 const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "images");
@@ -132,6 +134,27 @@ const GUIDE = {
   "caponata": ["Caponata", "Caponata siciliana"],
   "pistachio": ["Pistachio ice cream", "Pistachios", "Pistacchio di Bronte gelato"],
 };
+// Iceland family trip (/iceland) — named keys -> public/images/iceland-<key>.jpg
+const ICELAND = {
+  "hero": ["Blue Lagoon Grindavík", "Bláa lónið", "Blue Lagoon geothermal spa Iceland"],
+  "blue-lagoon": ["Blue Lagoon Iceland swimmers", "Blue Lagoon geothermal spa bathers", "Blue Lagoon Iceland"],
+  "reykjavik": ["Reykjavík colorful houses", "Reykjavik rooftops", "Reykjavík city centre"],
+  "hallgrimskirkja": ["Hallgrímskirkja", "Hallgrimskirkja Reykjavik", "Hallgrímskirkja church Iceland"],
+  "harpa": ["Harpa concert hall", "Harpa Reykjavík", "Harpa Reykjavik waterfront"],
+  "old-harbour": ["Reykjavík Old Harbour", "Reykjavik harbour boats", "Reykjavík harbour"],
+  "sun-voyager": ["Aurora over the Sun Voyager", "Sun Voyager sculpture", "Sólfarið"],
+  "perlan": ["Perlan Reykjavík", "Perlan museum Reykjavik", "Perlan building Iceland"],
+  "laugardalslaug": ["Laugardalslaug pool", "Sundlaugin Laugardalslaug", "Laugardalslaug Reykjavík"],
+  "thingvellir": ["Þingvellir National Park", "Thingvellir Almannagjá", "Þingvellir Iceland"],
+  "geysir": ["Strokkur eruption", "Strokkur geyser Iceland", "Geysir geothermal area"],
+  "gullfoss": ["Gullfoss", "Gullfoss waterfall Iceland", "Gullfoss canyon"],
+  "seljalandsfoss": ["Seljalandsfoss", "Seljalandsfoss waterfall", "Seljalandsfoss Iceland"],
+  "skogafoss": ["Skógafoss", "Skogafoss waterfall", "Skógafoss Iceland"],
+  "dyrholaey": ["Dyrhólaey", "Dyrholaey arch Iceland", "Dyrhólaey viewpoint"],
+  "reynisfjara": ["Reynisfjara", "Reynisfjara black sand beach", "Reynisdrangar Vík"],
+  "kef-airport": ["Keflavík International Airport", "Keflavik airport terminal", "Keflavík Airport Leifur Eiríksson"],
+};
+
 // Food photos would be excluded by BAD (it blocks generic food/dish noise), so those
 // keys use a lighter filter that only strips maps/flags/logos and the like.
 const RELAXED_BAD = /(\bmap\b|flag|coat[_ ]of[_ ]arms|locator|logo|\bseal\b|diagram|blazon|chart|icon|stamp|banknote|coin)/i;
@@ -210,9 +233,10 @@ function processSlot(name, queries, { download, bad = BAD }) {
   return false;
 }
 
-const doGallery = CREDITS_ONLY || ALL || (!EXTRA && !GUIDE_FLAG);
+const doGallery = CREDITS_ONLY || ALL || (!EXTRA && !GUIDE_FLAG && !ICELAND_FLAG);
 const doExtra = CREDITS_ONLY || ALL || EXTRA;
 const doGuide = CREDITS_ONLY || ALL || GUIDE_FLAG;
+const doIceland = CREDITS_ONLY || ALL || ICELAND_FLAG;
 const download = !CREDITS_ONLY;
 
 for (const [slug, slots] of Object.entries(GALLERY)) {
@@ -228,17 +252,32 @@ if (doGuide) {
     processSlot(`sicily-guide-${key}`, queries, { download, bad: GUIDE_RELAXED.has(key) ? RELAXED_BAD : BAD });
   }
 }
+if (doIceland) {
+  for (const [key, queries] of Object.entries(ICELAND)) processSlot(`iceland-${key}`, queries, { download });
+}
 
 // attribution file (sorted by filename)
 credits.sort((a, b) => a.file.localeCompare(b.file));
-const lines = [
+const entryFor = (c) => `- **${c.file}** — [${c.title}](${c.page}) · ${c.artist} · ${c.license}`;
+const header = [
   "# Photo credits", "",
   "All destination photos are from **Wikimedia Commons**, downloaded and self-hosted",
   "in this repo (see `scripts/fetch-photos.mjs`). Each entry lists the source file",
   "page, author, and license. Please retain attribution if you reuse them.", "",
 ];
-for (const c of credits) lines.push(`- **${c.file}** — [${c.title}](${c.page}) · ${c.artist} · ${c.license}`);
-if (CREDITS_ONLY) writeFileSync(join(OUT, "CREDITS.md"), lines.join("\n") + "\n");
+const creditsPath = join(OUT, "CREDITS.md");
+if (CREDITS_ONLY) {
+  writeFileSync(creditsPath, [...header, ...credits.map(entryFor)].join("\n") + "\n");
+} else if (credits.length) {
+  // merge this run's credits into the existing file, keyed by filename
+  const old = existsSync(creditsPath)
+    ? readFileSync(creditsPath, "utf8").split("\n").filter((l) => l.startsWith("- **"))
+    : [];
+  const merged = new Map(old.map((l) => [l.match(/^- \*\*(.+?)\*\*/)[1], l]));
+  for (const c of credits) merged.set(c.file, entryFor(c));
+  const rows = [...merged.values()].sort((a, b) => a.localeCompare(b));
+  writeFileSync(creditsPath, [...header, ...rows].join("\n") + "\n");
+}
 
 console.log(`\nDone: ${ok} ${CREDITS_ONLY ? "credits" : "downloaded"}, ${failures.length} failed.`);
 if (failures.length) console.log("Failed:", failures.join(", "));

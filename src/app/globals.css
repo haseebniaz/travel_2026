@@ -45,6 +45,21 @@ body {
   width: fit-content;
 }
 
+/* Numbered stop marker on the Iceland day maps (Leaflet divIcon) */
+.iceland-map-pin {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  color: #faf6f0;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  border: 2px solid rgba(250, 246, 240, 0.9);
+  box-shadow: 0 1px 5px rgba(15, 42, 49, 0.45);
+}
+
 /* Keep Leaflet popups on-brand */
 .leaflet-popup-content {
   font-family: var(--font-sans), system-ui, sans-serif;
