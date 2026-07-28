@@ -2,8 +2,9 @@
 // One extensive "field guide" per day, meant to be opened ON that day: options
 // for stops, off-the-beaten-path finds, photo spots, things to try, and places
 // to eat, so decisions take seconds instead of searches. Cards reuse the Place
-// shape and render with the existing Places grid; venues without a free photo
-// simply show the gradient fallback.
+// shape and render with the existing Places grid. Every card carries a photo
+// that is self-hosted in public/images (scripts/fetch-photos.mjs --iceland);
+// cards about a procedure rather than a place reuse the most apt trip photo.
 
 import type { Place } from "./trips";
 
@@ -59,36 +60,42 @@ export const dayGuides: DayGuide[] = [
             area: "Buffer beats speed",
             blurb:
               "Three hours sounds long until you add bag drop, security with a stroller, a diaper change, and a sit-down dinner. Arriving early converts stress into wandering time.",
+            image: g("sea-airport"),
           },
           {
             name: "Gate-check the stroller",
             area: "At the Icelandair desk",
             blurb:
               "Tag the stroller (and car seats if you bring your own) at check-in. Keep the stroller to the gate — you'll want it through the terminal — then collect it at the KEF jet bridge.",
+            image: g("airport-checkin"),
           },
           {
             name: "Find the play area",
             area: "Burn energy on purpose",
             blurb:
               "SEA has children's play areas — ask any agent for the nearest one to your gate and let the kids go hard. A tired 2-year-old at boarding is the whole strategy.",
+            image: g("playground"),
           },
           {
             name: "Water + snacks after security",
             area: "Refill culture",
             blurb:
               "Empty bottles through security, refill at fountains, and buy backup snacks. Icelandair's kids' meal exists but never bet a toddler's mood on airline catering.",
+            image: g("departure-board"),
           },
           {
             name: "Sit-down dinner, not gate snacks",
             area: "Eat before boarding",
             blurb:
               "A real table dinner around 5:00 means the flight's meal service can be skipped for sleep. Everyone boards fed and calm.",
+            image: g("burger"),
           },
           {
             name: "Pajamas before boarding",
             area: "The bedtime signal",
             blurb:
               "Change both kids into pajamas at the gate and brush teeth in the bathroom by the gate. On board, it's story → lights out — the routine says 'night', even at 35,000 ft.",
+            image: g("plane-cabin"),
           },
         ],
       },
@@ -143,12 +150,14 @@ export const dayGuides: DayGuide[] = [
             area: "Silica survival",
             blurb:
               "Slather the free conditioner in everyone's hair BEFORE the water and leave it in. Hair ties for anyone with length — silica takes days to wash out otherwise.",
+            image: g("lagoon-bridge"),
           },
           {
             name: "Claim a shallow corner",
             area: "With the floaties",
             blurb:
               "The lagoon has shallow edges near the silica bar where the 2-year-old can stand. Both kids wear the provided floaties, always within arm's reach — the water is milky-opaque.",
+            image: i("blue-lagoon"),
           },
           {
             name: "Silica mask family photo",
@@ -161,12 +170,14 @@ export const dayGuides: DayGuide[] = [
             name: "In-water drinks break",
             area: "Kids' slush exists",
             blurb: "The swim-up bar does smoothies/slush for kids and a beer or skyr smoothie for adults. One round, mid-soak, is the perfect reset.",
+            image: i("hero"),
           },
           {
             name: "The lava boardwalk after",
             area: "15 min · dry clothes on",
             blurb:
               "Once changed, the boardwalk loop around the lagoon's outflow ponds gives the otherworldly blue-on-black photos without anyone getting wet again.",
+            image: g("lava-flow"),
           },
         ],
       },
@@ -262,6 +273,7 @@ export const dayGuides: DayGuide[] = [
             name: "Appelsín + Kristall",
             area: "The local sodas",
             blurb: "Orange Appelsín for the kids, flavored Kristall sparkling water for the adults — the road-trip drinks sorted for the whole week.",
+            image: g("bonus-store"),
           },
         ],
       },
@@ -281,17 +293,20 @@ export const dayGuides: DayGuide[] = [
             name: "Hamborgarabúllan",
             area: "Old Harbour",
             blurb: "Tommi's burger joint: simple burgers, crinkle fries, milkshakes. Zero-risk with a 7-year-old and steps from the harbour walk.",
+            image: g("burger"),
           },
           {
             name: "Reykjavík Fish",
             area: "Tryggvagata",
             blurb: "Casual fish & chips done properly (try the plokkfiskur — Icelandic fish mash). Quick counter service, kids' portions.",
+            image: g("fish-chips"),
           },
           {
             name: "Grocery-run dinner",
             area: "Bónus / Krónan",
             blurb:
               "Nobody would judge: skyr, bread, fruit, and bed by 8. Do the shop tonight regardless — breakfasts and road snacks for the whole trip.",
+            image: g("bonus-store"),
           },
         ],
       },
@@ -436,6 +451,7 @@ export const dayGuides: DayGuide[] = [
             area: "The walk to Strokkur",
             blurb:
               "The path passes steaming vents and boiling blue pools — hold hands here (it's genuinely hot) and let the sulfur smell become the day's running joke.",
+            image: g("geysir-pool"),
           },
         ],
       },
@@ -455,16 +471,19 @@ export const dayGuides: DayGuide[] = [
             name: "Geysir Center food court",
             area: "Across from Strokkur",
             blurb: "Cafeteria speed: soup, sandwiches, kids' plates, clean bathrooms. Not memorable, perfectly efficient — the default if Friðheimar is full.",
+            image: g("food-hall"),
           },
           {
             name: "Picnic at Faxi",
             area: "Grocery-run version",
             blurb: "If the weather's kind, yesterday's Bónus haul on Faxi's grassy bank beats any restaurant queue.",
+            image: g("faxi"),
           },
           {
             name: "Efstidalur upstairs",
             area: "The bigger farm meal",
             blurb: "Above the ice-cream barn there's a proper farm restaurant (burgers from their own herd) — works as either lunch or the treat stop.",
+            image: g("efstidalur"),
           },
         ],
       },
@@ -477,21 +496,25 @@ export const dayGuides: DayGuide[] = [
             name: "Mid-rift on Almannagjá",
             area: "Þingvellir",
             blurb: "Family on the path, rift walls on both sides — the 'standing between continents' shot.",
+            image: g("almannagja"),
           },
           {
             name: "Strokkur's blue bubble",
             area: "Geysir",
             blurb: "Burst photos are luck; the swelling turquoise dome a half-second before is skill. Burst mode, kids' reaction faces in frame.",
+            image: i("geysir"),
           },
           {
             name: "Gullfoss from the upper trail",
             area: "Rainbow hour",
             blurb: "Late morning to midday sun puts rainbows in the spray. Shoot from the upper platform with the canyon running away to the right.",
+            image: i("gullfoss"),
           },
           {
             name: "Kerið's red rim",
             area: "If you stop",
             blurb: "Red slopes, teal lake, tiny people on the rim path — phone-wide from the entrance stairs gets it all.",
+            image: g("kerid"),
           },
         ],
       },
@@ -551,6 +574,7 @@ export const dayGuides: DayGuide[] = [
             name: "Lunch in Vík",
             area: "Stop 3 · 1:00",
             blurb: "A real sit-down reset under the red-roofed church hill. Options below — pick by queue length, not reviews.",
+            image: g("vik-town"),
           },
           {
             name: "Dyrhólaey viewpoint",
@@ -653,11 +677,13 @@ export const dayGuides: DayGuide[] = [
             area: "Vík · book if weather turns",
             blurb:
               "Real molten lava poured in front of you, indoors — the only place on Earth doing it. ~50 minutes, kids gasp audibly. The perfect Plan B if the coast blows sideways.",
+            image: g("lava-flow"),
           },
           {
             name: "Skool Beans",
             area: "Vík · a yellow school bus",
             blurb: "Hot chocolate served from a converted American school bus with a resident cat. The kids will talk about the bus, not the waterfalls.",
+            image: g("cinnamon-bun"),
           },
           {
             name: "Kleina at a bakery stop",
@@ -683,21 +709,25 @@ export const dayGuides: DayGuide[] = [
             area: "Below Eyjafjallajökull",
             blurb:
               "'The Old Cowshed' — a farm restaurant in the actual 1919 barn, burgers and stews from their own cattle. The most character per kid-friendly seat on the coast.",
+            image: g("efstidalur"),
           },
           {
             name: "Black Crust Pizzeria",
             area: "Vík",
             blurb: "Lava-black pizza dough the kids will demand to photograph before eating. Quick, warm, right on the main street.",
+            image: g("pizza"),
           },
           {
             name: "The Soup Company",
             area: "Vík",
             blurb: "Hearty soups in bread bowls (the 'lava' beef soup is the move). Fast service built for road-trippers.",
+            image: g("lamb-soup"),
           },
           {
             name: "Suður-Vík",
             area: "Vík · the sit-down option",
             blurb: "The proper restaurant in the old house on the hill — book-ish on summer weekends, worth it if the day is running ahead of schedule.",
+            image: g("vik-church"),
           },
         ],
       },
@@ -710,21 +740,25 @@ export const dayGuides: DayGuide[] = [
             name: "Inside Gljúfrabúi's chamber",
             area: "Waterproof the phone",
             blurb: "Spray + the light shaft from above = the trip's most atmospheric picture. Ziplock bag, wipe the lens, shoot up.",
+            image: g("gljufrabui"),
           },
           {
             name: "Skógafoss rainbow, people for scale",
             area: "From the river gravel",
             blurb: "Put the family small in frame at the base — the 60 m curtain does the rest.",
+            image: i("skogafoss"),
           },
           {
             name: "Reynisdrangar from Dyrhólaey",
             area: "The safe black-sand shot",
             blurb: "The sea stacks and infinite black beach, photographed from above with zero wave risk. This is the postcard, minus the danger.",
+            image: g("reynisdrangar"),
           },
           {
             name: "Glacier blue at Sólheimajökull",
             area: "Overlook rail",
             blurb: "Ash-striped ice and the meltwater lagoon — zoom past the people at the rail and it looks like an expedition.",
+            image: g("solheimajokull"),
           },
         ],
       },
@@ -776,17 +810,20 @@ export const dayGuides: DayGuide[] = [
             area: "Real 350-ton glacier ice",
             blurb:
               "A 100-metre tunnel of actual ice, kept at −10°C — jackets are provided-ish but bring your own layers. The 2-year-old's face at the entrance is the photo.",
+            image: g("ice-cave"),
           },
           {
             name: "Látrabjarg cliff wall",
             area: "Forces of Nature hall",
             blurb: "A ten-metre replica bird cliff with projected puffins and a floor that rumbles for earthquakes — the room kids refuse to leave.",
+            image: g("latrabjarg"),
           },
           {
             name: "Áróra planetarium show",
             area: "Timed entries",
             blurb:
               "The northern-lights dome film is the closest August gets to auroras. Check the schedule at the desk on arrival and build the visit around it.",
+            image: g("aurora"),
           },
           {
             name: "The observation deck",
@@ -860,11 +897,13 @@ export const dayGuides: DayGuide[] = [
             name: "Omnom chocolate",
             area: "Grandi flagship",
             blurb: "Iceland's bean-to-bar star — the shop pours hot chocolate and sells the wrappers-too-pretty-to-open bars that solve every gift obligation at once.",
+            image: g("chocolate"),
           },
           {
             name: "Valdís",
             area: "Grandi's ice-cream queue",
             blurb: "The city's favorite scoop shop. A queue out the door in any weather; the Turkish pepper flavor is a dare, the caramel is the answer.",
+            image: g("ice-cream"),
           },
           {
             name: "Harpa's honeycomb, again",
@@ -895,6 +934,7 @@ export const dayGuides: DayGuide[] = [
             name: "Sundlaug etiquette",
             area: "If the pool wins",
             blurb: "Icelandic pools require a proper naked pre-swim shower (attendants enforce it kindly). Brief the 7-year-old in advance and it becomes cultural anthropology, not embarrassment.",
+            image: i("laugardalslaug"),
           },
         ],
       },
@@ -907,21 +947,25 @@ export const dayGuides: DayGuide[] = [
             name: "Grandi Mathöll",
             area: "Food hall · everyone picks",
             blurb: "A converted fish factory where the 7-year-old gets fish & chips, the toddler gets fries, and the adults get lamb — no negotiation required.",
+            image: g("food-hall"),
           },
           {
             name: "Flatey Pizza",
             area: "Grandi",
             blurb: "Neapolitan pizza in a bright room, out in 40 minutes — the reliable last-supper pick.",
+            image: g("pizza"),
           },
           {
             name: "Hlemmur Mathöll",
             area: "If you stayed east",
             blurb: "The original food hall: bánh mì, tacos, and Skál's Icelandic plates under one roof, five minutes from east-end apartments.",
+            image: g("hlemmur"),
           },
           {
             name: "The grocery finale",
             area: "Krónan run",
             blurb: "Dinner-lite plus tomorrow's plane snacks and the last skyr load-out in one stop — honestly the correct choice before a 5:45 wake-up.",
+            image: g("bonus-store"),
           },
         ],
       },
@@ -974,16 +1018,19 @@ export const dayGuides: DayGuide[] = [
             name: "Bag drop + family lane",
             area: "Icelandair counters",
             blurb: "Online check-in done last night means bag-drop only. KEF security usually waves strollers and car-seat families into the wider lane — ask.",
+            image: g("airport-checkin"),
           },
           {
             name: "US passport control",
             area: "After main security",
             blurb: "North America flights clear an extra passport check deeper in the terminal — don't linger shopping before it. Shop on the far side instead.",
+            image: g("departure-board"),
           },
           {
             name: "The play corner + water refill",
             area: "Near the D/A gates",
             blurb: "Let the toddler run the last energy out at the small play area, refill bottles, then board calm. Stroller goes at the jet bridge.",
+            image: g("playground"),
           },
         ],
       },
@@ -996,11 +1043,13 @@ export const dayGuides: DayGuide[] = [
             name: "Omnom + licorice load-out",
             area: "Duty-free",
             blurb: "Omnom bars for gifts, Opal/Appolo licorice for the brave, Nóa Kropp for the plane — one basket, done.",
+            image: g("licorice"),
           },
           {
             name: "Blue Lagoon minis",
             area: "Duty-free skincare",
             blurb: "The silica/algae minis are the lagoon in carry-on form — the wife-approved souvenir if Thursday's visit landed.",
+            image: g("lagoon-bridge"),
           },
           {
             name: "One last skyr",
@@ -1012,6 +1061,7 @@ export const dayGuides: DayGuide[] = [
             name: "The wool question",
             area: "66°North / Icewear",
             blurb: "Airport lopapeysa prices sting ~15% over downtown — buy only if Sunday's wool-shop window is still haunting you.",
+            image: g("lopapeysa"),
           },
         ],
       },

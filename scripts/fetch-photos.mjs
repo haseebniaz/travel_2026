@@ -140,7 +140,7 @@ const ICELAND = {
   "blue-lagoon": ["Blue Lagoon Iceland swimmers", "Blue Lagoon geothermal spa bathers", "Blue Lagoon Iceland"],
   "reykjavik": ["Reykjavík colorful houses", "Reykjavik rooftops", "Reykjavík city centre"],
   "hallgrimskirkja": ["Hallgrímskirkja", "Hallgrimskirkja Reykjavik", "Hallgrímskirkja church Iceland"],
-  "harpa": ["Harpa concert hall", "Harpa Reykjavík", "Harpa Reykjavik waterfront"],
+  "harpa": ["File:Reykjavik-42-vom Hallgrimskirchturm-Harpa-2018-gje.jpg", "Harpa (38859105685)"],
   "old-harbour": ["Reykjavik old harbour panorama", "Reykjavíkurhöfn", "Old harbour Reykjavik boats"],
   "sun-voyager": ["Aurora over the Sun Voyager", "Sun Voyager sculpture", "Sólfarið"],
   "perlan": ["Perlan Reykjavík", "Perlan museum Reykjavik", "Perlan building Iceland"],
@@ -156,7 +156,7 @@ const ICELAND = {
   // where-to-stay section
   "rainbow-street": ["Skólavörðustígur rainbow", "Rainbow street Reykjavík", "Skólavörðustígur"],
   "laugavegur": ["Laugavegur street Reykjavík", "Laugavegur shopping street", "Laugavegur in Reykjavík"],
-  "tjornin": ["Tjörnin", "Tjörnin Reykjavík", "Reykjavik pond Tjornin"],
+  "tjornin": ["Tjörnin lake, Reykjavík", "On the lake Tjörnin in Reykjavík", "Park at the Tjörnin lake in Reykjavík"],
   "grotta": ["Grótta", "Grotta lighthouse", "Grótta Seltjarnarnes"],
 };
 
@@ -180,7 +180,7 @@ const ICELAND_GUIDE = {
   "solheimajokull": ["Sólheimajökull", "Solheimajokull glacier", "Sólheimajökull glacier tongue"],
   "dyrholaey-lighthouse": ["Dyrhólaey lighthouse", "Dyrholaey lighthouse Iceland", "Dyrhólaeyjarviti"],
   "vik-church": ["Vík í Mýrdal church", "Vik church Iceland", "Víkurkirkja"],
-  "eyjafjallajokull": ["Eyjafjallajökull", "Eyjafjallajokull from ring road", "Eyjafjallajökull volcano"],
+  "eyjafjallajokull": ["File:201708 Road near Þorvaldseyri 01.jpg", "File:201708 Road near Þorvaldseyri 02.jpg", "Eyjafjallajökull"],
   "plane-wreck": ["Sólheimasandur plane wreck", "Solheimasandur DC-3", "DC-3 wreck Iceland"],
   "seljavallalaug": ["Seljavallalaug", "Seljavallalaug pool", "Seljavallalaug swimming pool"],
   // Reykjavík day extras (Thursday evening / Sunday)
@@ -189,16 +189,45 @@ const ICELAND_GUIDE = {
   "husdyragardurinn": ["Húsdýragarðurinn", "Reykjavik family park and zoo", "Reykjavik petting zoo"],
   "videy": ["Viðey", "Videy island", "Viðey Reykjavík"],
   "botanical-garden": ["Grasagarður Reykjavíkur", "Reykjavik botanic garden", "Reykjavík botanical garden"],
-  "harpa-inside": ["Harpa interior", "Harpa concert hall interior", "Harpa glass facade inside"],
+  "harpa-inside": ["File:Concert at the Harpa in Reykjavik.jpg", "The grand tour (7985879663)"],
   // food & treats (relaxed filter)
   "hot-dog": ["Bæjarins beztu pylsur", "Icelandic hot dog", "Pylsa"],
   "skyr": ["Skyr", "Skyr Iceland", "Skyr dessert"],
-  "kleina": ["Kleina", "Kleinur", "Kleina pastry"],
-  "cinnamon-bun": ["Snúður", "Cinnamon bun bakery", "Cinnamon roll"],
+  "kleina": ["Kleinur pastry", "Icelandic kleinur", "Kleinur bakst"],
+  "cinnamon-bun": ["Cinnamon roll", "Cinnamon bun bakery", "Kanelbulle"],
+  // travel-day + procedural cards (every guide card gets a real photo)
+  "sea-airport": ["Seattle–Tacoma International Airport", "Seattle Tacoma International Airport terminal", "SeaTac Airport"],
+  "plane-cabin": ["Airliner cabin interior", "Boeing 737 cabin", "Aircraft cabin economy"],
+  "departure-board": ["Airport departure board", "Flight information display", "Airport information board"],
+  "airport-checkin": ["Airport check-in counter", "Airport security checkpoint", "Airport terminal check-in"],
+  "lagoon-bridge": ["Blue Lagoon bridge", "Blue Lagoon Iceland walkway", "Blue Lagoon Iceland steam"],
+  "bonus-store": ["Bónus", "Bonus supermarket Iceland", "Krónan supermarket"],
+  "lopapeysa": ["Lopapeysa", "Icelandic sweater", "Icelandic wool sweater"],
+  "licorice": ["Lakkrís", "Liquorice candy", "Icelandic liquorice"],
+  "chocolate": ["Chocolate bars stacked", "Dark chocolate pieces", "Schokoladentafel"],
+  "ice-cream": ["Ice cream cone", "Soft serve ice cream", "Ice cream shop"],
+  "fish-chips": ["Fish and chips", "Fried fish and chips", "Plokkfiskur"],
+  "burger": ["Hamburger and fries", "Cheeseburger", "Burger and chips"],
+  "pizza": ["Neapolitan pizza", "Pizza margherita", "Wood fired pizza"],
+  "hlemmur": ["Hlemmur", "Hlemmur Reykjavík", "Hlemmur square"],
+  "almannagja": ["Almannagjá", "Almannagja Thingvellir", "Almannagjá rift"],
+  "reynisdrangar": ["Reynisdrangar", "Reynisdrangar sea stacks", "Reynisdrangar Vík"],
+  "aurora": ["Aurora borealis Iceland", "Northern lights Iceland", "Aurora over Iceland"],
+  "ice-cave": ["Ice cave Iceland", "Glacier ice cave", "Ice cave Vatnajökull"],
+  "latrabjarg": ["Látrabjarg", "Puffin Iceland cliff", "Latrabjarg cliffs"],
+  "vik-town": ["Vík í Mýrdal village", "Vik Iceland town houses", "Vík í Mýrdal panorama"],
+  "lava-flow": ["Fagradalsfjall eruption 2021", "Lava fountain Iceland", "Holuhraun lava"],
+  "geysir-pool": ["Blesi hot spring", "Geysir hot spring blue", "Hot spring Haukadalur"],
+  "playground": ["Playground Reykjavík", "Children's playground", "Playground equipment"],
+  "food-hall": ["Market hall interior", "Mathallen Oslo", "Indoor food market stalls"],
   "lamb-soup": ["Kjötsúpa", "Icelandic meat soup", "Icelandic lamb soup"],
   "rye-bread": ["Rúgbrauð", "Icelandic rye bread", "Rugbraud"],
 };
-const ICELAND_RELAXED = new Set(["hot-dog", "skyr", "kleina", "cinnamon-bun", "lamb-soup", "rye-bread", "fridheimar", "efstidalur"]);
+const ICELAND_RELAXED = new Set([
+  "hot-dog", "skyr", "kleina", "cinnamon-bun", "lamb-soup", "rye-bread", "fridheimar", "efstidalur",
+  "lopapeysa", "licorice", "chocolate", "ice-cream", "fish-chips", "burger", "pizza",
+  "bonus-store", "food-hall", "playground", "plane-cabin", "departure-board", "airport-checkin",
+]);
 
 // Food photos would be excluded by BAD (it blocks generic food/dish noise), so those
 // keys use a lighter filter that only strips maps/flags/logos and the like.
@@ -213,6 +242,21 @@ function curlJSON(query) {
     "--data-urlencode", "generator=search",
     "--data-urlencode", `gsrsearch=${query} filetype:bitmap`,
     "--data-urlencode", "gsrnamespace=6", "--data-urlencode", "gsrlimit=15",
+    "--data-urlencode", "prop=imageinfo",
+    "--data-urlencode", "iiprop=url|size|mime|extmetadata", "--data-urlencode", "iiurlwidth=1600",
+  ];
+  return JSON.parse(execFileSync("curl", a, { maxBuffer: 64 * 1024 * 1024 }).toString());
+}
+
+// Exact-file lookup: a query written as "File:Some name.jpg" pins that Commons
+// file instead of searching (search ranking can be wrong — e.g. "Harpa" matches
+// a sea-snail species before the concert hall).
+function curlExact(title) {
+  const a = [
+    "-sS", "--compressed", "--max-time", "40", "--retry", "2", "--retry-delay", "1",
+    "-H", `User-Agent: ${UA}`, "-G", "https://commons.wikimedia.org/w/api.php",
+    "--data-urlencode", "action=query", "--data-urlencode", "format=json",
+    "--data-urlencode", `titles=${title}`,
     "--data-urlencode", "prop=imageinfo",
     "--data-urlencode", "iiprop=url|size|mime|extmetadata", "--data-urlencode", "iiurlwidth=1600",
   ];
@@ -249,7 +293,14 @@ function processSlot(name, queries, { download, bad = BAD }) {
   if (download && MISSING_ONLY && existsSync(dest)) return true;
   for (const q of queries) {
     let cands;
-    try { cands = candidates(curlJSON(q), bad); } catch { continue; }
+    try {
+      if (q.startsWith("File:")) {
+        const pages = Object.values(curlExact(q)?.query?.pages || {});
+        cands = pages.filter((p) => p.imageinfo && p.imageinfo[0]); // pinned: no filtering
+      } else {
+        cands = candidates(curlJSON(q), bad);
+      }
+    } catch { continue; }
     for (const p of cands) {
       const info = p.imageinfo[0];
       const meta = info.extmetadata || {};

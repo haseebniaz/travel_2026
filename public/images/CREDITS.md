@@ -117,28 +117,51 @@ page, author, and license. Please retain attribution if you reuse them.
 - **iceland-dyrholaey.jpg** — [File:Dyrhólaey Peninsula - view from Road number 215, Iceland, 20240720 0820 2819.jpg](https://commons.wikimedia.org/wiki/File:Dyrh%C3%B3laey_Peninsula_-_view_from_Road_number_215,_Iceland,_20240720_0820_2819.jpg) · Jakub Hałun · CC BY 4.0
 - **iceland-geysir.jpg** — [File:Strokkur geyser eruption, close-up view.jpg](https://commons.wikimedia.org/wiki/File:Strokkur_geyser_eruption,_close-up_view.jpg) · Andreas Tille · CC BY-SA 3.0
 - **iceland-grotta.jpg** — [File:Grótta, Seltjarnarnes, Iceland, 20230508 0946 5805.jpg](https://commons.wikimedia.org/wiki/File:Gr%C3%B3tta,_Seltjarnarnes,_Iceland,_20230508_0946_5805.jpg) · Jakub Hałun · CC BY-SA 4.0
+- **iceland-guide-airport-checkin.jpg** — [File:Kualanamu Airport check-in counter (2).jpg](https://commons.wikimedia.org/wiki/File:Kualanamu_Airport_check-in_counter_(2).jpg) · Sam Hidayat · CC BY-SA 4.0
+- **iceland-guide-almannagja.jpg** — [File:Þingvellir faille 2003.jpg](https://commons.wikimedia.org/wiki/File:%C3%9Eingvellir_faille_2003.jpg) · Laurent Deschodt The original uploader was Calbp at French Wikipedia. · CC BY 1.0
 - **iceland-guide-arbaer.jpg** — [File:Árbæjarsafn - panoramio.jpg](https://commons.wikimedia.org/wiki/File:%C3%81rb%C3%A6jarsafn_-_panoramio.jpg) · Jon Gretarsson · CC BY-SA 3.0
+- **iceland-guide-aurora.jpg** — [File:Aurora Borealis - Iceland - 2 Nov. 2013.jpg](https://commons.wikimedia.org/wiki/File:Aurora_Borealis_-_Iceland_-_2_Nov._2013.jpg) · Francisco Diez from Toronto, Canada · CC BY 2.0
+- **iceland-guide-bonus-store.jpg** — [File:17-08-05-Supermarkt-Bonus-Keflavik-RalfR-DSC 2603.jpg](https://commons.wikimedia.org/wiki/File:17-08-05-Supermarkt-Bonus-Keflavik-RalfR-DSC_2603.jpg) · Ralf Roletschek · GFDL 1.2
 - **iceland-guide-botanical-garden.jpg** — [File:Reykjavík Botanic Garden 2014-08-02.jpg](https://commons.wikimedia.org/wiki/File:Reykjav%C3%ADk_Botanic_Garden_2014-08-02.jpg) · Szilas · Public domain
 - **iceland-guide-bruarfoss.jpg** — [File:Brúarfoss (15657306391).jpg](https://commons.wikimedia.org/wiki/File:Br%C3%BAarfoss_(15657306391).jpg) · Milan Nykodym from Kutna Hora, Czech Republic · CC BY-SA 2.0
-- **iceland-guide-cinnamon-bun.jpg** — [File:EmiMa-042.jpg](https://commons.wikimedia.org/wiki/File:EmiMa-042.jpg) · Emanuel Jöbstl und Martin Thoma · CC0
+- **iceland-guide-burger.jpg** — [File:Homemade hamburger with french fries in Argentina.jpg](https://commons.wikimedia.org/wiki/File:Homemade_hamburger_with_french_fries_in_Argentina.jpg) · Horacio Cambeiro · CC BY-SA 3.0
+- **iceland-guide-chocolate.jpg** — [File:Chocolate.jpg](https://commons.wikimedia.org/wiki/File:Chocolate.jpg) · André Karwath aka Aka · CC BY-SA 2.5
+- **iceland-guide-cinnamon-bun.jpg** — [File:Rollo de canela (Cinnamon roll).jpg](https://commons.wikimedia.org/wiki/File:Rollo_de_canela_(Cinnamon_roll).jpg) · Horacio Cambeiro · CC BY-SA 3.0
+- **iceland-guide-departure-board.jpg** — [File:Flight departure board at Brisbane Airport, December 2022.jpg](https://commons.wikimedia.org/wiki/File:Flight_departure_board_at_Brisbane_Airport,_December_2022.jpg) · Kgbo · CC BY-SA 4.0
 - **iceland-guide-dyrholaey-lighthouse.jpg** — [File:Dyrhólaey lighthouse, Dyrhólaey, Mýrdalshreppur, Iceland, 20240720 0924 2857.jpg](https://commons.wikimedia.org/wiki/File:Dyrh%C3%B3laey_lighthouse,_Dyrh%C3%B3laey,_M%C3%BDrdalshreppur,_Iceland,_20240720_0924_2857.jpg) · Jakub Hałun · CC BY 4.0
 - **iceland-guide-efstidalur.jpg** — [File:Cow in Iceland.jpg](https://commons.wikimedia.org/wiki/File:Cow_in_Iceland.jpg) · Christian Bickel (user Fingalo) · CC BY-SA 2.0 de
-- **iceland-guide-eyjafjallajokull.jpg** — [File:Eyjafjallajökull.jpeg](https://commons.wikimedia.org/wiki/File:Eyjafjallaj%C3%B6kull.jpeg) · Andreas Tille · CC BY-SA 3.0
+- **iceland-guide-eyjafjallajokull.jpg** — [File:201708 Road near Þorvaldseyri 01.jpg](https://commons.wikimedia.org/wiki/File:201708_Road_near_%C3%9Eorvaldseyri_01.jpg) · Jonashtand · CC BY-SA 4.0
 - **iceland-guide-faxi.jpg** — [File:Faxi Waterfall.jpeg](https://commons.wikimedia.org/wiki/File:Faxi_Waterfall.jpeg) · Abderrahman Ait Ali from Stockholm · CC BY-SA 2.0
+- **iceland-guide-fish-chips.jpg** — [File:Fish and chips plate with peas.jpg](https://commons.wikimedia.org/wiki/File:Fish_and_chips_plate_with_peas.jpg) · Grendelkhan · CC BY-SA 4.0
+- **iceland-guide-food-hall.jpg** — [File:Central market hall, Budapest.jpg](https://commons.wikimedia.org/wiki/File:Central_market_hall,_Budapest.jpg) · András Osvát · CC BY-SA 3.0
 - **iceland-guide-fridheimar.jpg** — [File:Iceland - 2017-02-22 - Friðheimar Greenhouse - 3661.jpg](https://commons.wikimedia.org/wiki/File:Iceland_-_2017-02-22_-_Fri%C3%B0heimar_Greenhouse_-_3661.jpg) · Pierre-Selim Huard · CC BY 4.0
+- **iceland-guide-geysir-pool.jpg** — [File:Blesi, Área geotérmica de Geysir, Suðurland, Islandia, 2014-08-16, DD 093.JPG](https://commons.wikimedia.org/wiki/File:Blesi,_%C3%81rea_geot%C3%A9rmica_de_Geysir,_Su%C3%B0urland,_Islandia,_2014-08-16,_DD_093.JPG) · Diego Delso · CC BY-SA 4.0
 - **iceland-guide-gljufrabui.jpg** — [File:Gljúfrabúi, July 2019.jpg](https://commons.wikimedia.org/wiki/File:Glj%C3%BAfrab%C3%BAi,_July_2019.jpg) · Alexander Grebenkov · CC BY 3.0
-- **iceland-guide-harpa-inside.jpg** — [File:Harpa 20.jpg](https://commons.wikimedia.org/wiki/File:Harpa_20.jpg) · Jonathan Platteau · CC BY-SA 4.0
+- **iceland-guide-harpa-inside.jpg** — [File:Concert at the Harpa in Reykjavik.jpg](https://commons.wikimedia.org/wiki/File:Concert_at_the_Harpa_in_Reykjavik.jpg) · James Poulson · CC BY-SA 4.0
+- **iceland-guide-hlemmur.jpg** — [File:Hlemmur bus terminl 2013-09-18 20-45.jpg](https://commons.wikimedia.org/wiki/File:Hlemmur_bus_terminl_2013-09-18_20-45.jpg) · User:Jonasunn · CC BY-SA 3.0
 - **iceland-guide-hot-dog.jpg** — [File:Bæjarins beztu pylsur, Reykjavík.JPG](https://commons.wikimedia.org/wiki/File:B%C3%A6jarins_beztu_pylsur,_Reykjav%C3%ADk.JPG) · Wilhelm Thomas Fiege · CC BY-SA 3.0
 - **iceland-guide-husdyragardurinn.jpg** — [File:Reykjavík Zoo 2014-08-02-2.jpg](https://commons.wikimedia.org/wiki/File:Reykjav%C3%ADk_Zoo_2014-08-02-2.jpg) · Szilas · Public domain
+- **iceland-guide-ice-cave.jpg** — [File:Ice cave at Breiðamerkurjökull glacier, Iceland, 20240719 1548 2717.jpg](https://commons.wikimedia.org/wiki/File:Ice_cave_at_Brei%C3%B0amerkurj%C3%B6kull_glacier,_Iceland,_20240719_1548_2717.jpg) · Jakub Hałun · CC BY 4.0
+- **iceland-guide-ice-cream.jpg** — [File:Ice cream in cones.jpg](https://commons.wikimedia.org/wiki/File:Ice_cream_in_cones.jpg) · AlphaLemur · CC BY-SA 4.0
 - **iceland-guide-icelandic-horse.jpg** — [File:IcelandicHorseInWinter.jpg](https://commons.wikimedia.org/wiki/File:IcelandicHorseInWinter.jpg) · Andreas Tille · CC BY-SA 3.0
 - **iceland-guide-kerid.jpg** — [File:At the shore of Kerið crater lake.jpg](https://commons.wikimedia.org/wiki/File:At_the_shore_of_Keri%C3%B0_crater_lake.jpg) · Alexander Grebenkov · CC BY 3.0
-- **iceland-guide-kleina.jpg** — [File:Kleina, Neustadt an der Orla 2.jpg](https://commons.wikimedia.org/wiki/File:Kleina,_Neustadt_an_der_Orla_2.jpg) · Aschroet · CC0
+- **iceland-guide-kleina.jpg** — [File:Klejner yaz.jpg](https://commons.wikimedia.org/wiki/File:Klejner_yaz.jpg) · Yez Raphn from Bornholm, Denmark · CC BY-SA 2.0
 - **iceland-guide-kvernufoss.jpg** — [File:Kvernufoss.JPG](https://commons.wikimedia.org/wiki/File:Kvernufoss.JPG) · Bromr · CC BY-SA 3.0
+- **iceland-guide-lagoon-bridge.jpg** — [File:Bridge at Blue Lagoon.jpg](https://commons.wikimedia.org/wiki/File:Bridge_at_Blue_Lagoon.jpg) · Vestman from Helsinki, Finland · CC BY 2.0
 - **iceland-guide-lamb-soup.jpg** — [File:Meat soup.JPG](https://commons.wikimedia.org/wiki/File:Meat_soup.JPG) · SeppVei · Public domain
+- **iceland-guide-latrabjarg.jpg** — [File:Puffin Latrabjarg Iceland.jpg](https://commons.wikimedia.org/wiki/File:Puffin_Latrabjarg_Iceland.jpg) · Boaworm · CC BY 3.0
 - **iceland-guide-laugarvatn.jpg** — [File:Laugarvatn.jpg](https://commons.wikimedia.org/wiki/File:Laugarvatn.jpg) · Andreas Tille · CC BY-SA 4.0
+- **iceland-guide-lava-flow.jpg** — [File:Fagradalsfjall volcanic eruption - 2021.jpg](https://commons.wikimedia.org/wiki/File:Fagradalsfjall_volcanic_eruption_-_2021.jpg) · Government of Iceland · Attribution
+- **iceland-guide-licorice.jpg** — [File:Silver rings on licorice candy rolls by ASQ.jpg](https://commons.wikimedia.org/wiki/File:Silver_rings_on_licorice_candy_rolls_by_ASQ.jpg) · W.carter · CC BY 4.0
+- **iceland-guide-lopapeysa.jpg** — [File:Islandpullover 004.jpg](https://commons.wikimedia.org/wiki/File:Islandpullover_004.jpg) · Freimut Bahlo · CC BY-SA 3.0
 - **iceland-guide-oxararfoss.jpg** — [File:Öxarárfoss, Parque Nacional de Þingvellir, Suðurland, Islandia, 2014-08-16, DD 029.JPG](https://commons.wikimedia.org/wiki/File:%C3%96xar%C3%A1rfoss,_Parque_Nacional_de_%C3%9Eingvellir,_Su%C3%B0urland,_Islandia,_2014-08-16,_DD_029.JPG) · Diego Delso · CC BY-SA 4.0
+- **iceland-guide-pizza.jpg** — [File:Pizza Tradición Napolitana.jpg](https://commons.wikimedia.org/wiki/File:Pizza_Tradici%C3%B3n_Napolitana.jpg) · Rjcastillo · CC BY-SA 4.0
+- **iceland-guide-plane-cabin.jpg** — [File:Cabin of B 737 2015-06 616.jpg](https://commons.wikimedia.org/wiki/File:Cabin_of_B_737_2015-06_616.jpg) · Chris Light · CC BY-SA 4.0
 - **iceland-guide-plane-wreck.jpg** — [File:Sólheimasandur Plane Wreck, South Iceland (37890722862) (2).jpg](https://commons.wikimedia.org/wiki/File:S%C3%B3lheimasandur_Plane_Wreck,_South_Iceland_(37890722862)_(2).jpg) · sikeri from Silver Spring, MD, USA · CC BY 2.0
+- **iceland-guide-playground.jpg** — [File:Swing riding in a playground of Reykjavík 2023-09-20-1.jpg](https://commons.wikimedia.org/wiki/File:Swing_riding_in_a_playground_of_Reykjav%C3%ADk_2023-09-20-1.jpg) · Alexey Komarov · CC BY-SA 4.0
+- **iceland-guide-reynisdrangar.jpg** — [File:Reynisdrangar basalt rocks.jpg](https://commons.wikimedia.org/wiki/File:Reynisdrangar_basalt_rocks.jpg) · Jakub Fryš · CC BY-SA 4.0
 - **iceland-guide-rye-bread.jpg** — [File:Rugbrød.JPG](https://commons.wikimedia.org/wiki/File:Rugbr%C3%B8d.JPG) · No machine-readable author provided. Sten assumed (based on copyright claims). · CC BY-SA 3.0
+- **iceland-guide-sea-airport.jpg** — [File:Lufthansa A340 at Seattle–Tacoma International Airport.jpg](https://commons.wikimedia.org/wiki/File:Lufthansa_A340_at_Seattle%E2%80%93Tacoma_International_Airport.jpg) · Quintin Soloviev · CC BY 4.0
 - **iceland-guide-seljavallalaug.jpg** — [File:Seljavallalaug.JPG](https://commons.wikimedia.org/wiki/File:Seljavallalaug.JPG) · Óðinn · CC BY-SA 2.5 ca
 - **iceland-guide-silfra.jpg** — [File:Cañón Silfra, Parque Nacional de Þingvellir, Suðurland, Islandia, 2014-08-16, DD 055.JPG](https://commons.wikimedia.org/wiki/File:Ca%C3%B1%C3%B3n_Silfra,_Parque_Nacional_de_%C3%9Eingvellir,_Su%C3%B0urland,_Islandia,_2014-08-16,_DD_055.JPG) · Diego Delso · CC BY-SA 4.0
 - **iceland-guide-skalholt.jpg** — [File:Skálholt fornminnjar.jpg](https://commons.wikimedia.org/wiki/File:Sk%C3%A1lholt_fornminnjar.jpg) · Salvör Gissurardóttir · Public domain
@@ -147,10 +170,11 @@ page, author, and license. Please retain attribution if you reuse them.
 - **iceland-guide-solheimajokull.jpg** — [File:Sólheimajökull-Glacier-Pistol-Squat.jpg](https://commons.wikimedia.org/wiki/File:S%C3%B3lheimaj%C3%B6kull-Glacier-Pistol-Squat.jpg) · FeldBum · CC BY-SA 4.0
 - **iceland-guide-videy.jpg** — [File:Viðey island.jpg](https://commons.wikimedia.org/wiki/File:Vi%C3%B0ey_island.jpg) · Slawojar · CC BY-SA 4.0
 - **iceland-guide-vik-church.jpg** — [File:Church of light.jpg](https://commons.wikimedia.org/wiki/File:Church_of_light.jpg) · AstroAnthony · CC BY 4.0
+- **iceland-guide-vik-town.jpg** — [File:Village of Vík í Mýrdal - 2013.08 - panoramio.jpg](https://commons.wikimedia.org/wiki/File:Village_of_V%C3%ADk_%C3%AD_M%C3%BDrdal_-_2013.08_-_panoramio.jpg) · rheins · CC BY 3.0
 - **iceland-guide-whales-of-iceland.jpg** — [File:031 Humpback whale lobtailing Photo by Giles Laurent.jpg](https://commons.wikimedia.org/wiki/File:031_Humpback_whale_lobtailing_Photo_by_Giles_Laurent.jpg) · Giles Laurent · CC BY-SA 4.0
 - **iceland-gullfoss.jpg** — [File:Gullfoss, Suðurland, Islandia, 2014-08-16, DD 119.JPG](https://commons.wikimedia.org/wiki/File:Gullfoss,_Su%C3%B0urland,_Islandia,_2014-08-16,_DD_119.JPG) · Diego Delso · CC BY-SA 4.0
 - **iceland-hallgrimskirkja.jpg** — [File:Hallgrímskirkja Reykjavík Iceland HDSR 2019 10 20 9999 439.jpg](https://commons.wikimedia.org/wiki/File:Hallgr%C3%ADmskirkja_Reykjav%C3%ADk_Iceland_HDSR_2019_10_20_9999_439.jpg) · Hyppolyte de Saint-Rambert · CC BY-SA 4.0
-- **iceland-harpa.jpg** — [File:Harpa harpa 01.jpg](https://commons.wikimedia.org/wiki/File:Harpa_harpa_01.jpg) · H. Zell · CC BY-SA 3.0
+- **iceland-harpa.jpg** — [File:Reykjavik-42-vom Hallgrimskirchturm-Harpa-2018-gje.jpg](https://commons.wikimedia.org/wiki/File:Reykjavik-42-vom_Hallgrimskirchturm-Harpa-2018-gje.jpg) · Gerd Eichmann · CC BY-SA 4.0
 - **iceland-hero.jpg** — [File:Blue Lagoon Geothermal Spa, Grindavík, Iceland (37917013312).jpg](https://commons.wikimedia.org/wiki/File:Blue_Lagoon_Geothermal_Spa,_Grindav%C3%ADk,_Iceland_(37917013312).jpg) · sikeri from Silver Spring, MD, USA · CC BY 2.0
 - **iceland-kef-airport.jpg** — [File:SSJ100 Keflavik runways (5160518757).jpg](https://commons.wikimedia.org/wiki/File:SSJ100_Keflavik_runways_(5160518757).jpg) · SuperJet International · CC BY-SA 2.0
 - **iceland-laugardalslaug.jpg** — [File:Laugardalslaug tribune.jpg](https://commons.wikimedia.org/wiki/File:Laugardalslaug_tribune.jpg) · Ohlen · Public domain
@@ -164,7 +188,7 @@ page, author, and license. Please retain attribution if you reuse them.
 - **iceland-skogafoss.jpg** — [File:Skógafoss July 2014.JPG](https://commons.wikimedia.org/wiki/File:Sk%C3%B3gafoss_July_2014.JPG) · Martin Falbisoner · CC BY-SA 4.0
 - **iceland-sun-voyager.jpg** — [File:Aurora over the Sun Voyager, Central Reykjavik (37291306216).jpg](https://commons.wikimedia.org/wiki/File:Aurora_over_the_Sun_Voyager,_Central_Reykjavik_(37291306216).jpg) · john.purvis · CC BY 2.0
 - **iceland-thingvellir.jpg** — [File:Roca de la Ley, Parque Nacional de Þingvellir, Suðurland, Islandia, 2014-08-16, DD 022.JPG](https://commons.wikimedia.org/wiki/File:Roca_de_la_Ley,_Parque_Nacional_de_%C3%9Eingvellir,_Su%C3%B0urland,_Islandia,_2014-08-16,_DD_022.JPG) · Diego Delso · CC BY-SA 4.0
-- **iceland-tjornin.jpg** — [File:Tjörnin in Reykjavík with turf, 1988.jpg](https://commons.wikimedia.org/wiki/File:Tj%C3%B6rnin_in_Reykjav%C3%ADk_with_turf,_1988.jpg) · Ian Watson · CC0
+- **iceland-tjornin.jpg** — [File:Lago Tjörnin, Reikiavik, Distrito de la Capital, Islandia, 2014-08-13, DD 087.JPG](https://commons.wikimedia.org/wiki/File:Lago_Tj%C3%B6rnin,_Reikiavik,_Distrito_de_la_Capital,_Islandia,_2014-08-13,_DD_087.JPG) · Diego Delso · CC BY-SA 4.0
 - **montenegro-kotor-day1.jpg** — [File:Kotor - Arms Square - North.jpg](https://commons.wikimedia.org/wiki/File:Kotor_-_Arms_Square_-_North.jpg) · Ingo Mehling · CC BY-SA 4.0
 - **montenegro-kotor-day2.jpg** — [File:Kotor City Wall.jpg](https://commons.wikimedia.org/wiki/File:Kotor_City_Wall.jpg) · Ingo Mehling · CC BY-SA 4.0
 - **montenegro-kotor-day3.jpg** — [File:Cetinje-Njeguši-Kotor, regionalni put R-1, Crna Gora 02.jpg](https://commons.wikimedia.org/wiki/File:Cetinje-Njegu%C5%A1i-Kotor,_regionalni_put_R-1,_Crna_Gora_02.jpg) · Milica Buha · CC BY-SA 4.0
