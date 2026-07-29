@@ -16,6 +16,8 @@ export type DaySegment = {
 export type FlowSegment = {
   kind: SegmentKind;
   label: string;
+  /** Compact label for the bar itself; `label` is always used in the legend. */
+  short?: string;
   from: string;
   to: string;
   pct: number;
@@ -247,8 +249,8 @@ export const days: PlanDay[] = [
     flowSpan: "Wednesday in Seattle · 8:00 AM → wheels-up 7:00 PM (PDT)",
     flow: [
       { kind: "flexible", label: "Home / final pack", from: "8:00", to: "3:30", pct: 47 },
-      { kind: "transfer", label: "To SEA · bags · security · dinner", from: "3:30", to: "7:00", pct: 22 },
-      { kind: "flight", label: "FI 682 departs — overnight", from: "7:00", to: "12:00", pct: 31 },
+      { kind: "transfer", label: "To SEA · bags · security · dinner", short: "To SEA · security", from: "3:30", to: "7:00", pct: 22 },
+      { kind: "flight", label: "FI 682 departs — overnight", short: "FI 682 · overnight", from: "7:00", to: "12:00", pct: 31 },
     ],
     photos: [],
     schedule: [
@@ -289,12 +291,12 @@ export const days: PlanDay[] = [
       "The most efficient place for the Blue Lagoon is between KEF and the city, immediately after landing — no backtracking, and the warm water resets everyone after the overnight flight.",
     flowSpan: "Thursday in Iceland · lands 9:25 AM → kids down ~9:00 PM",
     flow: [
-      { kind: "transfer", label: "Land · immigration · bags · car", from: "9:25", to: "10:45", pct: 12 },
-      { kind: "transfer", label: "Drive + buffer", from: "10:45", to: "12:00", pct: 11 },
+      { kind: "transfer", label: "Land · immigration · bags · car", short: "Land · bags", from: "9:25", to: "10:45", pct: 12 },
+      { kind: "transfer", label: "Drive + buffer", short: "Drive", from: "10:45", to: "12:00", pct: 11 },
       { kind: "sightseeing", label: "Blue Lagoon", from: "12:00", to: "2:30", pct: 22 },
-      { kind: "transfer", label: "To Reykjavík · check-in", from: "2:30", to: "4:00", pct: 13 },
+      { kind: "transfer", label: "To Reykjavík · check-in", short: "To Reykjavík", from: "2:30", to: "4:00", pct: 13 },
       { kind: "flexible", label: "Quiet time", from: "4:00", to: "5:30", pct: 13 },
-      { kind: "flexible", label: "Early dinner · short stroll", from: "5:30", to: "7:30", pct: 17 },
+      { kind: "flexible", label: "Early dinner · short stroll", short: "Dinner · stroll", from: "5:30", to: "7:30", pct: 17 },
       { kind: "sleep", label: "Early night", from: "7:30", to: "9:00", pct: 12 },
     ],
     photos: [
@@ -375,8 +377,8 @@ export const days: PlanDay[] = [
       { kind: "sightseeing", label: "Geysir + lunch", from: "11:30", to: "1:30", pct: 15 },
       { kind: "transfer", label: "Drive", from: "1:30", to: "2:00", pct: 4 },
       { kind: "sightseeing", label: "Gullfoss", from: "2:00", to: "3:00", pct: 8 },
-      { kind: "transfer", label: "Return — car nap", from: "3:00", to: "5:00", pct: 15 },
-      { kind: "flexible", label: "Dinner + easy evening", from: "5:00", to: "8:30", pct: 26 },
+      { kind: "transfer", label: "Return — car nap", short: "Return · car nap", from: "3:00", to: "5:00", pct: 15 },
+      { kind: "flexible", label: "Dinner + easy evening", short: "Dinner + evening", from: "5:00", to: "8:30", pct: 26 },
       { kind: "sleep", label: "Kids down", from: "8:30", to: "9:00", pct: 4 },
     ],
     photos: [
@@ -447,7 +449,7 @@ export const days: PlanDay[] = [
       "The longest outing of the trip, kept deliberately selective: two big waterfalls, a real sit-down lunch near Vík, and one elevated coastal viewpoint — then home.",
     flowSpan: "Saturday · out 8:00 AM → home ~6:00 PM, early night",
     flow: [
-      { kind: "flexible", label: "Breakfast · load car", from: "7:30", to: "8:00", pct: 4 },
+      { kind: "flexible", label: "Breakfast · load car", short: "Breakfast", from: "7:30", to: "8:00", pct: 4 },
       { kind: "transfer", label: "Drive out", from: "8:00", to: "9:45", pct: 13 },
       { kind: "sightseeing", label: "Seljalandsfoss", from: "9:45", to: "10:45", pct: 7 },
       { kind: "transfer", label: "Drive", from: "10:45", to: "11:15", pct: 4 },
@@ -455,7 +457,7 @@ export const days: PlanDay[] = [
       { kind: "transfer", label: "Drive to Vík", from: "12:15", to: "1:00", pct: 6 },
       { kind: "flexible", label: "Lunch in Vík", from: "1:00", to: "2:00", pct: 7 },
       { kind: "sightseeing", label: "Dyrhólaey", from: "2:20", to: "3:15", pct: 8 },
-      { kind: "transfer", label: "Return — car nap", from: "3:15", to: "6:00", pct: 20 },
+      { kind: "transfer", label: "Return — car nap", short: "Return · car nap", from: "3:15", to: "6:00", pct: 20 },
       { kind: "flexible", label: "Easy dinner", from: "6:00", to: "7:30", pct: 11 },
       { kind: "sleep", label: "Early night", from: "7:30", to: "9:00", pct: 13 },
     ],
@@ -540,14 +542,14 @@ export const days: PlanDay[] = [
       "The pressure-release day the Monday flight makes possible: an indoor museum morning, a real nap, one easy outing, and a calm pack-up — no long driving at all.",
     flowSpan: "Sunday · local all day, kids down by 8:00 PM",
     flow: [
-      { kind: "flexible", label: "Slow breakfast", from: "8:00", to: "9:30", pct: 12 },
+      { kind: "flexible", label: "Slow breakfast", short: "Breakfast", from: "8:00", to: "9:30", pct: 12 },
       { kind: "sightseeing", label: "Perlan", from: "9:30", to: "12:00", pct: 19 },
       { kind: "flexible", label: "Lunch", from: "12:00", to: "1:30", pct: 12 },
-      { kind: "sleep", label: "Nap + packing reset", from: "1:30", to: "3:30", pct: 15 },
-      { kind: "sightseeing", label: "Harbour walk or pool", from: "3:30", to: "5:30", pct: 15 },
+      { kind: "sleep", label: "Nap + packing reset", short: "Nap + packing", from: "1:30", to: "3:30", pct: 15 },
+      { kind: "sightseeing", label: "Harbour walk or pool", short: "Harbour / pool", from: "3:30", to: "5:30", pct: 15 },
       { kind: "flexible", label: "Early dinner", from: "5:30", to: "6:30", pct: 8 },
-      { kind: "flexible", label: "Stage bags · fuel car", from: "6:30", to: "8:00", pct: 12 },
-      { kind: "sleep", label: "Everyone down early", from: "8:00", to: "9:00", pct: 7 },
+      { kind: "flexible", label: "Stage bags · fuel car", short: "Stage bags", from: "6:30", to: "8:00", pct: 12 },
+      { kind: "sleep", label: "Everyone down early", short: "Down early", from: "8:00", to: "9:00", pct: 7 },
     ],
     photos: [
       { file: "iceland-perlan", caption: "The view from Perlan's observation deck — city, bay, and Esja" },
@@ -619,10 +621,10 @@ export const days: PlanDay[] = [
       "Intentionally boring: hotel → KEF → flight. Every piece of complexity was removed on Sunday night, so the morning is just execution.",
     flowSpan: "Monday · wake 5:45 AM → land Seattle 11:45 AM local",
     flow: [
-      { kind: "flexible", label: "Wake · dress · load", from: "5:45", to: "6:30", pct: 6 },
-      { kind: "transfer", label: "Drive + fuel + rental return", from: "6:30", to: "7:30", pct: 8 },
-      { kind: "transfer", label: "Check-in · security · passport", from: "7:30", to: "10:40", pct: 24 },
-      { kind: "flight", label: "FI 685 → SEA · lands 11:45 AM", from: "10:40", to: "6:45", pct: 62 },
+      { kind: "flexible", label: "Wake · dress · load", short: "Wake · load", from: "5:45", to: "6:30", pct: 6 },
+      { kind: "transfer", label: "Drive + fuel + rental return", short: "Drive + rental", from: "6:30", to: "7:30", pct: 8 },
+      { kind: "transfer", label: "Check-in · security · passport", short: "Check-in · security", from: "7:30", to: "10:40", pct: 24 },
+      { kind: "flight", label: "FI 685 → SEA · lands 11:45 AM", short: "FI 685 → SEA", from: "10:40", to: "6:45", pct: 62 },
     ],
     photos: [
       { file: "iceland-old-harbour", caption: "Last look at Reykjavík — the city day belonged to Sunday, not this morning" },

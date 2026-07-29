@@ -4,6 +4,12 @@ import { segmentStyles } from "./IcelandCapacityTimeline";
 /**
  * The per-day version of the trip timeline: a horizontal strip of the day's
  * blocks, sized to their share of the waking day, with a time-chip legend.
+ *
+ * Labels live inside a truncating block, so a label that outgrows its segment
+ * degrades to an ellipsis instead of being clipped mid-word on both sides;
+ * segments too narrow to read stay blank (the legend below names them all).
+ * Neighbouring blocks get a hairline divider so two same-coloured segments
+ * don't read as one merged block.
  */
 export default function IcelandDayFlow({
   flow,
@@ -26,12 +32,14 @@ export default function IcelandDayFlow({
           <div
             key={i}
             title={`${s.from}–${s.to} · ${s.label}`}
-            className={`flex items-center justify-center overflow-hidden whitespace-nowrap text-[10px] font-bold ${segmentStyles[s.kind]}`}
+            className={`min-w-0 ${i > 0 ? "border-l border-white/35" : ""} ${segmentStyles[s.kind]}`}
             style={{ width: `${s.pct}%` }}
           >
-            {/* Only label segments the text actually fits in, and only on sm+ */}
-            {s.pct * 1.8 >= s.label.length + 2 && (
-              <span className="hidden sm:inline">{s.label}</span>
+            {/* Narrow slivers stay blank — the legend below names every block. */}
+            {s.pct >= 9 && (
+              <span className="hidden truncate px-1.5 text-center text-[10px] font-bold leading-9 sm:block">
+                {s.short ?? s.label}
+              </span>
             )}
           </div>
         ))}
