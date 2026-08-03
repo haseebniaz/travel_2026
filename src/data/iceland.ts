@@ -36,6 +36,12 @@ export type FlightLeg = {
   number: string;
   label: string;
   heading: string;
+  route: string; // "SEA – KEF"
+  date: string; // full booked date as it reads on the ticket
+  fare: string; // fare family, e.g. "Economy Light"
+  conditions: string; // e.g. "Non-refundable"
+  duration: string;
+  stops: string;
   rows: { time: string; place: string; note: string }[];
   note: string;
 };
@@ -98,6 +104,12 @@ export const flights: FlightLeg[] = [
     number: "FI 682",
     label: "Outbound · Wed, Aug 26",
     heading: "Seattle → Keflavík",
+    route: "SEA – KEF",
+    date: "Wednesday, August 26, 2026",
+    fare: "Economy Light",
+    conditions: "Non-refundable",
+    duration: "7h 25m",
+    stops: "Non-stop",
     rows: [
       {
         time: "7:00 PM",
@@ -116,6 +128,12 @@ export const flights: FlightLeg[] = [
     number: "FI 685",
     label: "Return · Mon, Aug 31",
     heading: "Keflavík → Seattle",
+    route: "KEF – SEA",
+    date: "Monday, August 31, 2026",
+    fare: "Economy Light",
+    conditions: "Non-refundable",
+    duration: "8h 05m",
+    stops: "Non-stop",
     rows: [
       {
         time: "10:40 AM",
@@ -129,6 +147,37 @@ export const flights: FlightLeg[] = [
       },
     ],
     note: "Leave Reykjavík about 6:30 AM: drive, fuel stop, rental return, check-in, security, and the extra passport control for North America flights all fit without running. The Monday return is what buys the whole of Sunday.",
+  },
+];
+
+// Booked on an Economy Light fare — the cheapest Icelandair bundle, which is
+// where the family-of-four gotchas live (bags and seating are extras). These
+// are the follow-ups to settle now rather than at the airport; confirm each
+// against the actual booking, since fare rules change.
+export const fareActions: PracticalNote[] = [
+  {
+    title: "Checked bags are not included",
+    icon: "🧳",
+    detail:
+      "Economy Light is a cabin-baggage fare: a personal item plus a carry-on. For four people and five days — with swimsuits, waterproofs and toddler kit — add checked bags in Manage Booking. Buying them online ahead of time is materially cheaper than at the airport counter.",
+  },
+  {
+    title: "Seats are assigned unless you buy them",
+    icon: "💺",
+    detail:
+      "On the Light fare seats are allocated at check-in, and a family of four can be split across the cabin. Pay to pre-select four seats together — with a 2-year-old this is the single most valuable add-on on the whole booking. Failing that, check in the moment the window opens (24h before).",
+  },
+  {
+    title: "Non-refundable, and changes cost",
+    icon: "🔒",
+    detail:
+      "Both legs are non-refundable and Light fares are the most restrictive to change. Treat the dates as fixed, and make sure any travel insurance or credit-card trip protection is in place now rather than later.",
+  },
+  {
+    title: "Cabin-bag reality with two kids",
+    icon: "🎒",
+    detail:
+      "Check the exact carry-on size and weight allowance on the booking before packing. Strollers and car seats are normally carried free on top of the baggage allowance — gate-check the stroller at the door and collect it on the jet bridge at KEF.",
   },
 ];
 
@@ -808,6 +857,9 @@ export const checklists: ChecklistGroup[] = [
     title: "Book first",
     icon: "📌",
     items: [
+      "✅ Flights — FI 682 / FI 685, Economy Light, booked",
+      "Add checked bags to the booking (not in the Light fare)",
+      "Pay to pre-select four seats together on both legs",
       "Blue Lagoon · Thu Aug 27 around noon (children registered too)",
       "Four-night family room or one-bedroom suite in Reykjavík",
       "Rental car with toddler seat + booster confirmed in writing",

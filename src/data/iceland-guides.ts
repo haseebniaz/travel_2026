@@ -66,7 +66,7 @@ export const dayGuides: DayGuide[] = [
             name: "Gate-check the stroller",
             area: "At the Icelandair desk",
             blurb:
-              "Tag the stroller (and car seats if you bring your own) at check-in. Keep the stroller to the gate — you'll want it through the terminal — then collect it at the KEF jet bridge.",
+              "Tag the stroller (and car seats if you bring your own) at check-in — they ride free on top of the baggage allowance, which matters on this Light fare. Keep the stroller to the gate, then collect it at the KEF jet bridge.",
             image: g("airport-checkin"),
           },
           {
@@ -102,10 +102,16 @@ export const dayGuides: DayGuide[] = [
     ],
     notes: [
       {
-        title: "Seat plan",
+        title: "Seat plan (Economy Light)",
         detail:
-          "Window for the 7-year-old, middle for the toddler's car seat or lap, aisle for the parent doing laps. The other parent takes the row's other aisle if you can get it.",
+          "The Light fare assigns seats at check-in, so four seats together are not guaranteed unless you paid to pick them. If you haven't, check in the second the window opens 24h before, and ask the gate agent to reseat the family — with a 2-year-old they will try.",
         tone: "family",
+      },
+      {
+        title: "Bags: the Light fare has no checked allowance",
+        detail:
+          "Confirm checked bags are on the booking before you leave for the airport — adding them at the counter is the expensive way. The stroller and car seats travel free on top of that.",
+        tone: "tip",
       },
       {
         title: "First service, then dark",
@@ -1017,7 +1023,7 @@ export const dayGuides: DayGuide[] = [
           {
             name: "Bag drop + family lane",
             area: "Icelandair counters",
-            blurb: "Online check-in done last night means bag-drop only. KEF security usually waves strollers and car-seat families into the wider lane — ask.",
+            blurb: "Check in online the night before (Light fares assign seats then — grab four together if the map allows) so the morning is bag-drop only. KEF security usually waves strollers and car-seat families into the wider lane — ask.",
             image: g("airport-checkin"),
           },
           {

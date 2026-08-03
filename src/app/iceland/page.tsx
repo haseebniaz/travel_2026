@@ -15,6 +15,7 @@ import {
   dayRoutes,
   routeFlow,
   practicalNotes,
+  fareActions,
   stayAreas,
   stayTips,
   checklists,
@@ -82,7 +83,7 @@ export default function IcelandTripPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-sea-900/90 via-sea-900/40 to-sea-900/30" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-12 pt-24 sm:px-6">
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-sand-100">
-            🇮🇸 Family trip · flights booked · Aug 26–31, 2026
+            🇮🇸 Family trip · flights booked ✓ · Aug 26–31, 2026
           </div>
           <h1 className="mt-2 max-w-3xl font-display text-4xl font-bold leading-tight text-white [text-wrap:balance] sm:text-5xl">
             Iceland with the kids
@@ -127,7 +128,7 @@ export default function IcelandTripPage() {
         <SectionHeading
           id="flights"
           title="The flights everything hangs on"
-          sub="Booked and locked. The overnight outbound sets up a noon Blue Lagoon reservation on arrival day; the Monday return is what protects a full family Sunday."
+          sub="Booked and paid — Icelandair non-stop both ways on an Economy Light fare. The overnight outbound sets up a noon Blue Lagoon reservation on arrival day; the Monday return is what protects a full family Sunday."
         />
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
           {flights.map((f) => (
@@ -138,10 +139,28 @@ export default function IcelandTripPage() {
                     {f.label}
                   </div>
                   <h3 className="mt-1 font-display text-xl font-semibold text-sea-900">{f.heading}</h3>
+                  <div className="mt-1 text-xs font-medium text-sea-700/70">
+                    {f.date} · {f.route}
+                  </div>
                 </div>
-                <span className="shrink-0 rounded-full bg-sea-500/10 px-3 py-1.5 text-xs font-extrabold text-sea-700">
-                  ✈ {f.number}
-                </span>
+                <div className="flex shrink-0 flex-col items-end gap-1.5">
+                  <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-extrabold text-green-800">
+                    ✓ Booked
+                  </span>
+                  <span className="rounded-full bg-sea-500/10 px-3 py-1.5 text-xs font-extrabold text-sea-700">
+                    ✈ {f.number}
+                  </span>
+                </div>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {[f.fare, f.conditions, f.stops, f.duration].map((chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-full bg-sand-100 px-2.5 py-1 text-[11px] font-bold text-sea-800"
+                  >
+                    {chip}
+                  </span>
+                ))}
               </div>
               <div className="mt-4 divide-y divide-sand-100">
                 {f.rows.map((r) => (
@@ -159,6 +178,31 @@ export default function IcelandTripPage() {
               </p>
             </article>
           ))}
+        </div>
+
+        {/* Economy Light follow-ups */}
+        <div className="mt-4 rounded-2xl bg-gradient-to-br from-amber-50 to-white p-5 shadow-sm ring-1 ring-amber-200/70 sm:p-6">
+          <h3 className="flex flex-wrap items-center gap-2 font-display text-lg font-semibold text-sea-900">
+            <span>⚠️</span> Economy Light — settle these before travel day
+            <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[11px] font-bold text-amber-900">
+              4 open items
+            </span>
+          </h3>
+          <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-sea-700/85">
+            The fare is the cheapest bundle, so bags and seating are add-ons — exactly the two
+            things a family of four can least afford to leave to chance. Confirm each against the
+            booking; fare rules change.
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {fareActions.map((a) => (
+              <div key={a.title} className="rounded-xl bg-white p-4 ring-1 ring-amber-200/60">
+                <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
+                  <span>{a.icon}</span> {a.title}
+                </div>
+                <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{a.detail}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Summary stats */}
