@@ -85,14 +85,35 @@ export type ChecklistGroup = { title: string; icon: string; items: string[] };
 export type SourceLink = { title: string; detail: string; href: string };
 export type PracticalNote = { title: string; icon: string; detail: string };
 
-export type StayArea = {
+export type Hotel = {
   name: string;
-  tag: string; // one-line verdict shown as the card's kicker
+  address: string;
+  area: string;
+  checkIn: string;
+  checkInTime: string;
+  checkOut: string;
+  checkOutTime: string;
+  nights: number;
+  rating: string;
+  locationScore: string;
+  amenities: string[];
+  lat: number;
+  lng: number;
+  image: string;
+  why: string;
+};
+
+/** A walkable spot near the hotel, with door-to-door walking minutes. */
+export type HoodSpot = {
+  name: string;
+  category: "Coffee & bakery" | "Eat" | "See & do" | "Kids" | "Shops";
+  walk: string;
   blurb: string;
   image?: string;
   lat: number;
   lng: number;
 };
+
 
 const img = (file: string) => `/images/${file}.jpg`;
 
@@ -179,6 +200,295 @@ export const fareActions: PracticalNote[] = [
     detail:
       "Check the exact carry-on size and weight allowance on the booking before packing. Strollers and car seats are normally carried free on top of the baggage allowance — gate-check the stroller at the door and collect it on the jet bridge at KEF.",
   },
+];
+
+// ---------------------------------------------------------------------------
+// The base — booked hotel, and the neighbourhood you can walk out into
+// ---------------------------------------------------------------------------
+export const hotel: Hotel = {
+  name: "Hotel Óðinsvé",
+  address: "Þórsgata 1, 101 Reykjavík",
+  area: "Þingholt · on Óðinstorg square, a block above Skólavörðustígur",
+  checkIn: "Thu, Aug 27, 2026",
+  checkInTime: "from 3:00 PM",
+  checkOut: "Mon, Aug 31, 2026",
+  checkOutTime: "until 11:00 AM",
+  nights: 4,
+  rating: "8.4 Very Good · 1,320 reviews",
+  locationScore: "Location 9.5 — Excellent",
+  amenities: ["Free WiFi", "Restaurant on site", "Airport shuttle"],
+  lat: 64.1437,
+  lng: -21.933,
+  image: img("iceland-guide-thingholt"),
+  why: "One base for all four nights, on a quiet square one block uphill from the Laugavegur noise. Everything in Thursday's arrival walk starts at the front door, Sunday's harbour finale is walkable rather than a drive, and the 3:00 PM check-in lands just as you arrive from the Blue Lagoon.",
+};
+
+/** Timing checks against the plan — all confirmed to fit. */
+export const hotelFit: { label: string; detail: string; ok: boolean }[] = [
+  {
+    label: "Dates match the flights",
+    detail: "Thu 27 → Mon 31 is exactly the 4 nights between landing and the Monday flight home.",
+    ok: true,
+  },
+  {
+    label: "3:00 PM check-in vs. your arrival",
+    detail: "The plan reaches Reykjavík ≈3:40 PM after the lagoon — the room is ready when you get there.",
+    ok: true,
+  },
+  {
+    label: "11:00 AM check-out vs. departure",
+    detail: "You leave at 6:30 AM Monday, four and a half hours inside the deadline. Arrange the early key drop the night before.",
+    ok: true,
+  },
+  {
+    label: "One base, no moves",
+    detail: "Bags stay put all four nights, exactly as the itinerary assumes.",
+    ok: true,
+  },
+];
+
+/** Still open with the hotel — worth an email before travel. */
+export const hotelConfirm: PracticalNote[] = [
+  {
+    title: "Room sleeps four + a cot",
+    icon: "🛏️",
+    detail:
+      "The one that can bite: plenty of Reykjavík boutique rooms are sized for 2 adults + 1 child. Get it in writing that the booking covers 2 adults, a 7-year-old and a 2-year-old, and request a travel cot for the toddler.",
+  },
+  {
+    title: "Parking for the rental",
+    icon: "🅿️",
+    detail:
+      "Þórsgata sits in a paid downtown zone and the car mostly sits still for four days. Ask what the hotel offers and what it costs, or which nearby garage they recommend.",
+  },
+  {
+    title: "Breakfast — included or not?",
+    icon: "🥐",
+    detail:
+      "There's a restaurant on site. If breakfast for four isn't included, the grocery-run plan stands and one morning goes to a bakery instead.",
+  },
+  {
+    title: "Elevator, and early check-in",
+    icon: "🛗",
+    detail:
+      "Older building: confirm there's an elevator for the stroller and luggage. Also ask about early check-in — if the overnight flight goes badly and you skip the lagoon, you'd otherwise be waiting until 3:00 PM (they will store bags regardless).",
+  },
+];
+
+// The 101 doorstep — everything here is a walk, no car, no bus. Walking times
+// are door-to-door estimates from Þórsgata 1; hours change seasonally, so check
+// before making a special trip.
+export const hoodSpots: HoodSpot[] = [
+  {
+    name: "Óðinstorg",
+    category: "See & do",
+    walk: "0 min",
+    blurb:
+      "The little square the hotel sits on — benches, a fountain, and the neighbourhood's calm centre of gravity. This is the 'we made it' first photo.",
+    image: img("iceland-guide-thingholt"),
+    lat: 64.1437,
+    lng: -21.9332,
+  },
+  {
+    name: "Skólavörðustígur (Rainbow Street)",
+    category: "See & do",
+    walk: "4 min",
+    blurb:
+      "The painted rainbow climbing to Hallgrímskirkja, lined with design shops, wool, and ice cream. Your default stroll in any spare half hour.",
+    image: img("iceland-rainbow-street"),
+    lat: 64.1424,
+    lng: -21.9268,
+  },
+  {
+    name: "Hallgrímskirkja + tower",
+    category: "See & do",
+    walk: "5 min",
+    blurb:
+      "The rocket church at the top of the hill. The elevator up the tower is the best 20-minute view in the city and works even in bad weather.",
+    image: img("iceland-hallgrimskirkja"),
+    lat: 64.1417,
+    lng: -21.9266,
+  },
+  {
+    name: "Einar Jónsson sculpture garden",
+    category: "See & do",
+    walk: "6 min",
+    blurb:
+      "A free, walled garden of dreamlike bronzes behind the church — quiet, uncrowded, and small enough that kids can roam without anyone losing anyone.",
+    image: img("iceland-guide-einar-jonsson"),
+    lat: 64.1412,
+    lng: -21.9256,
+  },
+  {
+    name: "Mokka Kaffi",
+    category: "Coffee & bakery",
+    walk: "4 min",
+    blurb:
+      "Reykjavík's oldest café, unchanged since 1958 — waffles with jam and cream, and the kind of room that makes a rainy hour pleasant.",
+    image: img("iceland-guide-cafe"),
+    lat: 64.1437,
+    lng: -21.9283,
+  },
+  {
+    name: "Reykjavík Roasters",
+    category: "Coffee & bakery",
+    walk: "5 min",
+    blurb:
+      "The city's serious coffee, in a tiny corner house by the church. Grab it and drink it on the church steps if the queue is deep.",
+    image: img("iceland-guide-coffee"),
+    lat: 64.1425,
+    lng: -21.9284,
+  },
+  {
+    name: "Brauð & Co",
+    category: "Coffee & bakery",
+    walk: "7 min",
+    blurb:
+      "The graffiti-wrapped bakery behind Hallgrímskirkja — cinnamon buns worth setting an alarm for. Sells out; go early.",
+    image: img("iceland-guide-cinnamon-bun"),
+    lat: 64.1443,
+    lng: -21.9245,
+  },
+  {
+    name: "Sandholt Bakery",
+    category: "Coffee & bakery",
+    walk: "6 min",
+    blurb:
+      "A proper sit-down bakery on Laugavegur: pastries, sourdough, and a full breakfast if the hotel's isn't included.",
+    image: img("iceland-guide-bakery"),
+    lat: 64.1436,
+    lng: -21.9235,
+  },
+  {
+    name: "Snaps Bistro",
+    category: "Eat",
+    walk: "0 min",
+    blurb:
+      "The bistro on the hotel's own square — French-Icelandic, busy with locals, and the zero-effort answer on the jet-lagged first night. Book ahead for dinner.",
+    image: img("iceland-guide-bistro"),
+    lat: 64.1437,
+    lng: -21.9331,
+  },
+  {
+    name: "Noodle Station",
+    category: "Eat",
+    walk: "4 min",
+    blurb:
+      "One thing done well: a big bowl of beef noodle soup for pocket change. Fast, warm, and a reliable win with kids.",
+    image: img("iceland-guide-noodles"),
+    lat: 64.1428,
+    lng: -21.9273,
+  },
+  {
+    name: "Svarta Kaffið",
+    category: "Eat",
+    walk: "7 min",
+    blurb:
+      "Soup served inside a hollowed-out bread loaf — two choices daily, nothing else. The most Icelandic cheap lunch in the centre.",
+    image: img("iceland-guide-lamb-soup"),
+    lat: 64.1441,
+    lng: -21.9216,
+  },
+  {
+    name: "Eldur & Ís",
+    category: "Kids",
+    walk: "5 min",
+    blurb:
+      "Crêpes and ice cream at the bottom of Rainbow Street — the bribe that gets everyone up the hill in the first place.",
+    image: img("iceland-guide-ice-cream"),
+    lat: 64.1445,
+    lng: -21.9295,
+  },
+  {
+    name: "Sundhöllin",
+    category: "Kids",
+    walk: "8 min",
+    blurb:
+      "The city's oldest pool, and the best-kept family secret downtown: indoor lanes, a shallow kids' pool, and outdoor hot pots on the roof terrace. Walkable in a swimsuit under your clothes.",
+    image: img("iceland-guide-sundhollin"),
+    lat: 64.1435,
+    lng: -21.921,
+  },
+  {
+    name: "Tjörnin + Hljómskálagarður",
+    category: "Kids",
+    walk: "5 min",
+    blurb:
+      "The duck pond, then the park along its south side with the neighbourhood's best playground. Bring bread ends from the grocery run.",
+    image: img("iceland-tjornin"),
+    lat: 64.1445,
+    lng: -21.94,
+  },
+  {
+    name: "Reykjavík City Hall",
+    category: "Kids",
+    walk: "7 min",
+    blurb:
+      "Free, warm, and quietly brilliant: a room-sized 3D relief map of Iceland where the 7-year-old can find every place you're driving to. The rainy-afternoon ace.",
+    image: img("iceland-guide-city-hall"),
+    lat: 64.1466,
+    lng: -21.9421,
+  },
+  {
+    name: "Handknitting Association of Iceland",
+    category: "Shops",
+    walk: "4 min",
+    blurb:
+      "The lopapeysa shop locals point you to — real hand-knitted sweaters at fair prices, plus kid sizes that survive being outgrown.",
+    image: img("iceland-guide-lopapeysa"),
+    lat: 64.143,
+    lng: -21.9276,
+  },
+  {
+    name: "Mál og Menning bookstore",
+    category: "Shops",
+    walk: "6 min",
+    blurb:
+      "Open late, with a café upstairs and a big children's section — the classic Reykjavík rainy-evening move.",
+    image: img("iceland-guide-bookstore"),
+    lat: 64.1434,
+    lng: -21.925,
+  },
+  {
+    name: "Kolaportið flea market",
+    category: "Shops",
+    walk: "11 min",
+    blurb:
+      "Weekends only, down by the harbour: woollens, old records, Icelandic sweets, and the fermented-shark dare counter. A perfect Sunday-morning add-on.",
+    image: img("iceland-guide-kolaportid"),
+    lat: 64.1487,
+    lng: -21.9385,
+  },
+  {
+    name: "Klambratún park",
+    category: "Kids",
+    walk: "12 min",
+    blurb:
+      "A big open park with a proper playground and the Kjarvalsstaðir art museum on its edge — worth it if you need the kids to run somewhere green.",
+    image: img("iceland-guide-klambratun"),
+    lat: 64.1409,
+    lng: -21.9145,
+  },
+  {
+    name: "Old Harbour, Harpa & Sun Voyager",
+    category: "See & do",
+    walk: "9 min",
+    blurb:
+      "Downhill to the water: the honeycomb glass of Harpa, the steel ship sculpture, and the harbour boats — Sunday's finale, on foot from the door.",
+    image: img("iceland-sun-voyager"),
+    lat: 64.15,
+    lng: -21.932,
+  },
+];
+
+/** A ready-made evening loop from the hotel door — roughly an hour with kids. */
+export const doorstepLoop: { step: string; detail: string }[] = [
+  { step: "Óðinstorg", detail: "Out the door onto the square — 0 min" },
+  { step: "Up Skólavörðustígur", detail: "The rainbow, shop windows, ice cream if needed — 4 min" },
+  { step: "Hallgrímskirkja", detail: "Church steps, tower if it's open — 5 min" },
+  { step: "Einar Jónsson garden", detail: "Free sculpture garden behind the church — 6 min" },
+  { step: "Down to Tjörnin", detail: "Ducks, then the playground in Hljómskálagarður — 10 min" },
+  { step: "Back up to the hotel", detail: "Via Þingholt's quiet lanes — 8 min" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -374,18 +684,18 @@ export const days: PlanDay[] = [
       {
         time: "2:45–3:40 PM",
         title: "Drive to Reykjavík",
-        detail: "About 50 minutes. Check in, unpack only what's needed tonight, and give everyone quiet time.",
+        detail: "About 50 minutes to Þórsgata 1. Rooms are ready from 3:00 PM, so check in, unpack only what's needed tonight, and give everyone quiet time.",
       },
       {
         time: "5:30 PM",
         title: "Early dinner",
-        detail: "Add Hallgrímskirkja and Rainbow Street after dinner only if the kids are genuinely still going.",
+        detail: "Rainbow Street and Hallgrímskirkja are 4–5 min from the hotel door — add them after dinner only if the kids are genuinely still going.",
       },
     ],
     stops: [
       { name: "KEF — Keflavík Airport", lat: 63.985, lng: -22.605, note: "Land 9:25 AM · bags + rental car" },
       { name: "Blue Lagoon", lat: 63.88, lng: -22.449, note: "Noon entry · ~2.5 hours" },
-      { name: "Reykjavík — hotel", lat: 64.146, lng: -21.94, note: "Check-in ~3:40 PM · dinner · early night" },
+      { name: "Hotel Óðinsvé, Þórsgata 1", lat: 64.1437, lng: -21.933, note: "Check-in from 3:00 PM · dinner · early night" },
     ],
     mapNote: "Airport → lagoon → city, all in one forward direction.",
     driveSummary: "KEF → Blue Lagoon ~20 min · Blue Lagoon → Reykjavík ~50 min",
@@ -468,11 +778,11 @@ export const days: PlanDay[] = [
       },
     ],
     stops: [
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Leave 8:30 AM" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Leave 8:30 AM" },
       { name: "Þingvellir", lat: 64.256, lng: -21.13, note: "9:15–10:30 · one short walk" },
       { name: "Geysir / Strokkur", lat: 64.311, lng: -20.302, note: "11:30–12:30 + lunch" },
       { name: "Gullfoss", lat: 64.327, lng: -20.121, note: "2:00–3:00 · main overlooks" },
-      { name: "Reykjavík (return)", lat: 64.146, lng: -21.94, note: "Back ~5:00 PM" },
+      { name: "Reykjavík (return)", lat: 64.1437, lng: -21.933, note: "Back ~5:00 PM" },
     ],
     mapNote: "A clean loop — about 230 km / 3.5 hours of total driving.",
     driveSummary: "Reykjavík → Þingvellir ~45 min · → Geysir ~50 min · → Gullfoss ~10 min · → home ~1 hr 50",
@@ -552,12 +862,12 @@ export const days: PlanDay[] = [
       },
     ],
     stops: [
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Leave 8:00 AM" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Leave 8:00 AM" },
       { name: "Seljalandsfoss", lat: 63.616, lng: -19.989, note: "9:45–10:45 · spray + wet paths" },
       { name: "Skógafoss", lat: 63.532, lng: -19.511, note: "11:15–12:15 · base viewpoint" },
       { name: "Vík (lunch)", lat: 63.419, lng: -19.006, note: "1:00–2:00 PM · seated reset" },
       { name: "Dyrhólaey", lat: 63.402, lng: -19.126, note: "2:20–3:15 · viewpoint from above" },
-      { name: "Reykjavík (return)", lat: 64.146, lng: -21.94, note: "Back ~6:00 PM" },
+      { name: "Reykjavík (return)", lat: 64.1437, lng: -21.933, note: "Back ~6:00 PM" },
     ],
     mapNote: "About 380 km round trip — the trip's longest drive, paced around one proper lunch.",
     driveSummary: "Reykjavík → Seljalandsfoss ~1 hr 45 · → Skógafoss ~30 min · → Vík ~35 min · Dyrhólaey → home ~2 hr 40",
@@ -636,7 +946,7 @@ export const days: PlanDay[] = [
       },
     ],
     stops: [
-      { name: "Hotel (city center)", lat: 64.146, lng: -21.94, note: "Base for the day" },
+      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Base for the day" },
       { name: "Perlan", lat: 64.129, lng: -21.919, note: "9:30–12:00 · ice cave + deck" },
       { name: "Old Harbour / Harpa", lat: 64.15, lng: -21.932, note: "Afternoon option 1" },
       { name: "Laugardalslaug", lat: 64.145, lng: -21.878, note: "Afternoon option 2 · pool" },
@@ -703,7 +1013,7 @@ export const days: PlanDay[] = [
       },
     ],
     stops: [
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Leave 6:30 AM" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Leave 6:30 AM" },
       { name: "KEF — Keflavík Airport", lat: 63.985, lng: -22.605, note: "Terminal ~7:30 AM · FI 685 at 10:40" },
     ],
     mapNote: "One 50-minute drive — that's the whole day in Iceland.",
@@ -734,7 +1044,7 @@ export const dayRoutes: DayRoute[] = [
     stops: [
       { name: "KEF", lat: 63.985, lng: -22.605, note: "Land 9:25 AM" },
       { name: "Blue Lagoon", lat: 63.88, lng: -22.449, note: "Noon entry" },
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Hotel + dinner" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Hotel + dinner" },
     ],
   },
   {
@@ -743,11 +1053,11 @@ export const dayRoutes: DayRoute[] = [
     color: "#f77f00",
     summary: "Þingvellir → Geysir → Gullfoss loop",
     stops: [
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Start / finish" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Start / finish" },
       { name: "Þingvellir", lat: 64.256, lng: -21.13, note: "Short walk" },
       { name: "Geysir", lat: 64.311, lng: -20.302, note: "Strokkur + lunch" },
       { name: "Gullfoss", lat: 64.327, lng: -20.121, note: "Main overlook" },
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Return" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Return" },
     ],
   },
   {
@@ -756,12 +1066,12 @@ export const dayRoutes: DayRoute[] = [
     color: "#1e6fd9",
     summary: "Seljalandsfoss → Skógafoss → Vík → Dyrhólaey",
     stops: [
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Start / finish" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Start / finish" },
       { name: "Seljalandsfoss", lat: 63.616, lng: -19.989, note: "Waterfall" },
       { name: "Skógafoss", lat: 63.532, lng: -19.511, note: "Waterfall" },
       { name: "Vík", lat: 63.419, lng: -19.006, note: "Lunch" },
       { name: "Dyrhólaey", lat: 63.402, lng: -19.126, note: "Coast viewpoint" },
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Return" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Return" },
     ],
   },
   {
@@ -770,7 +1080,7 @@ export const dayRoutes: DayRoute[] = [
     color: "#9d4edd",
     summary: "Perlan → harbour → pool, all in town",
     stops: [
-      { name: "Hotel", lat: 64.146, lng: -21.94, note: "Base" },
+      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Base" },
       { name: "Perlan", lat: 64.129, lng: -21.919, note: "Morning" },
       { name: "Old Harbour / Harpa", lat: 64.15, lng: -21.932, note: "Afternoon" },
       { name: "Laugardalslaug", lat: 64.145, lng: -21.878, note: "Pool option" },
@@ -782,7 +1092,7 @@ export const dayRoutes: DayRoute[] = [
     color: "#e63946",
     summary: "Reykjavík → KEF, 6:30 AM",
     stops: [
-      { name: "Reykjavík", lat: 64.146, lng: -21.94, note: "Leave 6:30 AM" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Leave 6:30 AM" },
       { name: "KEF", lat: 63.985, lng: -22.605, note: "FI 685 at 10:40 AM" },
     ],
   },
@@ -836,10 +1146,10 @@ export const practicalNotes: PracticalNote[] = [
       "Sunrise ~6:10 AM, sunset ~8:45 PM by trip week — about 14.5 hours of usable light. Nothing in this itinerary races the sun, and blackout curtains matter more than headlamps.",
   },
   {
-    title: "Car seats & the rental",
+    title: "Car seats, the rental & parking",
     icon: "🚗",
     detail:
-      "Reserve a toddler seat and a booster with the car — confirm both in writing. A compact SUV swallows the stroller, and Iceland's rural speed cameras are unforgiving, so set the cruise control.",
+      "Reserve a toddler seat and a booster with the car — confirm both in writing. A compact SUV swallows the stroller, and rural speed cameras are unforgiving, so set the cruise control. The car sits parked most of the trip: Þórsgata is a paid downtown zone, so settle parking with the hotel.",
   },
   {
     title: "Food with kids",
@@ -861,7 +1171,9 @@ export const checklists: ChecklistGroup[] = [
       "Add checked bags to the booking (not in the Light fare)",
       "Pay to pre-select four seats together on both legs",
       "Blue Lagoon · Thu Aug 27 around noon (children registered too)",
-      "Four-night family room or one-bedroom suite in Reykjavík",
+      "✅ Hotel — Óðinsvé, Þórsgata 1, 4 nights, booked",
+      "Confirm the room sleeps 4 + request a cot for the toddler",
+      "Ask the hotel about parking for the rental car",
       "Rental car with toddler seat + booster confirmed in writing",
       "Perlan tickets for Sunday morning",
     ],
@@ -921,96 +1233,6 @@ export const sources: SourceLink[] = [
     title: "Icelandair · Keflavík airport guide",
     detail: "Timing and passport-control notes for KEF",
     href: "https://www.icelandair.com/support/airports/keflavik-kef/",
-  },
-];
-
-// ---------------------------------------------------------------------------
-// Where to stay — Reykjavík hotel-search guide
-// ---------------------------------------------------------------------------
-export const stayAreas: StayArea[] = [
-  {
-    name: "Miðborg core — Skólavörðustígur & the Þingholt side streets",
-    tag: "The pick · walk out to everything",
-    blurb:
-      "The blocks between Rainbow Street, Hallgrímskirkja, and Tjörnin put every evening stroll on your doorstep: bakeries at breakfast, the church tower after dinner, duck-feeding at the pond. Book on a side street (Óðinsgata, Njarðargata, Bergstaðastræti…) rather than on Laugavegur itself and weekend bar noise disappears.",
-    image: img("iceland-rainbow-street"),
-    lat: 64.1424,
-    lng: -21.9268,
-  },
-  {
-    name: "Old Harbour & Grandi",
-    tag: "Flat, quiet & stroller-friendly",
-    blurb:
-      "Waterfront walking with zero hills: Harpa, the Sun Voyager, food halls, Valdís ice cream, and the whale museum all within ten flat minutes. Evenings are calmer than downtown, and you're closest to Sunday's harbour finale. Slightly fewer grocery options — check the map for a Krambúð.",
-    image: img("iceland-old-harbour"),
-    lat: 64.1522,
-    lng: -21.9466,
-  },
-  {
-    name: "East Laugavegur & Hlemmur",
-    tag: "Value · still very walkable",
-    blurb:
-      "The quieter end of the main street, anchored by the Hlemmur food hall: apartments here run cheaper and bigger — great for a family needing two rooms — and the city core is still a 10–12 minute stroller push. The trade-off is a busier road outside and a little less charm.",
-    image: img("iceland-laugavegur"),
-    lat: 64.1432,
-    lng: -21.9153,
-  },
-  {
-    name: "Vesturbær",
-    tag: "Local-neighborhood Reykjavík",
-    blurb:
-      "Where Reykjavík families actually live: corner bakeries, the beloved Vesturbæjarlaug pool, and seafront paths out toward Grótta lighthouse. It's a 15-minute walk into the center — fine with the stroller, quiet at night, and the most 'live like a local' option of the bunch.",
-    image: img("iceland-grotta"),
-    lat: 64.1445,
-    lng: -21.9584,
-  },
-  {
-    name: "Laugardalur",
-    tag: "Space & value · needs the car or bus",
-    blurb:
-      "Next to the city's biggest pool, the family park & zoo, and the botanical garden — a kid paradise with larger, cheaper rooms. But it's a drive or bus into the center, so evening strolls happen in the park rather than downtown. Works because you have the rental anyway; pick it only if space wins over walkability.",
-    image: img("iceland-laugardalslaug"),
-    lat: 64.1414,
-    lng: -21.8801,
-  },
-];
-
-export const stayTips: PracticalNote[] = [
-  {
-    title: "Book for four, explicitly",
-    icon: "🛏️",
-    detail:
-      "Standard Icelandic hotel rooms genuinely fit 2 adults + 1 child; a family of four usually needs a family room, connecting rooms, or an apartment. Aparthotels (Room With A View, Reykjavík Residence–style) add a kitchen for toddler breakfasts and a washer for lagoon-day laundry.",
-  },
-  {
-    title: "The walk-out test",
-    icon: "🚶",
-    detail:
-      "Aim for: a bakery within 5 minutes, a playground within 10 (Hljómskálagarður by Tjörnin and Klambratún are the good ones), and Laugavegur or the harbour within 10–12. That's what turns evenings and the free Sunday into effortless family time.",
-  },
-  {
-    title: "Parking reality",
-    icon: "🅿️",
-    detail:
-      "Downtown streets are paid zones (P1–P4, ~9:00–18:00 or later); free hotel parking is rare in 101. Confirm parking when booking or budget for the Traðarkot/Kolaport garages. The car mostly sits parked except on the two road-trip days, so a garage two blocks away is fine.",
-  },
-  {
-    title: "Noise & light at night",
-    icon: "🌙",
-    detail:
-      "Laugavegur, Austurstræti, and Bankastræti are loud until 3–4 AM on Friday and Saturday — your Thursday and Saturday nights. One block off the strip is genuinely quiet. Also check reviews for blackout curtains: late-August sunset is ~8:45 PM and the 2-year-old will notice.",
-  },
-  {
-    title: "Stroller & stairs",
-    icon: "🛗",
-    detail:
-      "A lot of charming 101 guesthouses are third-floor walk-ups in old timber houses. With a toddler, luggage, and a stroller, filter for an elevator or ground-floor unit — future-you at 6:00 AM on departure day will be grateful.",
-  },
-  {
-    title: "Breakfast strategy",
-    icon: "🥐",
-    detail:
-      "Skip paying four hotel breakfasts: grab skyr, fruit, and bread in a Bónus/Krónan run on arrival day, then let one morning be a bakery treat (Brauð & Co or Sandholt). Faster with kids, cheaper, and better.",
   },
 ];
 

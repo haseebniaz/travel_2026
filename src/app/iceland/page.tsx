@@ -16,8 +16,11 @@ import {
   routeFlow,
   practicalNotes,
   fareActions,
-  stayAreas,
-  stayTips,
+  hotel,
+  hotelFit,
+  hotelConfirm,
+  hoodSpots,
+  doorstepLoop,
   checklists,
   sources,
   bottomLine,
@@ -38,7 +41,7 @@ const sections = [
   { id: "days", label: "Day by day" },
   { id: "logic", label: "Route logic" },
   { id: "practical", label: "Practical" },
-  { id: "stay", label: "Stay" },
+  { id: "base", label: "Base & walks" },
   { id: "checklists", label: "Checklists" },
 ];
 
@@ -440,69 +443,187 @@ export default function IcelandTripPage() {
           ))}
         </div>
 
-        {/* Where to stay */}
+        {/* Base + neighbourhood walking guide */}
         <SectionHeading
-          id="stay"
-          title="Where to stay: the hotel search guide"
-          sub="One base for all four nights, so the neighborhood IS the decision. Aim for somewhere you can walk out of after dinner and be somewhere lovely in five minutes — these are the areas that deliver that, best first."
+          id="base"
+          title="The base, and what's on the doorstep"
+          sub="Booked: four nights at Hotel Óðinsvé on Óðinstorg, in the quiet Þingholt lanes a block above Skólavörðustígur. Everything below is a walk from the front door — no car, no bus."
         />
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {stayAreas.map((a, idx) => (
-            <article
-              key={a.name}
-              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-sea-900/5"
-            >
-              <div className="relative aspect-[16/9] overflow-hidden bg-sand-100">
-                <SmartImage
-                  src={a.image ?? ""}
-                  alt={a.name}
-                  fallbackLabel={a.name}
-                  className="h-full w-full object-cover"
-                />
-                <span className="absolute left-2.5 top-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-sea-900/85 text-xs font-extrabold text-sand-50">
-                  {idx + 1}
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-4">
-                <div className="text-[11px] font-extrabold uppercase tracking-wider text-terracotta-600">
-                  {a.tag}
+
+        {/* Hotel card */}
+        <div className="mt-6 grid overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-sea-900/5 lg:grid-cols-[2fr,3fr]">
+          <div className="relative min-h-[220px] bg-sand-100">
+            <SmartImage
+              src={hotel.image}
+              alt={`${hotel.area}`}
+              fallbackLabel={hotel.name}
+              className="h-full w-full object-cover"
+            />
+            <span className="absolute left-3 top-3 rounded-full bg-green-100 px-3 py-1 text-xs font-extrabold text-green-800">
+              ✓ Booked
+            </span>
+          </div>
+          <div className="p-5 sm:p-6">
+            <div className="text-xs font-bold uppercase tracking-wider text-terracotta-600">
+              Your base · {hotel.nights} nights
+            </div>
+            <h3 className="mt-1 font-display text-2xl font-semibold text-sea-900">{hotel.name}</h3>
+            <div className="mt-1 text-sm font-medium text-sea-700">{hotel.address}</div>
+            <div className="text-sm text-sea-700/75">{hotel.area}</div>
+
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl bg-sand-50 p-3 ring-1 ring-sea-900/5">
+                <div className="text-[11px] font-extrabold uppercase tracking-wider text-sea-700/70">
+                  Check-in
                 </div>
-                <h3 className="mt-1 font-display text-lg font-semibold leading-tight text-sea-900">
-                  {a.name}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-sea-700">{a.blurb}</p>
+                <div className="font-bold text-sea-900">{hotel.checkIn}</div>
+                <div className="text-sm text-sea-700/80">{hotel.checkInTime}</div>
               </div>
-            </article>
-          ))}
+              <div className="rounded-xl bg-sand-50 p-3 ring-1 ring-sea-900/5">
+                <div className="text-[11px] font-extrabold uppercase tracking-wider text-sea-700/70">
+                  Check-out
+                </div>
+                <div className="font-bold text-sea-900">{hotel.checkOut}</div>
+                <div className="text-sm text-sea-700/80">{hotel.checkOutTime}</div>
+              </div>
+            </div>
+
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {[hotel.locationScore, hotel.rating, ...hotel.amenities].map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full bg-sea-500/10 px-2.5 py-1 text-[11px] font-bold text-sea-700"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-sea-700">{hotel.why}</p>
+          </div>
+        </div>
+
+        {/* Fit checks + open items */}
+        <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5">
+            <h3 className="font-display text-lg font-semibold text-sea-900">
+              How it fits the plan
+            </h3>
+            <ul className="mt-3 space-y-2.5">
+              {hotelFit.map((f) => (
+                <li key={f.label} className="flex gap-2.5 text-sm">
+                  <span className="mt-0.5 shrink-0 text-green-700">✓</span>
+                  <span>
+                    <span className="font-semibold text-sea-900">{f.label}</span>
+                    <span className="text-sea-700/85"> — {f.detail}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-white p-5 shadow-sm ring-1 ring-amber-200/70">
+            <h3 className="font-display text-lg font-semibold text-sea-900">
+              Still to confirm with the hotel
+            </h3>
+            <div className="mt-3 space-y-2.5">
+              {hotelConfirm.map((c) => (
+                <div key={c.title} className="rounded-xl bg-white p-3 ring-1 ring-amber-200/60">
+                  <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
+                    <span>{c.icon}</span> {c.title}
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-sea-700">{c.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Doorstep loop + walking map */}
+        <div className="mt-4 grid gap-4 lg:grid-cols-[2fr,3fr]">
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5">
+            <h3 className="font-display text-lg font-semibold text-sea-900">
+              🚶 The doorstep loop
+            </h3>
+            <p className="mt-1 text-sm text-sea-700/80">
+              About an hour at kid pace — the default move on Thursday evening or any spare gap.
+            </p>
+            <ol className="mt-4 space-y-2.5">
+              {doorstepLoop.map((l, i) => (
+                <li key={l.step} className="flex gap-3">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-sea-500/10 text-xs font-extrabold text-sea-700">
+                    {i + 1}
+                  </span>
+                  <span className="text-sm">
+                    <span className="font-semibold text-sea-900">{l.step}</span>
+                    <span className="block text-sea-700/80">{l.detail}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
           <div className="rounded-2xl bg-sand-50/60 p-3.5 ring-1 ring-sea-900/5">
             <div className="text-[11px] font-extrabold uppercase tracking-wider text-terracotta-600">
-              The areas on the map
+              Everything within a 12-minute walk
             </div>
             <div className="mt-2.5">
               <IcelandDayMap
-                stops={stayAreas.map((a) => ({ name: a.name, lat: a.lat, lng: a.lng, note: a.tag }))}
-                color="#1d4f5c"
-                label="Map of recommended Reykjavík neighborhoods"
+                stops={[
+                  { name: `${hotel.name} (base)`, lat: hotel.lat, lng: hotel.lng, note: hotel.address },
+                  ...hoodSpots.map((sp) => ({
+                    name: sp.name,
+                    lat: sp.lat,
+                    lng: sp.lng,
+                    note: `${sp.category} · ${sp.walk} walk`,
+                  })),
+                ]}
+                color="#b25630"
+                label="Map of walkable spots around Hotel Óðinsvé"
                 showLine={false}
-                maxZoom={13}
+                maxZoom={15}
               />
             </div>
             <p className="mt-2.5 text-xs leading-relaxed text-sea-700/80">
-              Numbers match the cards. Everything except Laugardalur keeps you in evening-stroll
-              range of the center.
+              Pin 1 is the hotel. Walking times are door-to-door estimates; opening hours shift
+              seasonally, so check before making a special trip.
             </p>
           </div>
         </div>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {stayTips.map((t) => (
-            <div key={t.title} className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-sea-900/5">
-              <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
-                <span>{t.icon}</span> {t.title}
+
+        {/* Neighbourhood spots by category */}
+        {(["Coffee & bakery", "Eat", "Kids", "See & do", "Shops"] as const).map((cat) => {
+          const spots = hoodSpots.filter((sp) => sp.category === cat);
+          if (!spots.length) return null;
+          return (
+            <div key={cat} className="mt-6">
+              <h3 className="font-display text-lg font-semibold text-sea-900">{cat}</h3>
+              <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {spots.map((sp) => (
+                  <article
+                    key={sp.name}
+                    className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-sea-900/5"
+                  >
+                    <div className="relative aspect-[16/10] bg-sand-100">
+                      <SmartImage
+                        src={sp.image ?? ""}
+                        alt={sp.name}
+                        fallbackLabel={sp.name}
+                        className="h-full w-full object-cover"
+                      />
+                      <span className="absolute right-2 top-2 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-extrabold text-sea-800">
+                        🚶 {sp.walk}
+                      </span>
+                    </div>
+                    <div className="flex flex-1 flex-col p-4">
+                      <h4 className="font-display text-base font-semibold leading-tight text-sea-900">
+                        {sp.name}
+                      </h4>
+                      <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{sp.blurb}</p>
+                    </div>
+                  </article>
+                ))}
               </div>
-              <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{t.detail}</p>
             </div>
-          ))}
-        </div>
+          );
+        })}
 
         {/* Checklists */}
         <SectionHeading

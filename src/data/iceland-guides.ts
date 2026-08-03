@@ -190,7 +190,7 @@ export const dayGuides: DayGuide[] = [
       {
         id: "first-walk",
         title: "The first-evening walk loop",
-        sub: "≈1 hour, stroller-friendly, from any central hotel — do the whole loop or bail at any point.",
+        sub: "≈1 hour, stroller-friendly, straight out of Hotel Óðinsvé on Óðinstorg — do the whole loop or bail at any point.",
         places: [
           {
             name: "Rainbow Street",
@@ -896,7 +896,7 @@ export const dayGuides: DayGuide[] = [
           {
             name: "Grandi district stroll",
             area: "Old Harbour's working end",
-            blurb: "Fishing boats, street art on the fish-packing houses, and the food hall — a flat 30-minute wander with ice cream at the end.",
+            blurb: "Fishing boats, street art on the fish-packing houses, and the food hall — a flat wander with ice cream at the end, and only a 9-minute walk downhill from the hotel.",
             image: i("old-harbour"),
           },
           {

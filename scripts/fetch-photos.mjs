@@ -220,6 +220,19 @@ const ICELAND_GUIDE = {
   "geysir-pool": ["Blesi hot spring", "Geysir hot spring blue", "Hot spring Haukadalur"],
   "playground": ["Playground Reykjavík", "Children's playground", "Playground equipment"],
   "food-hall": ["Market hall interior", "Mathallen Oslo", "Indoor food market stalls"],
+  // hotel neighbourhood (Þingholt / Skólavörðustígur) walking guide
+  "sundhollin": ["Sundhöllin Reykjavíkur", "Sundhollin swimming pool Reykjavik", "Sundhöllin"],
+  "einar-jonsson": ["Einar Jónsson Museum", "Einar Jonsson sculpture garden", "Listasafn Einars Jónssonar"],
+  "city-hall": ["Ráðhús Reykjavíkur", "Reykjavik City Hall", "Radhus Reykjavikur Tjörnin"],
+  "kolaportid": ["Kolaportið", "Kolaportid flea market", "Kolaportið Reykjavík"],
+  "cafe": ["Café interior Reykjavík", "Coffee shop interior", "Cafe latte cup table"],
+  "coffee": ["Latte art coffee cup", "Espresso cup coffee", "Cappuccino cup"],
+  "bistro": ["Bistro restaurant interior", "Restaurant dining room table setting", "Brasserie interior"],
+  "noodles": ["Noodle soup bowl", "Beef noodle soup", "Ramen bowl"],
+  "bakery": ["Bakery bread display", "Bakarí Reykjavík", "Bread bakery counter"],
+  "bookstore": ["Bookstore interior", "Bókabúð", "Book shop shelves"],
+  "klambratun": ["Klambratún", "Kjarvalsstaðir", "Klambratun park Reykjavik"],
+  "thingholt": ["Skólavörðustígur", "Þingholt Reykjavík", "Reykjavik old town street houses"],
   "lamb-soup": ["Kjötsúpa", "Icelandic meat soup", "Icelandic lamb soup"],
   "rye-bread": ["Rúgbrauð", "Icelandic rye bread", "Rugbraud"],
 };
@@ -227,6 +240,7 @@ const ICELAND_RELAXED = new Set([
   "hot-dog", "skyr", "kleina", "cinnamon-bun", "lamb-soup", "rye-bread", "fridheimar", "efstidalur",
   "lopapeysa", "licorice", "chocolate", "ice-cream", "fish-chips", "burger", "pizza",
   "bonus-store", "food-hall", "playground", "plane-cabin", "departure-board", "airport-checkin",
+  "cafe", "bakery", "bookstore", "coffee", "bistro", "noodles",
 ]);
 
 // Food photos would be excluded by BAD (it blocks generic food/dish noise), so those
