@@ -203,6 +203,71 @@ export const fareActions: PracticalNote[] = [
 ];
 
 // ---------------------------------------------------------------------------
+// The rental car — booked at KEF, both ends
+// ---------------------------------------------------------------------------
+export const carRental = {
+  status: "Booked",
+  pickUpDate: "Thu, Aug 27, 2026",
+  pickUpTime: "10:30 AM",
+  pickUpPlace: "Keflavík Airport (KEF)",
+  dropOffDate: "Mon, Aug 31, 2026",
+  dropOffTime: "9:30 AM",
+  dropOffPlace: "Keflavík Airport (KEF)",
+  duration: "4 days",
+  childSeats: "1 child seat included",
+  note: "Collected straight off the flight and returned on the way home, so the car covers exactly the days that need it — the two road-trip days plus the short local hops. It sits parked in Reykjavík on Sunday.",
+};
+
+/** How the rental window lines up with the flights and the plan. */
+export const carFit: { label: string; detail: string; ok: boolean }[] = [
+  {
+    label: "10:30 AM pick-up vs. a 9:25 AM landing",
+    detail:
+      "About 65 minutes for immigration, bags and the desk — matching the plan's ≈10:45 AM departure from KEF, and leaving the noon Blue Lagoon slot intact.",
+    ok: true,
+  },
+  {
+    label: "Return window ends 9:30 AM Monday",
+    detail:
+      "The plan hands the car back around 7:15 AM, comfortably inside the booked window — returning early is fine, and it protects the 7:30 AM terminal target.",
+    ok: true,
+  },
+  {
+    label: "4 days covers both road days",
+    detail: "Golden Circle Friday and the South Coast Saturday both fall inside the rental period, with Sunday's local hops on top.",
+    ok: true,
+  },
+];
+
+/** Open items on the car — the seat count is the one that actually matters. */
+export const carActions: PracticalNote[] = [
+  {
+    title: "You have two kids and one seat",
+    icon: "🚨",
+    detail:
+      "The booking includes a single child seat, but both children need a restraint: a forward-facing seat for the 2-year-old and a booster for the 7-year-old. Iceland requires children under 135 cm to use a restraint suited to their size. Add a second seat to the booking now, or plan to bring your own booster — they're light, and airlines carry them free alongside a stroller.",
+  },
+  {
+    title: "Say which seat the included one is",
+    icon: "💺",
+    detail:
+      "Confirm in writing whether the included seat is the toddler seat or the booster, so the one you add is the other. Ask them to have both fitted or ready at the desk — installing seats in the KEF car park with two tired kids is the worst possible time to discover a missing part.",
+  },
+  {
+    title: "Read the drop-off instructions",
+    icon: "🕖",
+    detail:
+      "You'll return the car around 7:15 AM, earlier than most desks expect. Check the return location (on-airport vs. a shuttle lot) and the early-morning key-drop procedure before Monday — this is the single tightest link in the departure chain.",
+  },
+  {
+    title: "Insurance, fuel and the wind",
+    icon: "📋",
+    detail:
+      "Check what the rate includes: gravel and sand-and-ash damage are the classic Icelandic exclusions, and wind-caught doors are the classic claim. Photograph the car from all sides at pick-up, and note the fuel policy so Sunday's top-up matches it.",
+  },
+];
+
+// ---------------------------------------------------------------------------
 // The base — booked hotel, and the neighbourhood you can walk out into
 // ---------------------------------------------------------------------------
 export const hotel: Hotel = {
@@ -668,7 +733,7 @@ export const days: PlanDay[] = [
         time: "9:25 AM",
         title: "Land at KEF",
         detail:
-          "Allow 60–90 minutes for immigration, bags, restroom rounds, and rental-car pickup with two car seats to install.",
+          "Allow 60–90 minutes for immigration, bags, restroom rounds, and the 10:30 AM rental pick-up — including fitting the child seats before you drive off.",
       },
       {
         time: "≈ 10:45 AM",
@@ -998,7 +1063,7 @@ export const days: PlanDay[] = [
       {
         time: "6:30 AM",
         title: "Leave Reykjavík",
-        detail: "About 45–50 minutes to KEF, then the rental return shuttle-or-walk.",
+        detail: "About 45–50 minutes to KEF, then the rental return (booked window runs to 9:30 AM, so ~7:15 AM is early — check the key-drop procedure).",
       },
       {
         time: "≈ 7:30 AM",
@@ -1149,7 +1214,7 @@ export const practicalNotes: PracticalNote[] = [
     title: "Car seats, the rental & parking",
     icon: "🚗",
     detail:
-      "Reserve a toddler seat and a booster with the car — confirm both in writing. A compact SUV swallows the stroller, and rural speed cameras are unforgiving, so set the cruise control. The car sits parked most of the trip: Þórsgata is a paid downtown zone, so settle parking with the hotel.",
+      "The car is booked at KEF for the four days — but with one child seat, so a second restraint for the 7-year-old still needs adding. A compact SUV swallows the stroller, and rural speed cameras are unforgiving, so set the cruise control. The car sits parked most of the trip: Þórsgata is a paid downtown zone, so settle parking with the hotel.",
   },
   {
     title: "Food with kids",
@@ -1174,7 +1239,8 @@ export const checklists: ChecklistGroup[] = [
       "✅ Hotel — Óðinsvé, Þórsgata 1, 4 nights, booked",
       "Confirm the room sleeps 4 + request a cot for the toddler",
       "Ask the hotel about parking for the rental car",
-      "Rental car with toddler seat + booster confirmed in writing",
+      "✅ Rental car — KEF pick-up Thu 10:30 AM, 4 days, booked",
+      "⚠️ Add a SECOND child seat — the booking has only one",
       "Perlan tickets for Sunday morning",
     ],
   },

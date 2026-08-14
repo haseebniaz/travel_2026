@@ -16,6 +16,9 @@ import {
   routeFlow,
   practicalNotes,
   fareActions,
+  carRental,
+  carFit,
+  carActions,
   hotel,
   hotelFit,
   hotelConfirm,
@@ -35,6 +38,7 @@ export const metadata: Metadata = {
 
 const sections = [
   { id: "flights", label: "Flights" },
+  { id: "car", label: "Car" },
   { id: "math", label: "The math" },
   { id: "timeline", label: "Trip timeline" },
   { id: "map", label: "Route map" },
@@ -199,6 +203,98 @@ export default function IcelandTripPage() {
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {fareActions.map((a) => (
               <div key={a.title} className="rounded-xl bg-white p-4 ring-1 ring-amber-200/60">
+                <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
+                  <span>{a.icon}</span> {a.title}
+                </div>
+                <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{a.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Rental car */}
+        <SectionHeading
+          id="car"
+          title="The rental car"
+          sub="Booked at Keflavík for the four days that need it — collected straight off the flight, handed back on the way home. One thing on it still needs fixing."
+        />
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          <article className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5 sm:p-6">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-terracotta-600">
+                  Pick-up & drop-off · {carRental.duration}
+                </div>
+                <h3 className="mt-1 font-display text-xl font-semibold text-sea-900">
+                  Keflavík Airport, both ends
+                </h3>
+              </div>
+              <div className="flex shrink-0 flex-col items-end gap-1.5">
+                <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-extrabold text-green-800">
+                  ✓ {carRental.status}
+                </span>
+                <span className="rounded-full bg-amber-100 px-3 py-1 text-[11px] font-extrabold text-amber-900">
+                  ⚠️ {carRental.childSeats}
+                </span>
+              </div>
+            </div>
+
+            {/* Pick-up → drop-off timeline */}
+            <div className="mt-4 space-y-0">
+              {[
+                { when: `${carRental.pickUpDate} · ${carRental.pickUpTime}`, what: "Pick up", where: carRental.pickUpPlace },
+                { when: `${carRental.dropOffDate} · ${carRental.dropOffTime}`, what: "Drop off", where: carRental.dropOffPlace },
+              ].map((r, i) => (
+                <div key={r.what} className="flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <span className="mt-1.5 h-3 w-3 shrink-0 rounded-full ring-2 ring-sea-700" />
+                    {i === 0 && <span className="my-1 w-px flex-1 bg-sand-200" />}
+                  </div>
+                  <div className={i === 0 ? "pb-4" : ""}>
+                    <div className="text-sm font-bold text-sea-700">{r.when}</div>
+                    <div className="font-semibold text-sea-900">{r.where}</div>
+                    <div className="text-xs uppercase tracking-wide text-sea-700/60">{r.what}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-2 border-t border-sand-100 pt-3.5 text-sm leading-relaxed text-sea-700">
+              {carRental.note}
+            </p>
+          </article>
+
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5 sm:p-6">
+            <h3 className="font-display text-lg font-semibold text-sea-900">How it fits the plan</h3>
+            <ul className="mt-3 space-y-2.5">
+              {carFit.map((f) => (
+                <li key={f.label} className="flex gap-2.5 text-sm">
+                  <span className="mt-0.5 shrink-0 text-green-700">✓</span>
+                  <span>
+                    <span className="font-semibold text-sea-900">{f.label}</span>
+                    <span className="text-sea-700/85"> — {f.detail}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Car follow-ups, seat gap first */}
+        <div className="mt-4 rounded-2xl bg-gradient-to-br from-orange-50 to-white p-5 shadow-sm ring-1 ring-orange-200 sm:p-6">
+          <h3 className="flex flex-wrap items-center gap-2 font-display text-lg font-semibold text-sea-900">
+            <span>🚗</span> Before you drive off
+            <span className="rounded-full bg-orange-100 px-2.5 py-0.5 text-[11px] font-bold text-orange-900">
+              1 seat short
+            </span>
+          </h3>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {carActions.map((a, i) => (
+              <div
+                key={a.title}
+                className={`rounded-xl p-4 ring-1 ${
+                  i === 0 ? "bg-orange-50 ring-orange-300" : "bg-white ring-orange-200/60"
+                }`}
+              >
                 <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
                   <span>{a.icon}</span> {a.title}
                 </div>

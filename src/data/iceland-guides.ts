@@ -66,7 +66,7 @@ export const dayGuides: DayGuide[] = [
             name: "Gate-check the stroller",
             area: "At the Icelandair desk",
             blurb:
-              "Tag the stroller (and car seats if you bring your own) at check-in — they ride free on top of the baggage allowance, which matters on this Light fare. Keep the stroller to the gate, then collect it at the KEF jet bridge.",
+              "Tag the stroller — and the booster seat, if you're bringing your own second one — at check-in. Both ride free on top of the baggage allowance, which matters on this Light fare. Keep the stroller to the gate and collect it at the KEF jet bridge.",
             image: g("airport-checkin"),
           },
           {
@@ -144,6 +144,13 @@ export const dayGuides: DayGuide[] = [
         title: "Blue Lagoon, done well",
         sub: "2.5 hours door-to-door is the sweet spot with kids. The moves that make it smooth:",
         places: [
+          {
+            name: "Fit both child seats at the car",
+            area: "10:30 AM pick-up",
+            blurb:
+              "The rental includes one child seat, so make sure the second restraint is sorted before this moment. Fit both in the KEF car park before loading bags — it is far easier with the doors open and nobody waiting behind you.",
+            image: g("airport-checkin"),
+          },
           {
             name: "Arrive 15 early, not 45",
             area: "12:00 slot",
@@ -1017,7 +1024,7 @@ export const dayGuides: DayGuide[] = [
             name: "Fuel + rental return",
             area: "6:30 depart · ~7:15 at the lot",
             blurb:
-              "Fill up at the N1/Orkan by the airport roundabout (receipts matter for some rentals), then the return lot + shuttle or walk. Photograph the car from all sides at drop-off.",
+              "Fill up at the N1/Orkan by the airport roundabout (receipts matter for some rentals), then the return lot + shuttle or walk. You're back about two hours before the booked 9:30 AM window closes, so check the early-morning key-drop procedure in advance. Photograph the car from all sides at drop-off.",
             image: i("kef-airport"),
           },
           {
