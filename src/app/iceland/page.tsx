@@ -19,6 +19,9 @@ import {
   carRental,
   carFit,
   carActions,
+  blueLagoon,
+  lagoonFit,
+  lagoonNotes,
   hotel,
   hotelFit,
   hotelConfirm,
@@ -39,6 +42,7 @@ export const metadata: Metadata = {
 const sections = [
   { id: "flights", label: "Flights" },
   { id: "car", label: "Car" },
+  { id: "lagoon", label: "Blue Lagoon" },
   { id: "math", label: "The math" },
   { id: "timeline", label: "Trip timeline" },
   { id: "map", label: "Route map" },
@@ -66,6 +70,21 @@ const noteTone: Record<string, string> = {
   tip: "bg-amber-50 ring-amber-200",
 };
 
+/** Booking status shown at the top — booked things and what is still open. */
+const bookingStatus = [
+  { icon: "✈️", label: "Flights", detail: "FI 682 / FI 685 · Economy Light", href: "#flights", done: true },
+  { icon: "🏨", label: "Hotel", detail: "Óðinsvé · 4 nights", href: "#base", done: true },
+  { icon: "🚗", label: "Car", detail: "KEF · 4 days · 1 seat short", href: "#car", done: true, warn: true },
+  { icon: "🧖", label: "Blue Lagoon", detail: "Premium · Thu 12:00", href: "#lagoon", done: true },
+];
+
+const stillOpen = [
+  "Second child seat for the 7-year-old",
+  "Checked bags + seats together (Economy Light)",
+  "Room for four + cot, parking, breakfast",
+  "Perlan tickets for Sunday",
+];
+
 function SectionHeading({ id, title, sub }: { id: string; title: string; sub: string }) {
   return (
     <div id={id} className="scroll-mt-24 pt-14">
@@ -90,7 +109,7 @@ export default function IcelandTripPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-sea-900/90 via-sea-900/40 to-sea-900/30" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-12 pt-24 sm:px-6">
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-sand-100">
-            🇮🇸 Family trip · flights booked ✓ · Aug 26–31, 2026
+            🇮🇸 Family trip · flights, hotel, car & lagoon booked ✓ · Aug 26–31, 2026
           </div>
           <h1 className="mt-2 max-w-3xl font-display text-4xl font-bold leading-tight text-white [text-wrap:balance] sm:text-5xl">
             Iceland with the kids
@@ -131,6 +150,47 @@ export default function IcelandTripPage() {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Booking status */}
+        <section className="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5 sm:p-6">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="font-display text-lg font-semibold text-sea-900">Booked so far</h2>
+            <span className="text-sm text-sea-700/70">
+              The big four are locked — {stillOpen.length} things still open
+            </span>
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {bookingStatus.map((b) => (
+              <a
+                key={b.label}
+                href={b.href}
+                className={`flex items-start gap-3 rounded-xl p-3.5 ring-1 transition hover:shadow-md ${
+                  b.warn ? "bg-amber-50 ring-amber-200" : "bg-green-50/70 ring-green-200"
+                }`}
+              >
+                <span className="text-xl leading-none">{b.icon}</span>
+                <span className="min-w-0">
+                  <span className="flex items-center gap-1.5 font-bold text-sea-900">
+                    {b.label}
+                    <span className={b.warn ? "text-amber-700" : "text-green-700"}>
+                      {b.warn ? "⚠" : "✓"}
+                    </span>
+                  </span>
+                  <span className="block text-xs text-sea-700/80">{b.detail}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+          <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-sea-700/80">
+            <span className="font-bold uppercase tracking-wider text-terracotta-600">Still open:</span>
+            {stillOpen.map((o, i) => (
+              <span key={o}>
+                {o}
+                {i < stillOpen.length - 1 && <span className="text-sea-700/40"> ·</span>}
+              </span>
+            ))}
+          </div>
+        </section>
+
         {/* Flights */}
         <SectionHeading
           id="flights"
@@ -301,6 +361,87 @@ export default function IcelandTripPage() {
                 <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{a.detail}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Blue Lagoon */}
+        <SectionHeading
+          id="lagoon"
+          title="Blue Lagoon — the one appointment"
+          sub="Booked on the Premium package for all four of you at 12:00 on arrival day. It is the only fixed time in the whole trip, and everything on Thursday is built around it."
+        />
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          <article className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-sea-900/5">
+            <div className="relative aspect-[16/7] bg-sand-100">
+              <SmartImage
+                src="/images/iceland-blue-lagoon.jpg"
+                alt="The Blue Lagoon"
+                fallbackLabel="Blue Lagoon"
+                className="h-full w-full object-cover"
+              />
+              <span className="absolute left-3 top-3 rounded-full bg-green-100 px-3 py-1 text-xs font-extrabold text-green-800">
+                ✓ {blueLagoon.status}
+              </span>
+            </div>
+            <div className="p-5 sm:p-6">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-terracotta-600">
+                    {blueLagoon.date}
+                  </div>
+                  <h3 className="mt-1 font-display text-xl font-semibold text-sea-900">
+                    {blueLagoon.package}
+                  </h3>
+                </div>
+                <div className="text-right">
+                  <div className="font-display text-2xl font-bold text-sea-900">{blueLagoon.time}</div>
+                  <div className="text-xs font-medium text-sea-700/75">{blueLagoon.guests}</div>
+                </div>
+              </div>
+              <div className="mt-3 rounded-xl bg-sand-50 px-3.5 py-2.5 ring-1 ring-sea-900/5">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-sea-700/70">
+                  Booking no.
+                </span>{" "}
+                <span className="font-mono text-sm font-bold text-sea-900">{blueLagoon.reference}</span>
+              </div>
+              <ul className="mt-3 grid gap-1.5">
+                {blueLagoon.includes.map((inc) => (
+                  <li key={inc} className="flex gap-2 text-sm text-sea-700">
+                    <span className="shrink-0 text-sea-700/50">•</span> {inc}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 border-t border-sand-100 pt-3.5 text-sm leading-relaxed text-sea-700">
+                {blueLagoon.note}
+              </p>
+            </div>
+          </article>
+
+          <div className="grid content-start gap-4">
+            <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5">
+              <h3 className="font-display text-lg font-semibold text-sea-900">How it fits the day</h3>
+              <ul className="mt-3 space-y-2.5">
+                {lagoonFit.map((f) => (
+                  <li key={f.label} className="flex gap-2.5 text-sm">
+                    <span className="mt-0.5 shrink-0 text-green-700">✓</span>
+                    <span>
+                      <span className="font-semibold text-sea-900">{f.label}</span>
+                      <span className="text-sea-700/85"> — {f.detail}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {lagoonNotes.map((n) => (
+                <div key={n.title} className="rounded-xl bg-teal-50 p-4 ring-1 ring-teal-200">
+                  <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
+                    <span>{n.icon}</span> {n.title}
+                  </div>
+                  <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{n.detail}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

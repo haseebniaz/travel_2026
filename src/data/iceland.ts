@@ -143,7 +143,7 @@ export const flights: FlightLeg[] = [
         note: "Flight time 7 hr 25 min · lands Thursday morning",
       },
     ],
-    note: "The overnight timing is the whole strategy: kids sleep (some) on board, and Thursday starts in Iceland with the Blue Lagoon as the only fixed plan. Book the lagoon for about 12:00 PM — that leaves a real buffer for immigration, bags, car seats, and the short drive.",
+    note: "The overnight timing is the whole strategy: kids sleep (some) on board, and Thursday starts in Iceland with the Blue Lagoon as the only fixed plan. The lagoon is booked for 12:00 — a real buffer after immigration, bags, car seats, and the short drive.",
   },
   {
     number: "FI 685",
@@ -199,6 +199,75 @@ export const fareActions: PracticalNote[] = [
     icon: "🎒",
     detail:
       "Check the exact carry-on size and weight allowance on the booking before packing. Strollers and car seats are normally carried free on top of the baggage allowance — gate-check the stroller at the door and collect it on the jet bridge at KEF.",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Blue Lagoon — booked, Thursday's one fixed appointment
+// ---------------------------------------------------------------------------
+export const blueLagoon = {
+  status: "Booked",
+  package: "Blue Lagoon Premium",
+  date: "Thu, 27 Aug 2026",
+  time: "12:00",
+  guests: "2 adults, 2 children",
+  reference: "WBL05885049",
+  includes: [
+    "Three face masks from the in-water mask bar",
+    "One complimentary drink",
+    "Bathrobe and towel to use during the visit",
+    "A skincare gift to take home",
+  ],
+  note: "The only appointment on arrival day, and the whole reason the day is shaped the way it is: land 9:25, car at 10:30, lagoon at noon, Reykjavík by mid-afternoon.",
+};
+
+/** How the 12:00 slot lines up with the flight and the car. */
+export const lagoonFit: { label: string; detail: string; ok: boolean }[] = [
+  {
+    label: "12:00 entry vs. a 9:25 AM landing",
+    detail:
+      "Two and a half hours to clear immigration, collect bags, pick the car up at 10:30 and drive the 20 minutes over — comfortable even if the flight is late.",
+    ok: true,
+  },
+  {
+    label: "Both children are on the booking",
+    detail:
+      "Two adults and two children are ticketed. The 2-year-old just makes the minimum age of 2; under-8s wear the provided floaties and stay within arm's reach.",
+    ok: true,
+  },
+  {
+    label: "Out by ~2:30 PM for the hotel",
+    detail:
+      "A 90–120 minute soak plus generous changing time still lands you at Þórsgata around 3:40 PM, right after the 3:00 PM check-in opens.",
+    ok: true,
+  },
+];
+
+/** Premium-specific things worth knowing before Thursday. */
+export const lagoonNotes: PracticalNote[] = [
+  {
+    title: "Premium means fewer things to pack",
+    icon: "🧖",
+    detail:
+      "Bathrobe and towel come with the admission, so the lagoon bag is really just swimsuits, dry clothes for the kids, and hair ties. Worth confirming what the two children's tickets include, since robes are usually an adult perk.",
+  },
+  {
+    title: "Use all three masks and the drink",
+    icon: "🍹",
+    detail:
+      "Premium includes three masks at the in-water bar and one drink each — the silica mask first, then the others while you soak. The wristband charges anything extra to the room, so one parent's band can cover everyone.",
+  },
+  {
+    title: "Save the voucher offline",
+    icon: "📩",
+    detail:
+      "Download the voucher and screenshot booking WBL05885049 before you fly. Airport WiFi and a jet-lagged phone are not where you want to be hunting through email.",
+  },
+  {
+    title: "If the flight is badly delayed",
+    icon: "⏱️",
+    detail:
+      "The booking can be edited from the confirmation page. Check volcanic activity on safetravel.is before driving — Reykjanes eruptions have closed the lagoon at short notice, and Sky Lagoon near Reykjavík is the fallback.",
   },
 ];
 
@@ -744,7 +813,7 @@ export const days: PlanDay[] = [
         time: "12:00–2:30 PM",
         title: "Blue Lagoon",
         detail:
-          "Book noon admission. Allow generous changing time with two children and keep actual water time to 90–120 minutes.",
+          "Booked: 12:00 entry on the Premium package (robes and towels included). Allow generous changing time with two children and keep actual water time to 90–120 minutes.",
       },
       {
         time: "2:45–3:40 PM",
@@ -1235,7 +1304,8 @@ export const checklists: ChecklistGroup[] = [
       "✅ Flights — FI 682 / FI 685, Economy Light, booked",
       "Add checked bags to the booking (not in the Light fare)",
       "Pay to pre-select four seats together on both legs",
-      "Blue Lagoon · Thu Aug 27 around noon (children registered too)",
+      "✅ Blue Lagoon — Premium, Thu 27 Aug 12:00, 2 adults + 2 children, booked",
+      "Download the Blue Lagoon voucher and save it offline",
       "✅ Hotel — Óðinsvé, Þórsgata 1, 4 nights, booked",
       "Confirm the room sleeps 4 + request a cot for the toddler",
       "Ask the hotel about parking for the rental car",
