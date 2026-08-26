@@ -412,11 +412,8 @@ export default function IcelandTripPage() {
                   <div className="text-xs font-medium text-sea-700/75">{blueLagoon.guests}</div>
                 </div>
               </div>
-              <div className="mt-3 rounded-xl bg-sand-50 px-3.5 py-2.5 ring-1 ring-sea-900/5">
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-sea-700/70">
-                  Booking no.
-                </span>{" "}
-                <span className="font-mono text-sm font-bold text-sea-900">{blueLagoon.reference}</span>
+              <div className="mt-3 rounded-xl bg-sand-50 px-3.5 py-2.5 text-sm text-sea-700/80 ring-1 ring-sea-900/5">
+                Booking number is in your confirmation email — kept off this page on purpose.
               </div>
               <ul className="mt-3 grid gap-1.5">
                 {blueLagoon.includes.map((inc) => (

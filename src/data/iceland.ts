@@ -211,7 +211,6 @@ export const blueLagoon = {
   date: "Thu, 27 Aug 2026",
   time: "12:00",
   guests: "2 adults, 2 children",
-  reference: "WBL05885049",
   includes: [
     "Three face masks from the in-water mask bar",
     "One complimentary drink",
@@ -261,7 +260,7 @@ export const lagoonNotes: PracticalNote[] = [
     title: "Save the voucher offline",
     icon: "📩",
     detail:
-      "Download the voucher and screenshot booking WBL05885049 before you fly. Airport WiFi and a jet-lagged phone are not where you want to be hunting through email.",
+      "Download the voucher and screenshot it before you fly — the booking number lives in your confirmation email, deliberately not on this page. Airport WiFi and a jet-lagged phone are not where you want to be hunting through email.",
   },
   {
     title: "If the flight is badly delayed",
