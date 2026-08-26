@@ -15,6 +15,10 @@ import {
   dayRoutes,
   routeFlow,
   practicalNotes,
+  dayWeather,
+  weatherMeta,
+  weatherCall,
+  footwear,
   fareActions,
   carRental,
   carFit,
@@ -48,6 +52,7 @@ const sections = [
   { id: "map", label: "Route map" },
   { id: "days", label: "Day by day" },
   { id: "logic", label: "Route logic" },
+  { id: "weather", label: "Weather & shoes" },
   { id: "practical", label: "Practical" },
   { id: "base", label: "Base & walks" },
   { id: "checklists", label: "Checklists" },
@@ -62,6 +67,15 @@ const guideSlug: Record<string, string> = Object.fromEntries(
 const dayColor: Record<string, string> = Object.fromEntries(
   dayRoutes.map((r) => [`day-${r.id}`, r.color])
 );
+
+/** Per-day forecast, keyed by day id, for the chips on each day card. */
+const weatherByDay = Object.fromEntries(dayWeather.map((w) => [w.dayId, w]));
+
+const wxTone: Record<string, string> = {
+  good: "bg-green-50 ring-green-200",
+  mixed: "bg-sand-50 ring-sea-900/10",
+  watch: "bg-amber-50 ring-amber-200",
+};
 
 const noteTone: Record<string, string> = {
   default: "bg-sand-50 ring-sea-900/10",
@@ -538,6 +552,30 @@ export default function IcelandTripPage() {
                 </div>
 
                 <div className="space-y-4 px-5 pb-5 sm:px-6 sm:pb-6">
+                  {/* Forecast for this day, where you'll be */}
+                  {weatherByDay[d.id] && (
+                    <a
+                      href="#weather"
+                      className={`flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl px-3.5 py-2.5 text-sm ring-1 transition hover:shadow-sm ${
+                        wxTone[weatherByDay[d.id].tone]
+                      }`}
+                    >
+                      <span className="font-bold text-sea-900">
+                        {weatherByDay[d.id].high}° / {weatherByDay[d.id].low}°
+                      </span>
+                      <span className="font-semibold text-sea-800">
+                        {weatherByDay[d.id].summary}
+                      </span>
+                      <span className="text-sea-700/80">
+                        feels {weatherByDay[d.id].feelsLike}° · {weatherByDay[d.id].rainChance}% rain ·
+                        gusts {weatherByDay[d.id].gust} km/h
+                      </span>
+                      <span className="ml-auto text-xs font-semibold text-terracotta-600">
+                        {weatherByDay[d.id].place}
+                      </span>
+                    </a>
+                  )}
+
                   {/* Per-day timeline strip */}
                   <IcelandDayFlow flow={d.flow} span={d.flowSpan} />
 
@@ -660,6 +698,88 @@ export default function IcelandTripPage() {
                 </a>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Weather + footwear */}
+        <SectionHeading
+          id="weather"
+          title="Weather, day by day"
+          sub={`${weatherMeta.source}, pulled ${weatherMeta.fetched}, for wherever you actually are that day. Temperatures in °C; "feels like" is the apparent low, which is the number that decides the jacket.`}
+        />
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {dayWeather.map((w) => (
+            <a
+              key={w.dayId}
+              href={`#${w.dayId}`}
+              className={`rounded-2xl p-4 ring-1 transition hover:shadow-md ${wxTone[w.tone]}`}
+            >
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="font-display text-lg font-semibold text-sea-900">
+                  {w.weekday} {w.date}
+                </span>
+                <span className="text-right text-lg font-bold text-sea-900">
+                  {w.high}° <span className="text-sm font-medium text-sea-700/60">/ {w.low}°</span>
+                </span>
+              </div>
+              <div className="text-xs font-bold uppercase tracking-wider text-terracotta-600">
+                {w.place}
+              </div>
+              <div className="mt-1.5 text-sm font-semibold text-sea-900">{w.summary}</div>
+              <div className="mt-2 flex flex-wrap gap-1.5 text-[11px] font-bold text-sea-800">
+                <span className="rounded-full bg-white/80 px-2 py-0.5">🌡 feels {w.feelsLike}°</span>
+                <span className="rounded-full bg-white/80 px-2 py-0.5">💧 {w.rainChance}%</span>
+                <span className="rounded-full bg-white/80 px-2 py-0.5">💨 {w.wind} / {w.gust} km/h</span>
+                {w.daylight && (
+                  <span className="rounded-full bg-white/80 px-2 py-0.5">☀ {w.daylight}</span>
+                )}
+              </div>
+              <p className="mt-2.5 text-sm leading-relaxed text-sea-700">{w.verdict}</p>
+            </a>
+          ))}
+
+          {/* The order call */}
+          <div className="rounded-2xl bg-sea-800 p-5 text-sand-50 shadow-sm">
+            <div className="text-[11px] font-extrabold uppercase tracking-wider text-sand-100/80">
+              The call
+            </div>
+            <h3 className="mt-1 font-display text-lg font-semibold">{weatherCall.headline}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-sand-50/90">{weatherCall.detail}</p>
+          </div>
+        </div>
+        <p className="mt-3 text-xs leading-relaxed text-sea-700/70">{weatherMeta.note}</p>
+
+        {/* Footwear */}
+        <div className="mt-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sea-900/5 sm:p-6">
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="font-display text-xl font-semibold text-sea-900">👟 Boots or joggers?</h3>
+            <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-extrabold text-green-800">
+              {footwear.verdict}
+            </span>
+          </div>
+          <p className="mt-2.5 max-w-4xl text-sm leading-relaxed text-sea-700">{footwear.summary}</p>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {footwear.perPerson.map((f) => (
+              <div key={f.who} className="rounded-xl bg-sand-50 p-4 ring-1 ring-sea-900/5">
+                <div className="text-[11px] font-extrabold uppercase tracking-wider text-terracotta-600">
+                  {f.who}
+                </div>
+                <div className="mt-1 font-semibold text-sea-900">{f.pick}</div>
+                <p className="mt-1.5 text-sm leading-relaxed text-sea-700">{f.why}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            {footwear.notes.map((n) => (
+              <div key={n.title} className="rounded-xl bg-teal-50 p-3.5 ring-1 ring-teal-200">
+                <div className="flex items-center gap-2 text-sm font-bold text-sea-900">
+                  <span>{n.icon}</span> {n.title}
+                </div>
+                <p className="mt-1 text-sm leading-relaxed text-sea-700">{n.detail}</p>
+              </div>
+            ))}
           </div>
         </div>
 

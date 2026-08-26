@@ -1277,7 +1277,7 @@ export const practicalNotes: PracticalNote[] = [
     title: "Daylight",
     icon: "🌅",
     detail:
-      "Sunrise ~6:10 AM, sunset ~8:45 PM by trip week — about 14.5 hours of usable light. Nothing in this itinerary races the sun, and blackout curtains matter more than headlamps.",
+      "Sunrise 05:56 and sunset 21:02 on arrival day, drifting to 06:08 / 20:48 by Monday — about 15 hours of usable light, losing 4 minutes a day. Nothing in this itinerary races the sun, and blackout curtains matter more than headlamps.",
   },
   {
     title: "Car seats, the rental & parking",
@@ -1292,6 +1292,184 @@ export const practicalNotes: PracticalNote[] = [
       "Stock a grocery run on Thursday evening (Bónus or Krónan): breakfast things, road snacks, and toddler staples. Restaurant dinners stay easy — Icelandic hot dogs are a legitimate food group.",
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Weather — real forecast pulled per trip day, for the place you'll actually be
+// ---------------------------------------------------------------------------
+export type DayWeather = {
+  dayId: string;
+  weekday: string;
+  date: string;
+  place: string; // where the numbers are measured — the day's actual location
+  summary: string;
+  high: number;
+  low: number;
+  feelsLike: number; // apparent minimum — the number that decides the jacket
+  precipMm: number;
+  rainChance: number;
+  wind: number; // max sustained, km/h
+  gust: number; // max gust, km/h
+  daylight?: string;
+  verdict: string;
+  tone: "good" | "mixed" | "watch";
+};
+
+export const weatherMeta = {
+  source: "Open-Meteo forecast",
+  fetched: "26 Aug 2026",
+  note: "Pulled per day for the place you'll actually be that day — the lagoon on Thursday, the Golden Circle on Friday, the South Coast on Saturday, Reykjavík for the city days. A six-day forecast drifts, so re-check the back half of the trip midweek; vedur.is is the Icelandic source, and road conditions live on road.is.",
+};
+
+export const dayWeather: DayWeather[] = [
+  {
+    dayId: "day-thu",
+    weekday: "Thu",
+    date: "Aug 27",
+    place: "Blue Lagoon & Reykjavík",
+    summary: "Light drizzle, very windy",
+    high: 11,
+    low: 6,
+    feelsLike: 2,
+    precipMm: 0.1,
+    rainChance: 20,
+    wind: 29,
+    gust: 43,
+    daylight: "05:56 – 21:02",
+    verdict:
+      "Barely any rain, but the windiest day of the trip — gusts near 43 km/h at the lagoon. Warm water is no problem; the walk from the car park and the moment you get out are. Hold the car doors, and have the kids' coats ready at the exit rather than in the boot.",
+    tone: "watch",
+  },
+  {
+    dayId: "day-fri",
+    weekday: "Fri",
+    date: "Aug 28",
+    place: "Golden Circle (Geysir)",
+    summary: "Overcast, dry, calm",
+    high: 12,
+    low: 3,
+    feelsLike: -0.4,
+    precipMm: 0,
+    rainChance: 16,
+    wind: 11,
+    gust: 19,
+    daylight: "05:59 – 20:58",
+    verdict:
+      "The best day of the week for this route: no rain, the lightest wind of the trip, and the mildest afternoon. The catch is the start — it feels below freezing first thing, so hats and gloves for the 9:15 Þingvellir walk, then peel layers off as it warms.",
+    tone: "good",
+  },
+  {
+    dayId: "day-sat",
+    weekday: "Sat",
+    date: "Aug 29",
+    place: "South Coast (Vík)",
+    summary: "Overcast, dry, breezy",
+    high: 11,
+    low: 5,
+    feelsLike: 3,
+    precipMm: 0,
+    rainChance: 39,
+    wind: 17,
+    gust: 32,
+    daylight: "06:02 – 20:55",
+    verdict:
+      "Dry for the waterfalls, which is what matters — but 32 km/h gusts on an exposed coast. Dyrhólaey will be blowy at the railing, and the spray at Seljalandsfoss will find you anyway. Keep hoods up and hold onto hats and the 2-year-old.",
+    tone: "good",
+  },
+  {
+    dayId: "day-sun",
+    weekday: "Sun",
+    date: "Aug 30",
+    place: "Reykjavík",
+    summary: "Cloudy, showers possible",
+    high: 10,
+    low: 5,
+    feelsLike: 3,
+    precipMm: 0,
+    rainChance: 53,
+    wind: 8,
+    gust: 21,
+    daylight: "06:05 – 20:51",
+    verdict:
+      "The calmest day of the trip — barely any wind — but a coin-flip chance of a shower passing through. Perfect for the local plan: Perlan indoors in the morning, and the harbour walk or the pool whenever the sky looks friendly. Good news for staying in town: the South Coast gets 8 mm of rain today.",
+    tone: "mixed",
+  },
+  {
+    dayId: "day-mon",
+    weekday: "Mon",
+    date: "Aug 31",
+    place: "Reykjavík → Keflavík",
+    summary: "Drizzle, windy",
+    high: 11,
+    low: 5,
+    feelsLike: 3,
+    precipMm: 0.8,
+    rainChance: 30,
+    wind: 21,
+    gust: 37,
+    daylight: "06:08 – 20:48",
+    verdict:
+      "Wet roads and gusts to 37 km/h for the 6:30 AM airport run — dark, damp and blowy, so add a few minutes to the drive rather than trimming the buffer. Wind that strong catches car doors at the rental return, too.",
+    tone: "mixed",
+  },
+];
+
+/** Does the plan's Fri/Sat order still hold? The forecast says yes, emphatically. */
+export const weatherCall = {
+  headline: "Keep Friday and Saturday exactly as planned",
+  detail:
+    "The itinerary says to give the South Coast the better forecast, so here is the check: on Friday the South Coast gets 2.9 mm of rain with a 70% chance, while Saturday there is dry at 39%. The Golden Circle is dry on both days. Swapping them would move the waterfall day into the only real rain of the week — so don't.",
+};
+
+// ---------------------------------------------------------------------------
+// Footwear — what this specific itinerary asks of your shoes
+// ---------------------------------------------------------------------------
+export const footwear = {
+  verdict: "Waterproof shoes with grip — not hiking boots",
+  summary:
+    "Nothing in this plan is a hike. The longest walks are Almannagjá at Þingvellir, the 15 minutes to Kvernufoss and the flat gravel to the Sólheimajökull viewpoint — all well-made paths, none of them steep or long. Stiff hiking boots would be dead weight you carry through an airport. But plain joggers are the wrong call too, because the ground at every waterfall is permanently wet from spray whether or not it rains, and this week is windy enough to blow that spray sideways. The sweet spot is a waterproof low hiker or trail shoe with a lugged sole. If you only own joggers, they'll do — just pack spare socks in the car and accept wet feet at Seljalandsfoss.",
+  perPerson: [
+    {
+      who: "You & your wife",
+      pick: "Waterproof trail/low hiking shoes",
+      why: "One pair each, worn on Friday and Saturday. Ankle-height boots are unnecessary — there's no scrambling, no loose scree, no pack weight. Grip matters more than ankle support on wet basalt and boardwalks.",
+    },
+    {
+      who: "The 7-year-old",
+      pick: "Waterproof sneakers or light kids' hikers",
+      why: "Whatever they can run in. Cold wet feet end a day faster for a 7-year-old than for anyone else, so waterproof beats fashionable — and bring a second pair of shoes in case day one soaks them.",
+    },
+    {
+      who: "The 2-year-old",
+      pick: "Rain boots + warm socks",
+      why: "Mostly carried or in the stroller, so puddle-stomping capability is the whole spec. Rain boots are also the easiest thing to pull off a sleeping toddler in the car.",
+    },
+    {
+      who: "Everyone, in town",
+      pick: "Your normal joggers",
+      why: "Reykjavík is pavement. Sunday's harbour walk, the evening strolls and the doorstep loop are all ordinary-shoe territory — this is what the second pair is for.",
+    },
+  ],
+  notes: [
+    {
+      title: "The one wet-feet moment",
+      icon: "💦",
+      detail:
+        "Gljúfrabúi, the hidden waterfall by Seljalandsfoss, is reached by wading a shallow stream into a canyon slot. Nothing keeps feet dry there. Either accept it, wear the rain boots, or admire it from the entrance.",
+    },
+    {
+      title: "Skip the boots you'd have to buy",
+      icon: "💸",
+      detail:
+        "Buying stiff new boots for this trip would be a mistake twice over: they need breaking in, and this itinerary never asks for them. Spend it on waterproof layers instead — that's what the week's wind actually calls for.",
+    },
+    {
+      title: "Blue Lagoon footwear",
+      icon: "🩴",
+      detail:
+        "Flip-flops or slides for the changing rooms are worth the space on Thursday. Everything else that day is a car-to-door dash.",
+    },
+  ],
+};
 
 // ---------------------------------------------------------------------------
 // Book & pack checklists
