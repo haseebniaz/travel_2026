@@ -134,66 +134,11 @@ export const dayGuides: DayGuide[] = [
     dayId: "day-thu",
     weekday: "Thu",
     date: "Aug 27",
-    title: "Arrival day field guide",
-    badge: "Blue Lagoon + first evening",
+    title: "Arrival evening — after the rental delay",
+    badge: "Lagoon rebooked to Friday",
     intro:
-      "One anchor (the noon lagoon), then a soft landing in Reykjavík. Everything below is optional menu, ordered by how likely you are to want it — pick by energy, not ambition.",
+      "The rental desk took over two hours and the noon lagoon slot went with it — rebooked for Friday at 12:00. What's left of Thursday is the unhurried Reykjavík evening the original plan never quite had room for. Everything below starts at the hotel door.",
     sections: [
-      {
-        id: "lagoon",
-        title: "Blue Lagoon, done well",
-        sub: "2.5 hours door-to-door is the sweet spot with kids. The moves that make it smooth:",
-        places: [
-          {
-            name: "Fit both child seats at the car",
-            area: "10:30 AM pick-up",
-            blurb:
-              "The rental includes one child seat, so make sure the second restraint is sorted before this moment. Fit both in the KEF car park before loading bags — it is far easier with the doors open and nobody waiting behind you.",
-            image: g("airport-checkin"),
-          },
-          {
-            name: "Arrive 15 early, not 45",
-            area: "12:00 slot",
-            blurb:
-              "Check-in queues clear fast; too early just adds waiting. Wristbands work the lockers and charge drinks — one parent's band pays for everything.",
-            image: i("blue-lagoon"),
-          },
-          {
-            name: "Conditioner first, then hair up",
-            area: "Silica survival",
-            blurb:
-              "Slather the free conditioner in everyone's hair BEFORE the water and leave it in. Hair ties for anyone with length — silica takes days to wash out otherwise.",
-            image: g("lagoon-bridge"),
-          },
-          {
-            name: "Claim a shallow corner",
-            area: "With the floaties",
-            blurb:
-              "The lagoon has shallow edges near the silica bar where the 2-year-old can stand. Both kids wear the provided floaties, always within arm's reach — the water is milky-opaque.",
-            image: i("blue-lagoon"),
-          },
-          {
-            name: "Silica mask family photo",
-            area: "The classic",
-            blurb:
-              "Free silica mud at the swim-up bar: white faces, steam, black lava behind — this is the trip's first keeper photo. A phone in a ziplock works fine.",
-            image: i("hero"),
-          },
-          {
-            name: "In-water drinks break",
-            area: "Kids' slush exists",
-            blurb: "The swim-up bar does smoothies/slush for kids and a beer or skyr smoothie for adults. One round, mid-soak, is the perfect reset.",
-            image: i("hero"),
-          },
-          {
-            name: "The lava boardwalk after",
-            area: "15 min · dry clothes on",
-            blurb:
-              "Once changed, the boardwalk loop around the lagoon's outflow ponds gives the otherworldly blue-on-black photos without anyone getting wet again.",
-            image: g("lava-flow"),
-          },
-        ],
-      },
       {
         id: "first-walk",
         title: "The first-evening walk loop",
@@ -326,20 +271,27 @@ export const dayGuides: DayGuide[] = [
     ],
     notes: [
       {
-        title: "Check before you drive",
+        title: "What the delay cost, and what it didn't",
         detail:
-          "Reykjanes has had recurring volcanic episodes near Grindavík — the lagoon closes when activity spikes. Glance at safetravel.is and the Blue Lagoon site while waiting for bags; if it's shut, swap in Sky Lagoon (10 min from Reykjavík) and the day still works.",
-        tone: "safety",
+          "Only the lagoon slot — and it was rebookable to Friday noon. Nothing else on Thursday was reserved, which is precisely why the plan put a single fixed thing on arrival day.",
+        tone: "tip",
       },
       {
-        title: "The lagoon bag rides up front",
-        detail: "Swimsuits, towels are provided, dry outfits, hair ties, ziplock for the phone — one bag on top of the luggage, nothing else unpacked.",
+        title: "This is now your local evening",
+        detail:
+          "With the Golden Circle moving to Sunday, the unhurried Reykjavík time lands here and on Friday morning. The walk loop below is the whole plan.",
         tone: "family",
       },
       {
-        title: "Jet-lag rule for kids",
-        detail: "Daylight and motion until 7 PM local, then hard bedtime. Tonight's early night buys the whole week.",
-        tone: "tip",
+        title: "Do the grocery run tonight",
+        detail:
+          "Bónus or Krónan: breakfasts, skyr, road snacks. Saturday leaves at 8:00 and Sunday at 8:15, so this is the last unhurried evening to do it.",
+      },
+      {
+        title: "Check the second child seat",
+        detail:
+          "Both weekend days are driving days. If the rental desk only supplied one seat, sort the booster now rather than at 8:00 AM on Saturday.",
+        tone: "safety",
       },
     ],
   },
@@ -352,201 +304,259 @@ export const dayGuides: DayGuide[] = [
     dayId: "day-fri",
     weekday: "Fri",
     date: "Aug 28",
-    title: "Golden Circle field guide",
-    badge: "Þingvellir · Geysir · Gullfoss",
+    title: "Blue Lagoon + Reykjavík",
+    badge: "Rebooked lagoon · 12:00",
     intro:
-      "The plan holds the three anchors; this page holds everything you might bolt on. Rule of thumb: add at most two extras, and let the toddler's mood pick which.",
+      "The rescued day: a free morning in 101, the lagoon at noon, and an afternoon deliberately kept soft. Leave Þórsgata by 11:00 — that is the one time today worth being strict about. Everything after the lagoon is a menu, not a schedule.",
     sections: [
       {
-        id: "anchors",
-        title: "The three anchors, upgraded",
-        sub: "What to actually do at each stop so it lands with kids.",
+        id: "lagoon",
+        title: "Blue Lagoon, done well",
+        sub: "2.5 hours door-to-door is the sweet spot with kids. The moves that make it smooth:",
         places: [
           {
-            name: "Almannagjá rift walk",
-            area: "Þingvellir · 30–40 min",
+            name: "Fit both child seats at the car",
+            area: "10:30 AM pick-up",
             blurb:
-              "Walk the path DOWN the gorge from the visitor center — you're literally between North America and Europe. Tell the 7-year-old the ground is tearing 2 cm a year; watch the walk improve instantly.",
-            image: i("thingvellir"),
+              "The rental includes one child seat, so make sure the second restraint is sorted before this moment. Fit both in the KEF car park before loading bags — it is far easier with the doors open and nobody waiting behind you.",
+            image: g("airport-checkin"),
           },
           {
-            name: "Öxarárfoss",
-            area: "Þingvellir · +15 min",
+            name: "Arrive 15 early, not 45",
+            area: "12:00 slot",
             blurb:
-              "The waterfall inside the rift, reached by an easy boardwalk off Almannagjá. Most tour groups skip it, which makes it the calmest waterfall you'll see all week.",
-            image: g("oxararfoss"),
+              "Check-in queues clear fast; too early just adds waiting. Wristbands work the lockers and charge drinks — one parent's band pays for everything.",
+            image: i("blue-lagoon"),
           },
           {
-            name: "Strokkur, timed right",
-            area: "Geysir · every 5–10 min",
+            name: "Conditioner first, then hair up",
+            area: "Silica survival",
             blurb:
-              "Stand upwind (watch where the steam blows), count eruptions, and let the kids predict the burst — the pre-blast blue bubble is the photo. Two or three eruptions is plenty.",
-            image: i("geysir"),
+              "Slather the free conditioner in everyone's hair BEFORE the water and leave it in. Hair ties for anyone with length — silica takes days to wash out otherwise.",
+            image: g("lagoon-bridge"),
           },
           {
-            name: "Gullfoss upper platform",
-            area: "20–30 min",
+            name: "Claim a shallow corner",
+            area: "With the floaties",
             blurb:
-              "Start at the top platform for the full two-step canyon view (rainbows on sunny days), walk the lower path only if wind and spray allow. Hold hats — literally.",
-            image: i("gullfoss"),
+              "The lagoon has shallow edges near the silica bar where the 2-year-old can stand. Both kids wear the provided floaties, always within arm's reach — the water is milky-opaque.",
+            image: i("blue-lagoon"),
+          },
+          {
+            name: "Silica mask family photo",
+            area: "The classic",
+            blurb:
+              "Free silica mud at the swim-up bar: white faces, steam, black lava behind — this is the trip's first keeper photo. A phone in a ziplock works fine.",
+            image: i("hero"),
+          },
+          {
+            name: "In-water drinks break",
+            area: "Kids' slush exists",
+            blurb: "The swim-up bar does smoothies/slush for kids and a beer or skyr smoothie for adults. One round, mid-soak, is the perfect reset.",
+            image: i("hero"),
+          },
+          {
+            name: "The lava boardwalk after",
+            area: "15 min · dry clothes on",
+            blurb:
+              "Once changed, the boardwalk loop around the lagoon's outflow ponds gives the otherworldly blue-on-black photos without anyone getting wet again.",
+            image: g("lava-flow"),
           },
         ],
       },
       {
-        id: "addons",
-        title: "Worthwhile add-on stops",
-        sub: "All on or just off the loop, ordered roughly along your route. Pick two, max.",
+        id: "perlan",
+        title: "Perlan, maxed",
+        sub: "The morning anchor — here's what's inside the dome so you don't miss the good rooms.",
         places: [
           {
-            name: "Silfra viewing point",
-            area: "Þingvellir · +10 min",
+            name: "The ice cave",
+            area: "Real 350-ton glacier ice",
             blurb:
-              "Peer into the glass-clear fissure where divers float between continents. With kids you just look from the walkway — five minutes, wildly memorable water.",
-            image: g("silfra"),
+              "A 100-metre tunnel of actual ice, kept at −10°C — jackets are provided-ish but bring your own layers. The 2-year-old's face at the entrance is the photo.",
+            image: g("ice-cave"),
           },
           {
-            name: "Laugarvatn Fontana rye bread dig",
-            area: "On Route 37 · ~45 min",
-            blurb:
-              "Staff dig a pot of geothermal rye bread out of the hot black sand and serve it steaming with butter (usually ~11:30 & 14:30 — confirm times). Kids watching bread come out of the ground: unbeatable.",
-            image: g("laugarvatn"),
+            name: "Látrabjarg cliff wall",
+            area: "Forces of Nature hall",
+            blurb: "A ten-metre replica bird cliff with projected puffins and a floor that rumbles for earthquakes — the room kids refuse to leave.",
+            image: g("latrabjarg"),
           },
           {
-            name: "Kerið crater",
-            area: "Route 35 south · +10 min detour",
+            name: "Áróra planetarium show",
+            area: "Timed entries",
             blurb:
-              "A red-walled volcanic crater with a teal lake; the rim loop takes 15–20 minutes with kids. Small entry fee, big 'we walked on a volcano' payoff — best slotted on the drive home.",
-            image: g("kerid"),
+              "The northern-lights dome film is the closest August gets to auroras. Check the schedule at the desk on arrival and build the visit around it.",
+            image: g("aurora"),
           },
           {
-            name: "Faxi waterfall",
-            area: "5 min off Route 35",
+            name: "The observation deck",
+            area: "360° over the city",
             blurb:
-              "A wide, gentle waterfall with a picnic-friendly bank and almost no crowds — the perfect legs-stretch if the car nap ends early.",
-            image: g("faxi"),
-          },
-          {
-            name: "Skálholt cathedral",
-            area: "Route 31 · 20 min stop",
-            blurb: "A thousand years of Icelandic history in one quiet white church — plus reliable bathrooms and space to run.",
-            image: g("skalholt"),
-          },
-          {
-            name: "Brúarfoss",
-            area: "Only on a miracle day",
-            blurb:
-              "The bluest waterfall in Iceland — but it's a 3.5 km each-way riverside walk. With a 2-year-old, admire the photo and drive on; it's a future-trip promise.",
-            image: g("bruarfoss"),
+              "Walk the open-air ring: colored rooftops, Esja, the bay, and this week's two road trips on the horizon. The café behind it handles second breakfast.",
+            image: i("perlan"),
           },
         ],
       },
       {
-        id: "kid-magnets",
-        title: "Kid magnets",
-        sub: "The stops that exist purely to make the day theirs.",
+        id: "kids-rvk",
+        title: "The kids' Reykjavík",
+        sub: "Sunday-afternoon candidates, all ≤10 minutes' drive. Rank them with the kids at lunch.",
         places: [
           {
-            name: "Efstidalur farm ice cream",
-            area: "Route 37 · between Laugarvatn & Geysir",
+            name: "Húsdýragarðurinn family park & zoo",
+            area: "Laugardalur",
             blurb:
-              "Ice cream made on the farm, eaten at a window looking into the cow barn. The single highest kid-joy-per-minute stop on the Golden Circle.",
-            image: g("efstidalur"),
+              "Seals, arctic foxes, reindeer, and every Icelandic farm animal, plus a small ride park — the whole thing is toddler-scaled. Sunny-day first choice.",
+            image: g("husdyragardurinn"),
           },
           {
-            name: "Roadside Icelandic horses",
-            area: "Anywhere along Route 36/37",
+            name: "Whales of Iceland",
+            area: "Grandi",
             blurb:
-              "Shaggy, friendly, mane-in-the-wind horses at fence lines all day. Use marked pull-offs only, and don't feed them — they're charming beggars.",
-            image: g("icelandic-horse"),
+              "Life-size models of every whale in Icelandic waters hanging in blue light — walking under a 25 m blue whale recalibrates a 7-year-old permanently. Rainy-day first choice.",
+            image: g("whales-of-iceland"),
           },
           {
-            name: "Geysir's bubbling pools",
-            area: "The walk to Strokkur",
+            name: "Árbær open-air museum",
+            area: "10 min east",
             blurb:
-              "The path passes steaming vents and boiling blue pools — hold hands here (it's genuinely hot) and let the sulfur smell become the day's running joke.",
-            image: g("geysir-pool"),
+              "A preserved turf-house village with costumed guides, old-time toys, and farm animals — Iceland's past at running-around scale. Sundays often add demonstrations.",
+            image: g("arbaer"),
+          },
+          {
+            name: "Botanical garden + Café Flóra",
+            area: "Laugardalur",
+            blurb: "Ponds, ducks, lawns to roll down, and a greenhouse café — pairs perfectly with the zoo next door for a full Laugardalur afternoon.",
+            image: g("botanical-garden"),
+          },
+          {
+            name: "Viðey island micro-voyage",
+            area: "5-min ferry",
+            blurb:
+              "A tiny boat to a car-free island of trails, seabirds, and Yoko Ono's Peace Tower base. The ferry ride IS the attraction for kids — check return times, bring the carrier.",
+            image: g("videy"),
+          },
+          {
+            name: "Laugardalslaug",
+            area: "The classic finale",
+            blurb:
+              "Already in the main plan as the pool option: slides, a shallow kids' lagoon, and hot pots for the adults, in the same park as the zoo.",
+            image: i("laugardalslaug"),
+          },
+        ],
+      },
+      {
+        id: "harbour",
+        title: "The harbour finale (option B)",
+        sub: "If the afternoon goes maritime instead of Laugardalur.",
+        places: [
+          {
+            name: "Grandi district stroll",
+            area: "Old Harbour's working end",
+            blurb: "Fishing boats, street art on the fish-packing houses, and the food hall — a flat wander with ice cream at the end, and only a 9-minute walk downhill from the hotel.",
+            image: i("old-harbour"),
+          },
+          {
+            name: "Omnom chocolate",
+            area: "Grandi flagship",
+            blurb: "Iceland's bean-to-bar star — the shop pours hot chocolate and sells the wrappers-too-pretty-to-open bars that solve every gift obligation at once.",
+            image: g("chocolate"),
+          },
+          {
+            name: "Valdís",
+            area: "Grandi's ice-cream queue",
+            blurb: "The city's favorite scoop shop. A queue out the door in any weather; the Turkish pepper flavor is a dare, the caramel is the answer.",
+            image: g("ice-cream"),
+          },
+          {
+            name: "Harpa's honeycomb, again",
+            area: "Golden hour",
+            blurb: "If Thursday's visit was rushed, Sunday evening light through the glass is the version worth the second look.",
+            image: g("harpa-inside"),
+          },
+        ],
+      },
+      {
+        id: "try",
+        title: "Things to try today",
+        sub: "Sunday-specific culture.",
+        places: [
+          {
+            name: "Sunday-morning bakery run",
+            area: "Brauð & Co or Sandholt",
+            blurb: "The one morning without an early departure — spend it on warm snúðar and let the hotel breakfast lose on merit.",
+            image: g("cinnamon-bun"),
+          },
+          {
+            name: "Rúgbrauð with butter",
+            area: "Any café or the grocery haul",
+            blurb: "The dark, sweet geothermal rye — dense as cake, best under too much butter. (The Fontana version was Friday's; this is the everyday one.)",
+            image: g("rye-bread"),
+          },
+          {
+            name: "Sundlaug etiquette",
+            area: "If the pool wins",
+            blurb: "Icelandic pools require a proper naked pre-swim shower (attendants enforce it kindly). Brief the 7-year-old in advance and it becomes cultural anthropology, not embarrassment.",
+            image: i("laugardalslaug"),
           },
         ],
       },
       {
         id: "eat",
-        title: "Lunch & treats",
-        sub: "The realistic options, in route order.",
+        title: "Easy dinners for the last night",
+        sub: "Close to the hotel, done by 6:30, zero drama.",
         places: [
           {
-            name: "Friðheimar greenhouse",
-            area: "Reykholt · book ahead",
-            blurb:
-              "Lunch inside a glowing tomato greenhouse — endless tomato soup + bread buffet, and they welcome kids (there's often a horse show outside). The one Golden Circle meal worth reserving; book online today if you want it.",
-            image: g("fridheimar"),
-          },
-          {
-            name: "Geysir Center food court",
-            area: "Across from Strokkur",
-            blurb: "Cafeteria speed: soup, sandwiches, kids' plates, clean bathrooms. Not memorable, perfectly efficient — the default if Friðheimar is full.",
+            name: "Grandi Mathöll",
+            area: "Food hall · everyone picks",
+            blurb: "A converted fish factory where the 7-year-old gets fish & chips, the toddler gets fries, and the adults get lamb — no negotiation required.",
             image: g("food-hall"),
           },
           {
-            name: "Picnic at Faxi",
-            area: "Grocery-run version",
-            blurb: "If the weather's kind, yesterday's Bónus haul on Faxi's grassy bank beats any restaurant queue.",
-            image: g("faxi"),
+            name: "Flatey Pizza",
+            area: "Grandi",
+            blurb: "Neapolitan pizza in a bright room, out in 40 minutes — the reliable last-supper pick.",
+            image: g("pizza"),
           },
           {
-            name: "Efstidalur upstairs",
-            area: "The bigger farm meal",
-            blurb: "Above the ice-cream barn there's a proper farm restaurant (burgers from their own herd) — works as either lunch or the treat stop.",
-            image: g("efstidalur"),
-          },
-        ],
-      },
-      {
-        id: "camera",
-        title: "Camera stops",
-        sub: "Where today's keepers happen.",
-        places: [
-          {
-            name: "Mid-rift on Almannagjá",
-            area: "Þingvellir",
-            blurb: "Family on the path, rift walls on both sides — the 'standing between continents' shot.",
-            image: g("almannagja"),
+            name: "Hlemmur Mathöll",
+            area: "If you stayed east",
+            blurb: "The original food hall: bánh mì, tacos, and Skál's Icelandic plates under one roof, five minutes from east-end apartments.",
+            image: g("hlemmur"),
           },
           {
-            name: "Strokkur's blue bubble",
-            area: "Geysir",
-            blurb: "Burst photos are luck; the swelling turquoise dome a half-second before is skill. Burst mode, kids' reaction faces in frame.",
-            image: i("geysir"),
-          },
-          {
-            name: "Gullfoss from the upper trail",
-            area: "Rainbow hour",
-            blurb: "Late morning to midday sun puts rainbows in the spray. Shoot from the upper platform with the canyon running away to the right.",
-            image: i("gullfoss"),
-          },
-          {
-            name: "Kerið's red rim",
-            area: "If you stop",
-            blurb: "Red slopes, teal lake, tiny people on the rim path — phone-wide from the entrance stairs gets it all.",
-            image: g("kerid"),
+            name: "The grocery finale",
+            area: "Krónan run",
+            blurb: "Dinner-lite plus tomorrow's plane snacks and the last skyr load-out in one stop — honestly the correct choice before a 5:45 wake-up.",
+            image: g("bonus-store"),
           },
         ],
       },
     ],
     notes: [
       {
-        title: "Parking & bathrooms",
+        title: "Leave by 11:00",
         detail:
-          "Þingvellir parking is paid (card machines, covers all lots); bathrooms there, at Geysir, and at Gullfoss are the reliable three — use each. Fuel exists at Laugarvatn and on Route 35.",
+          "Fifty minutes of driving, plus parking and check-in. You have lost this booking once already — everything else today is flexible, this isn't.",
         tone: "tip",
       },
       {
-        title: "The two-extra rule",
-        detail: "Three anchors + two extras fills 8:30–5:00 exactly. A third extra is how great days turn into carried-to-bed meltdowns.",
+        title: "Kids at the lagoon",
+        detail:
+          "Minimum age is 2, so both are in. Under-8s wear the provided floaties and stay within arm's reach — the water is opaque and you cannot see the bottom.",
         tone: "family",
       },
       {
-        title: "Weather swap stands",
-        detail: "If the forecast flipped overnight, this loop and Saturday's coast swap cleanly — nothing here is booked except (maybe) Friðheimar.",
+        title: "Premium means a smaller bag",
+        detail:
+          "Robes and towels come with the admission, so you carry swimsuits, dry clothes and hair ties. Worth confirming what the children's tickets include — robes are usually an adult perk.",
+      },
+      {
+        title: "One afternoon thing, not two",
+        detail:
+          "Perlan, Whales of Iceland, or Sundhöllin eight minutes from the hotel. Tomorrow is 380 km and Sunday is the Golden Circle; today's job is making those possible.",
+        tone: "tip",
       },
     ],
   },
@@ -562,7 +572,7 @@ export const dayGuides: DayGuide[] = [
     title: "South Coast field guide",
     badge: "Waterfalls · glacier · black sand",
     intro:
-      "The longest day, so this page is deliberately over-stocked: the anchors, the two-minute detours that feel like secrets, and honest notes on what to skip with a toddler.",
+      "The longest day, and the wettest of what's left — roughly 1.5 mm with a 43% chance. This page is deliberately over-stocked: the anchors, the two-minute detours that feel like secrets, and honest notes on what to skip with a toddler in the rain.",
     sections: [
       {
         id: "anchors",
@@ -808,196 +818,208 @@ export const dayGuides: DayGuide[] = [
     dayId: "day-sun",
     weekday: "Sun",
     date: "Aug 30",
-    title: "Reykjavík family-day field guide",
-    badge: "Perlan + pick-your-finale",
+    title: "Golden Circle field guide",
+    badge: "Moved from Friday · last full day",
     intro:
-      "Today runs on a weather router: rain pushes you indoors to world-class museums, sun pushes you to the zoo and the harbour. Either way, pick ONE morning thing and ONE afternoon thing — the nap in between is non-negotiable.",
+      "The classic loop, now on the last full day. The plan holds the three anchors; this page holds everything you might bolt on. Rule of thumb: add at most two extras — and remember tonight has jobs in it, because Monday starts at 5:45 AM.",
     sections: [
       {
-        id: "perlan",
-        title: "Perlan, maxed",
-        sub: "The morning anchor — here's what's inside the dome so you don't miss the good rooms.",
+        id: "anchors",
+        title: "The three anchors, upgraded",
+        sub: "What to actually do at each stop so it lands with kids.",
         places: [
           {
-            name: "The ice cave",
-            area: "Real 350-ton glacier ice",
+            name: "Almannagjá rift walk",
+            area: "Þingvellir · 30–40 min",
             blurb:
-              "A 100-metre tunnel of actual ice, kept at −10°C — jackets are provided-ish but bring your own layers. The 2-year-old's face at the entrance is the photo.",
-            image: g("ice-cave"),
+              "Walk the path DOWN the gorge from the visitor center — you're literally between North America and Europe. Tell the 7-year-old the ground is tearing 2 cm a year; watch the walk improve instantly.",
+            image: i("thingvellir"),
           },
           {
-            name: "Látrabjarg cliff wall",
-            area: "Forces of Nature hall",
-            blurb: "A ten-metre replica bird cliff with projected puffins and a floor that rumbles for earthquakes — the room kids refuse to leave.",
-            image: g("latrabjarg"),
+            name: "Öxarárfoss",
+            area: "Þingvellir · +15 min",
+            blurb:
+              "The waterfall inside the rift, reached by an easy boardwalk off Almannagjá. Most tour groups skip it, which makes it the calmest waterfall you'll see all week.",
+            image: g("oxararfoss"),
           },
           {
-            name: "Áróra planetarium show",
-            area: "Timed entries",
+            name: "Strokkur, timed right",
+            area: "Geysir · every 5–10 min",
             blurb:
-              "The northern-lights dome film is the closest August gets to auroras. Check the schedule at the desk on arrival and build the visit around it.",
-            image: g("aurora"),
+              "Stand upwind (watch where the steam blows), count eruptions, and let the kids predict the burst — the pre-blast blue bubble is the photo. Two or three eruptions is plenty.",
+            image: i("geysir"),
           },
           {
-            name: "The observation deck",
-            area: "360° over the city",
+            name: "Gullfoss upper platform",
+            area: "20–30 min",
             blurb:
-              "Walk the open-air ring: colored rooftops, Esja, the bay, and this week's two road trips on the horizon. The café behind it handles second breakfast.",
-            image: i("perlan"),
+              "Start at the top platform for the full two-step canyon view (rainbows on sunny days), walk the lower path only if wind and spray allow. Hold hats — literally.",
+            image: i("gullfoss"),
           },
         ],
       },
       {
-        id: "kids-rvk",
-        title: "The kids' Reykjavík",
-        sub: "Sunday-afternoon candidates, all ≤10 minutes' drive. Rank them with the kids at lunch.",
+        id: "addons",
+        title: "Worthwhile add-on stops",
+        sub: "All on or just off the loop, ordered roughly along your route. Pick two, max.",
         places: [
           {
-            name: "Húsdýragarðurinn family park & zoo",
-            area: "Laugardalur",
+            name: "Silfra viewing point",
+            area: "Þingvellir · +10 min",
             blurb:
-              "Seals, arctic foxes, reindeer, and every Icelandic farm animal, plus a small ride park — the whole thing is toddler-scaled. Sunny-day first choice.",
-            image: g("husdyragardurinn"),
+              "Peer into the glass-clear fissure where divers float between continents. With kids you just look from the walkway — five minutes, wildly memorable water.",
+            image: g("silfra"),
           },
           {
-            name: "Whales of Iceland",
-            area: "Grandi",
+            name: "Laugarvatn Fontana rye bread dig",
+            area: "On Route 37 · ~45 min",
             blurb:
-              "Life-size models of every whale in Icelandic waters hanging in blue light — walking under a 25 m blue whale recalibrates a 7-year-old permanently. Rainy-day first choice.",
-            image: g("whales-of-iceland"),
+              "Staff dig a pot of geothermal rye bread out of the hot black sand and serve it steaming with butter (usually ~11:30 & 14:30 — confirm times). Kids watching bread come out of the ground: unbeatable.",
+            image: g("laugarvatn"),
           },
           {
-            name: "Árbær open-air museum",
-            area: "10 min east",
+            name: "Kerið crater",
+            area: "Route 35 south · +10 min detour",
             blurb:
-              "A preserved turf-house village with costumed guides, old-time toys, and farm animals — Iceland's past at running-around scale. Sundays often add demonstrations.",
-            image: g("arbaer"),
+              "A red-walled volcanic crater with a teal lake; the rim loop takes 15–20 minutes with kids. Small entry fee, big 'we walked on a volcano' payoff — best slotted on the drive home.",
+            image: g("kerid"),
           },
           {
-            name: "Botanical garden + Café Flóra",
-            area: "Laugardalur",
-            blurb: "Ponds, ducks, lawns to roll down, and a greenhouse café — pairs perfectly with the zoo next door for a full Laugardalur afternoon.",
-            image: g("botanical-garden"),
+            name: "Faxi waterfall",
+            area: "5 min off Route 35",
+            blurb:
+              "A wide, gentle waterfall with a picnic-friendly bank and almost no crowds — the perfect legs-stretch if the car nap ends early.",
+            image: g("faxi"),
           },
           {
-            name: "Viðey island micro-voyage",
-            area: "5-min ferry",
-            blurb:
-              "A tiny boat to a car-free island of trails, seabirds, and Yoko Ono's Peace Tower base. The ferry ride IS the attraction for kids — check return times, bring the carrier.",
-            image: g("videy"),
+            name: "Skálholt cathedral",
+            area: "Route 31 · 20 min stop",
+            blurb: "A thousand years of Icelandic history in one quiet white church — plus reliable bathrooms and space to run.",
+            image: g("skalholt"),
           },
           {
-            name: "Laugardalslaug",
-            area: "The classic finale",
+            name: "Brúarfoss",
+            area: "Only on a miracle day",
             blurb:
-              "Already in the main plan as the pool option: slides, a shallow kids' lagoon, and hot pots for the adults, in the same park as the zoo.",
-            image: i("laugardalslaug"),
+              "The bluest waterfall in Iceland — but it's a 3.5 km each-way riverside walk. With a 2-year-old, admire the photo and drive on; it's a future-trip promise.",
+            image: g("bruarfoss"),
           },
         ],
       },
       {
-        id: "harbour",
-        title: "The harbour finale (option B)",
-        sub: "If the afternoon goes maritime instead of Laugardalur.",
+        id: "kid-magnets",
+        title: "Kid magnets",
+        sub: "The stops that exist purely to make the day theirs.",
         places: [
           {
-            name: "Grandi district stroll",
-            area: "Old Harbour's working end",
-            blurb: "Fishing boats, street art on the fish-packing houses, and the food hall — a flat wander with ice cream at the end, and only a 9-minute walk downhill from the hotel.",
-            image: i("old-harbour"),
+            name: "Efstidalur farm ice cream",
+            area: "Route 37 · between Laugarvatn & Geysir",
+            blurb:
+              "Ice cream made on the farm, eaten at a window looking into the cow barn. The single highest kid-joy-per-minute stop on the Golden Circle.",
+            image: g("efstidalur"),
           },
           {
-            name: "Omnom chocolate",
-            area: "Grandi flagship",
-            blurb: "Iceland's bean-to-bar star — the shop pours hot chocolate and sells the wrappers-too-pretty-to-open bars that solve every gift obligation at once.",
-            image: g("chocolate"),
+            name: "Roadside Icelandic horses",
+            area: "Anywhere along Route 36/37",
+            blurb:
+              "Shaggy, friendly, mane-in-the-wind horses at fence lines all day. Use marked pull-offs only, and don't feed them — they're charming beggars.",
+            image: g("icelandic-horse"),
           },
           {
-            name: "Valdís",
-            area: "Grandi's ice-cream queue",
-            blurb: "The city's favorite scoop shop. A queue out the door in any weather; the Turkish pepper flavor is a dare, the caramel is the answer.",
-            image: g("ice-cream"),
-          },
-          {
-            name: "Harpa's honeycomb, again",
-            area: "Golden hour",
-            blurb: "If Thursday's visit was rushed, Sunday evening light through the glass is the version worth the second look.",
-            image: g("harpa-inside"),
-          },
-        ],
-      },
-      {
-        id: "try",
-        title: "Things to try today",
-        sub: "Sunday-specific culture.",
-        places: [
-          {
-            name: "Sunday-morning bakery run",
-            area: "Brauð & Co or Sandholt",
-            blurb: "The one morning without an early departure — spend it on warm snúðar and let the hotel breakfast lose on merit.",
-            image: g("cinnamon-bun"),
-          },
-          {
-            name: "Rúgbrauð with butter",
-            area: "Any café or the grocery haul",
-            blurb: "The dark, sweet geothermal rye — dense as cake, best under too much butter. (The Fontana version was Friday's; this is the everyday one.)",
-            image: g("rye-bread"),
-          },
-          {
-            name: "Sundlaug etiquette",
-            area: "If the pool wins",
-            blurb: "Icelandic pools require a proper naked pre-swim shower (attendants enforce it kindly). Brief the 7-year-old in advance and it becomes cultural anthropology, not embarrassment.",
-            image: i("laugardalslaug"),
+            name: "Geysir's bubbling pools",
+            area: "The walk to Strokkur",
+            blurb:
+              "The path passes steaming vents and boiling blue pools — hold hands here (it's genuinely hot) and let the sulfur smell become the day's running joke.",
+            image: g("geysir-pool"),
           },
         ],
       },
       {
         id: "eat",
-        title: "Easy dinners for the last night",
-        sub: "Close to the hotel, done by 6:30, zero drama.",
+        title: "Lunch & treats",
+        sub: "The realistic options, in route order.",
         places: [
           {
-            name: "Grandi Mathöll",
-            area: "Food hall · everyone picks",
-            blurb: "A converted fish factory where the 7-year-old gets fish & chips, the toddler gets fries, and the adults get lamb — no negotiation required.",
+            name: "Friðheimar greenhouse",
+            area: "Reykholt · book ahead",
+            blurb:
+              "Lunch inside a glowing tomato greenhouse — endless tomato soup + bread buffet, and they welcome kids (there's often a horse show outside). The one Golden Circle meal worth reserving; book online today if you want it.",
+            image: g("fridheimar"),
+          },
+          {
+            name: "Geysir Center food court",
+            area: "Across from Strokkur",
+            blurb: "Cafeteria speed: soup, sandwiches, kids' plates, clean bathrooms. Not memorable, perfectly efficient — the default if Friðheimar is full.",
             image: g("food-hall"),
           },
           {
-            name: "Flatey Pizza",
-            area: "Grandi",
-            blurb: "Neapolitan pizza in a bright room, out in 40 minutes — the reliable last-supper pick.",
-            image: g("pizza"),
+            name: "Picnic at Faxi",
+            area: "Grocery-run version",
+            blurb: "If the weather's kind, yesterday's Bónus haul on Faxi's grassy bank beats any restaurant queue.",
+            image: g("faxi"),
           },
           {
-            name: "Hlemmur Mathöll",
-            area: "If you stayed east",
-            blurb: "The original food hall: bánh mì, tacos, and Skál's Icelandic plates under one roof, five minutes from east-end apartments.",
-            image: g("hlemmur"),
+            name: "Efstidalur upstairs",
+            area: "The bigger farm meal",
+            blurb: "Above the ice-cream barn there's a proper farm restaurant (burgers from their own herd) — works as either lunch or the treat stop.",
+            image: g("efstidalur"),
+          },
+        ],
+      },
+      {
+        id: "camera",
+        title: "Camera stops",
+        sub: "Where today's keepers happen.",
+        places: [
+          {
+            name: "Mid-rift on Almannagjá",
+            area: "Þingvellir",
+            blurb: "Family on the path, rift walls on both sides — the 'standing between continents' shot.",
+            image: g("almannagja"),
           },
           {
-            name: "The grocery finale",
-            area: "Krónan run",
-            blurb: "Dinner-lite plus tomorrow's plane snacks and the last skyr load-out in one stop — honestly the correct choice before a 5:45 wake-up.",
-            image: g("bonus-store"),
+            name: "Strokkur's blue bubble",
+            area: "Geysir",
+            blurb: "Burst photos are luck; the swelling turquoise dome a half-second before is skill. Burst mode, kids' reaction faces in frame.",
+            image: i("geysir"),
+          },
+          {
+            name: "Gullfoss from the upper trail",
+            area: "Rainbow hour",
+            blurb: "Late morning to midday sun puts rainbows in the spray. Shoot from the upper platform with the canyon running away to the right.",
+            image: i("gullfoss"),
+          },
+          {
+            name: "Kerið's red rim",
+            area: "If you stop",
+            blurb: "Red slopes, teal lake, tiny people on the rim path — phone-wide from the entrance stairs gets it all.",
+            image: g("kerid"),
           },
         ],
       },
     ],
     notes: [
       {
-        title: "The weather router",
-        detail: "Rain: Perlan + Whales of Iceland. Sun: Perlan early + zoo/pool afternoon. Mixed: Perlan + Árbær. Decide at breakfast, not before.",
+        title: "Tonight has jobs in it",
+        detail:
+          "Home by five, then fuel the car, stage every bag by the door, lay out airport clothes and pack a breakfast bag. Monday starts at 5:45 AM and the flight is non-refundable.",
+        tone: "family",
+      },
+      {
+        title: "Parking & bathrooms",
+        detail:
+          "Þingvellir parking is paid (card machines, covers all lots); the bathrooms there, at Geysir and at Gullfoss are the reliable three. Fuel exists at Laugarvatn and on Route 35 — top up on the way home.",
         tone: "tip",
       },
       {
-        title: "Souvenirs without a mission",
+        title: "Sunday hours",
         detail:
-          "Omnom bars, a wool-shop lopapeysa if budget allows, and a Bónus bag of Icelandic candy (Þristur, Draumur, Appolo licorice) covers everyone back home in 20 minutes.",
+          "Friðheimar needs a reservation and the Fontana rye-bread dig runs to set times — check both this morning before building the day around either.",
       },
       {
-        title: "Tonight is Monday's dress rehearsal",
-        detail: "Fuel the car, stage the bags, lay out airport clothes, pack the breakfast bag — all from the main plan's Sunday notes. Then sleep.",
-        tone: "family",
+        title: "The two-extra rule still applies",
+        detail:
+          "Three anchors plus two extras fills the day. A third is how a good loop turns into a carried-to-bed meltdown on the night you need to pack.",
       },
     ],
   },

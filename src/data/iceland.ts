@@ -206,9 +206,9 @@ export const fareActions: PracticalNote[] = [
 // Blue Lagoon — booked, Thursday's one fixed appointment
 // ---------------------------------------------------------------------------
 export const blueLagoon = {
-  status: "Booked",
+  status: "Rebooked",
   package: "Blue Lagoon Premium",
-  date: "Thu, 27 Aug 2026",
+  date: "Fri, 28 Aug 2026",
   time: "12:00",
   guests: "2 adults, 2 children",
   includes: [
@@ -217,27 +217,32 @@ export const blueLagoon = {
     "Bathrobe and towel to use during the visit",
     "A skincare gift to take home",
   ],
-  note: "The only appointment on arrival day, and the whole reason the day is shaped the way it is: land 9:25, car at 10:30, lagoon at noon, Reykjavík by mid-afternoon.",
+  note: "Originally Thursday at noon, lost to a two-hour queue at the rental desk and rebooked for the same time on Friday. It is still the only fixed appointment of the trip — Friday is built around it, and the rest of the week reshuffled to suit.",
 };
 
 /** How the 12:00 slot lines up with the flight and the car. */
 export const lagoonFit: { label: string; detail: string; ok: boolean }[] = [
   {
-    label: "12:00 entry vs. a 9:25 AM landing",
+    label: "12:00 entry vs. an 11:00 departure",
     detail:
-      "Two and a half hours to clear immigration, collect bags, pick the car up at 10:30 and drive the 20 minutes over — comfortable even if the flight is late.",
+      "Fifty minutes door-to-door from Þórsgata, so leaving at 11:00 gives a real buffer for parking and check-in. Leave on time — this booking has already been lost once.",
+    ok: true,
+  },
+  {
+    label: "The morning stays free",
+    detail:
+      "Nothing before 11:00, so Hallgrímskirkja, Rainbow Street and Tjörnin fill the gap — the local time the replan otherwise costs you.",
+    ok: true,
+  },
+  {
+    label: "Out by 2:30, home by 3:20",
+    detail: "Leaves a soft afternoon for Perlan or the neighbourhood pool, and an early night before Saturday's 8:00 AM start.",
     ok: true,
   },
   {
     label: "Both children are on the booking",
     detail:
-      "Two adults and two children are ticketed. The 2-year-old just makes the minimum age of 2; under-8s wear the provided floaties and stay within arm's reach.",
-    ok: true,
-  },
-  {
-    label: "Out by ~2:30 PM for the hotel",
-    detail:
-      "A 90–120 minute soak plus generous changing time still lands you at Þórsgata around 3:40 PM, right after the 3:00 PM check-in opens.",
+      "Two adults and two children. The 2-year-old just makes the minimum age of 2; under-8s wear the provided floaties and stay within arm's reach.",
     ok: true,
   },
 ];
@@ -629,10 +634,10 @@ export const doorstepLoop: { step: string; detail: string }[] = [
 // ---------------------------------------------------------------------------
 export const summary: SummaryStat[] = [
   { label: "Iceland dates", value: "5", detail: "Thursday through Monday" },
-  { label: "Hotel nights", value: "4", detail: "All based in Reykjavík" },
-  { label: "Full days", value: "3", detail: "Friday, Saturday, Sunday" },
-  { label: "Partial day", value: "1", detail: "Thursday arrival + lagoon" },
-  { label: "Departure day", value: "0 usable", detail: "Monday is airport-only" },
+  { label: "Hotel nights", value: "4", detail: "All at Hotel Óðinsvé" },
+  { label: "Full days", value: "2", detail: "South Coast, Golden Circle" },
+  { label: "Lagoon + city day", value: "1", detail: "Friday, after the replan" },
+  { label: "Lost to the rental queue", value: "½", detail: "Thursday afternoon" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -653,35 +658,37 @@ export const capacityDays: CapacityDay[] = [
   {
     id: "day-thu",
     date: "Thu, Aug 27",
-    status: "Partial + lagoon",
+    status: "Arrival — eaten by the rental",
     segments: [
       { kind: "flight", label: "In flight until 9:25 AM", pct: 39 },
-      { kind: "transfer", label: "Airport + car", pct: 11 },
-      { kind: "sightseeing", label: "Blue Lagoon", pct: 17 },
-      { kind: "transfer", label: "To Reykjavík", pct: 8 },
-      { kind: "flexible", label: "Dinner / walk", pct: 11 },
+      { kind: "transfer", label: "Airport + 2-hour rental queue", pct: 22 },
+      { kind: "transfer", label: "Drive to Reykjavík", pct: 8 },
+      { kind: "flexible", label: "Check in / evening", pct: 17 },
       { kind: "sleep", label: "Early night", pct: 14 },
     ],
-    verdict: "≈ half a day.",
-    detail: "Lagoon is the main event.",
+    verdict: "Lagoon lost.",
+    detail: "Rebooked to Friday noon.",
   },
   {
     id: "day-fri",
     date: "Fri, Aug 28",
-    status: "Full day 1",
+    status: "Lagoon + city",
     segments: [
-      { kind: "sleep", label: "Sleep / breakfast", pct: 31 },
-      { kind: "sightseeing", label: "Golden Circle", pct: 45 },
-      { kind: "flexible", label: "Dinner", pct: 10 },
-      { kind: "sleep", label: "Night", pct: 14 },
+      { kind: "sleep", label: "Sleep / breakfast", pct: 24 },
+      { kind: "flexible", label: "Free morning in 101", pct: 12 },
+      { kind: "transfer", label: "Drive to lagoon", pct: 8 },
+      { kind: "sightseeing", label: "Blue Lagoon", pct: 19 },
+      { kind: "transfer", label: "Back to town", pct: 7 },
+      { kind: "sightseeing", label: "Perlan or the pool", pct: 15 },
+      { kind: "flexible", label: "Dinner / evening", pct: 15 },
     ],
-    verdict: "Full day.",
-    detail: "Main classic route.",
+    verdict: "Recovery day.",
+    detail: "The lagoon, then nothing hard.",
   },
   {
     id: "day-sat",
     date: "Sat, Aug 29",
-    status: "Full day 2",
+    status: "Full day 1",
     segments: [
       { kind: "sleep", label: "Sleep / breakfast", pct: 29 },
       { kind: "sightseeing", label: "South Coast", pct: 53 },
@@ -694,16 +701,16 @@ export const capacityDays: CapacityDay[] = [
   {
     id: "day-sun",
     date: "Sun, Aug 30",
-    status: "Full day 3",
+    status: "Full day 2",
     segments: [
-      { kind: "sleep", label: "Sleep / breakfast", pct: 31 },
-      { kind: "sightseeing", label: "Perlan", pct: 22 },
-      { kind: "flexible", label: "Nap / reset", pct: 15 },
-      { kind: "sightseeing", label: "Harbour / pool", pct: 17 },
-      { kind: "sleep", label: "Pack / sleep", pct: 15 },
+      { kind: "sleep", label: "Sleep / breakfast", pct: 27 },
+      { kind: "sightseeing", label: "Golden Circle", pct: 45 },
+      { kind: "transfer", label: "Fuel + pack", pct: 10 },
+      { kind: "flexible", label: "Dinner", pct: 8 },
+      { kind: "sleep", label: "Night", pct: 10 },
     ],
-    verdict: "Full day.",
-    detail: "Light family finale.",
+    verdict: "Moved from Friday.",
+    detail: "Home by 5 to pack.",
   },
   {
     id: "day-mon",
@@ -720,10 +727,10 @@ export const capacityDays: CapacityDay[] = [
 ];
 
 export const capacityCallout = {
-  title: "Trip reality: a comfortable Reykjavík-based sampler",
+  title: "Replanned around the rebooked lagoon",
   detail:
-    "Blue Lagoon + two nature days + one lighter family day, without changing hotels once.",
-  score: "3.5 usable days",
+    "Thursday's rental queue cost the lagoon, so it moved to Friday noon and the Golden Circle moved to Sunday. Both nature days survive; the local Reykjavík day is what paid for it.",
+  score: "3 usable days",
 };
 
 // ---------------------------------------------------------------------------
@@ -777,78 +784,77 @@ export const days: PlanDay[] = [
     id: "day-thu",
     weekday: "Thu",
     date: "Aug 27",
-    title: "Arrival + Blue Lagoon + Reykjavík",
-    badge: "Partial day",
+    title: "Arrival — and the day the rental ate",
+    badge: "Lagoon missed · rebooked",
     intro:
-      "The most efficient place for the Blue Lagoon is between KEF and the city, immediately after landing — no backtracking, and the warm water resets everyone after the overnight flight.",
-    flowSpan: "Thursday in Iceland · lands 9:25 AM → kids down ~9:00 PM",
+      "Landed on time, then lost more than two hours at the rental desk — which cost the noon Blue Lagoon slot. It has been rebooked for Friday at 12:00, and the rest of the trip reshuffles around that. Thursday ends up as a quiet arrival evening in Reykjavík, which after a red-eye is no bad thing.",
+    flowSpan: "Thursday · landed 9:25 AM → early night",
     flow: [
-      { kind: "transfer", label: "Land · immigration · bags · car", short: "Land · bags", from: "9:25", to: "10:45", pct: 12 },
-      { kind: "transfer", label: "Drive + buffer", short: "Drive", from: "10:45", to: "12:00", pct: 11 },
-      { kind: "sightseeing", label: "Blue Lagoon", from: "12:00", to: "2:30", pct: 22 },
-      { kind: "transfer", label: "To Reykjavík · check-in", short: "To Reykjavík", from: "2:30", to: "4:00", pct: 13 },
-      { kind: "flexible", label: "Quiet time", from: "4:00", to: "5:30", pct: 13 },
-      { kind: "flexible", label: "Early dinner · short stroll", short: "Dinner · stroll", from: "5:30", to: "7:30", pct: 17 },
-      { kind: "sleep", label: "Early night", from: "7:30", to: "9:00", pct: 12 },
+      { kind: "transfer", label: "Land · immigration · bags", short: "Land · bags", from: "9:25", to: "10:15", pct: 8 },
+      { kind: "transfer", label: "Rental desk — 2+ hours", short: "Rental desk", from: "10:15", to: "12:30", pct: 20 },
+      { kind: "transfer", label: "Drive to Reykjavík", short: "Drive", from: "12:30", to: "13:30", pct: 9 },
+      { kind: "flexible", label: "Bag drop · check-in · reset", short: "Check-in · reset", from: "13:30", to: "16:30", pct: 26 },
+      { kind: "flexible", label: "Doorstep loop · dinner", short: "Walk · dinner", from: "16:30", to: "19:30", pct: 26 },
+      { kind: "sleep", label: "Early night", from: "19:30", to: "21:00", pct: 11 },
     ],
     photos: [
-      { file: "iceland-blue-lagoon", caption: "The Blue Lagoon — milky-blue water against black lava, 20 minutes from the airport" },
-      { file: "iceland-reykjavik", caption: "Reykjavík's colorful rooftops — home base for all four nights" },
-      { file: "iceland-hallgrimskirkja", caption: "Hallgrímskirkja — an easy evening add-on only if everyone still has energy" },
+      { file: "iceland-kef-airport", caption: "Keflavík — where the two hours went" },
+      { file: "iceland-rainbow-street", caption: "Skólavörðustígur, four minutes from the hotel door" },
+      { file: "iceland-tjornin", caption: "Tjörnin — ducks, and a gentle first evening" },
     ],
     schedule: [
       {
         time: "9:25 AM",
-        title: "Land at KEF",
+        title: "Landed at KEF",
+        detail: "On time, through immigration and bags without drama.",
+      },
+      {
+        time: "10:15–12:30",
+        title: "The rental desk",
         detail:
-          "Allow 60–90 minutes for immigration, bags, restroom rounds, and the 10:30 AM rental pick-up — including fitting the child seats before you drive off.",
+          "Over two hours in the queue — long enough to lose the noon lagoon booking. Rebooked on the spot for Friday 12:00.",
       },
       {
-        time: "≈ 10:45 AM",
-        title: "Leave the airport",
-        detail: "The Blue Lagoon is roughly 20 minutes away — there's slack here for a snack stop.",
-      },
-      {
-        time: "12:00–2:30 PM",
-        title: "Blue Lagoon",
+        time: "≈ 1:30 PM",
+        title: "Reykjavík",
         detail:
-          "Booked: 12:00 entry on the Premium package (robes and towels included). Allow generous changing time with two children and keep actual water time to 90–120 minutes.",
+          "Fifty minutes to Þórsgata 1. Rooms open at 3:00 PM, so drop bags at reception if you're early and go find lunch.",
       },
       {
-        time: "2:45–3:40 PM",
-        title: "Drive to Reykjavík",
-        detail: "About 50 minutes to Þórsgata 1. Rooms are ready from 3:00 PM, so check in, unpack only what's needed tonight, and give everyone quiet time.",
+        time: "Afternoon",
+        title: "Reset, then the doorstep loop",
+        detail:
+          "Sleep if anyone needs it, then the hour-long loop from the front door: Óðinstorg, Rainbow Street, Hallgrímskirkja, Tjörnin. All within five minutes.",
       },
       {
-        time: "5:30 PM",
-        title: "Early dinner",
-        detail: "Rainbow Street and Hallgrímskirkja are 4–5 min from the hotel door — add them after dinner only if the kids are genuinely still going.",
+        time: "Evening",
+        title: "Grocery run + early dinner",
+        detail:
+          "Bónus or Krónan for breakfasts, skyr and road snacks — Saturday and Sunday are both driving days. Snaps is on your own square if nobody wants to walk.",
       },
     ],
     stops: [
-      { name: "KEF — Keflavík Airport", lat: 63.985, lng: -22.605, note: "Land 9:25 AM · bags + rental car" },
-      { name: "Blue Lagoon", lat: 63.88, lng: -22.449, note: "Noon entry · ~2.5 hours" },
-      { name: "Hotel Óðinsvé, Þórsgata 1", lat: 64.1437, lng: -21.933, note: "Check-in from 3:00 PM · dinner · early night" },
+      { name: "KEF — Keflavík Airport", lat: 63.985, lng: -22.605, note: "Landed 9:25 AM" },
+      { name: "Hotel Óðinsvé, Þórsgata 1", lat: 64.1437, lng: -21.933, note: "Arrived ~1:30 PM" },
     ],
-    mapNote: "Airport → lagoon → city, all in one forward direction.",
-    driveSummary: "KEF → Blue Lagoon ~20 min · Blue Lagoon → Reykjavík ~50 min",
+    mapNote: "Straight to town — the lagoon detour moves to Friday.",
+    driveSummary: "KEF → Reykjavík ~50 min",
     notes: [
       {
-        title: "Kids at the lagoon",
+        title: "What the delay actually cost",
         detail:
-          "Minimum age is 2, so both kids are in — the 2-year-old just makes the cutoff. Children under 8 must wear the provided floaties and stay within arm's reach the whole time.",
-        tone: "family",
-      },
-      {
-        title: "Pack a lagoon bag",
-        detail:
-          "Swimsuits, towels access, and a full dry change for both kids in one separate bag on top of the luggage — never dig through the car at the lagoon.",
+          "Only the lagoon slot, and it was rebookable. Nothing else on Thursday was booked — which is exactly why the plan put a single fixed thing on arrival day.",
         tone: "tip",
       },
       {
-        title: "If the flight went badly",
+        title: "Tonight is the local evening you'd have lost",
         detail:
-          "The lagoon can shrink to an hour or be skipped — go straight to the hotel and move nothing else, since nothing else is booked.",
+          "With the Golden Circle moving to Sunday, this is your unhurried Reykjavík evening. Use it: the walk loop, an early dinner, and bed.",
+        tone: "family",
+      },
+      {
+        title: "Do the grocery run tonight",
+        detail: "Both weekend days leave early. Breakfasts and car snacks bought now save two rushed mornings.",
       },
     ],
   },
@@ -856,78 +862,94 @@ export const days: PlanDay[] = [
     id: "day-fri",
     weekday: "Fri",
     date: "Aug 28",
-    title: "Golden Circle family day",
-    badge: "Full day 1",
+    title: "Blue Lagoon + an easy Reykjavík afternoon",
+    badge: "Rebooked lagoon · 12:00",
     intro:
-      "The classic starter loop: three major stops, controlled pacing, and the return drive doubling as the toddler's nap. Big landscape payoff for very manageable driving.",
-    flowSpan: "Friday · out 8:30 AM → home ~5:00 PM, kids down ~9:00 PM",
+      "The rescued day. You don't need to leave town until 11:00, so the morning is genuinely free, the lagoon takes the middle, and the afternoon stays deliberately soft — this is the recovery the rough arrival earned you.",
+    flowSpan: "Friday · slow morning → lagoon 12:00 → home by 3:20",
     flow: [
-      { kind: "flexible", label: "Breakfast", from: "8:00", to: "8:30", pct: 4 },
-      { kind: "transfer", label: "Drive", from: "8:30", to: "9:15", pct: 6 },
-      { kind: "sightseeing", label: "Þingvellir", from: "9:15", to: "10:30", pct: 10 },
-      { kind: "transfer", label: "Drive", from: "10:30", to: "11:30", pct: 8 },
-      { kind: "sightseeing", label: "Geysir + lunch", from: "11:30", to: "1:30", pct: 15 },
-      { kind: "transfer", label: "Drive", from: "1:30", to: "2:00", pct: 4 },
-      { kind: "sightseeing", label: "Gullfoss", from: "2:00", to: "3:00", pct: 8 },
-      { kind: "transfer", label: "Return — car nap", short: "Return · car nap", from: "3:00", to: "5:00", pct: 15 },
-      { kind: "flexible", label: "Dinner + easy evening", short: "Dinner + evening", from: "5:00", to: "8:30", pct: 26 },
-      { kind: "sleep", label: "Kids down", from: "8:30", to: "9:00", pct: 4 },
+      { kind: "sleep", label: "Sleep in · breakfast", short: "Breakfast", from: "8:00", to: "9:30", pct: 12 },
+      { kind: "flexible", label: "Free morning in 101", short: "In town", from: "9:30", to: "11:00", pct: 12 },
+      { kind: "transfer", label: "Drive to the lagoon", short: "Drive", from: "11:00", to: "12:00", pct: 8 },
+      { kind: "sightseeing", label: "Blue Lagoon", from: "12:00", to: "14:30", pct: 19 },
+      { kind: "transfer", label: "Drive back", from: "14:30", to: "15:20", pct: 7 },
+      { kind: "sightseeing", label: "Perlan or Sundhöllin", short: "Perlan / pool", from: "15:30", to: "17:30", pct: 15 },
+      { kind: "flexible", label: "Early dinner", from: "17:30", to: "19:00", pct: 12 },
+      { kind: "sleep", label: "Evening · bed", from: "19:00", to: "21:00", pct: 15 },
     ],
     photos: [
-      { file: "iceland-thingvellir", caption: "Þingvellir — walk the rift between two tectonic plates" },
-      { file: "iceland-geysir", caption: "Strokkur erupts every few minutes — the fastest kid payoff in Iceland" },
-      { file: "iceland-gullfoss", caption: "Gullfoss — the two-step waterfall that ends the loop" },
+      { file: "iceland-blue-lagoon", caption: "The rebooked noon slot — 4% chance of rain on Friday" },
+      { file: "iceland-guide-lagoon-bridge", caption: "The boardwalk loop, for after you've changed" },
+      { file: "iceland-perlan", caption: "Perlan — the afternoon option, moved here from Sunday" },
+      { file: "iceland-guide-sundhollin", caption: "Sundhöllin: the local pool, 8 minutes' walk from the hotel" },
     ],
     schedule: [
       {
-        time: "8:30 AM",
-        title: "Leave Reykjavík",
-        detail: "Bring the carrier, compact stroller, waterproof layers, snacks, and dry clothes for everyone.",
+        time: "8:00–9:30",
+        title: "Sleep in, properly",
+        detail:
+          "Nothing needs you before 11:00. Breakfast from last night's grocery run, or a bakery run to Brauð & Co or Sandholt.",
       },
       {
-        time: "9:15–10:30",
-        title: "Þingvellir",
-        detail: "Pick one short developed walk (Almannagjá gorge from the visitor center) instead of trying to cover the park.",
+        time: "9:30–11:00",
+        title: "The free morning",
+        detail:
+          "Hallgrímskirkja and the tower lift, Rainbow Street, or the ducks at Tjörnin — all four to five minutes from the door. This is the local time the reshuffle otherwise costs you.",
       },
       {
-        time: "11:30–12:30",
-        title: "Geysir",
-        detail: "Strokkur erupts every 5–10 minutes — watch several from a safe upwind spot before lunch.",
+        time: "11:00",
+        title: "Leave for the lagoon",
+        detail:
+          "Fifty minutes door-to-door. Leaving at 11:00 lands you with a comfortable buffer for the 12:00 entry.",
       },
       {
-        time: "12:30–1:30",
-        title: "Lunch nearby",
-        detail: "The Geysir center across the road is fast and predictable — speed beats destination dining today.",
+        time: "12:00–2:30 PM",
+        title: "Blue Lagoon (Premium)",
+        detail:
+          "Robes and towels are included, so the bag is just swimsuits, dry clothes and hair ties. Conditioner in everyone's hair before the water, three masks at the in-water bar, one drink each.",
       },
       {
-        time: "2:00–3:00",
-        title: "Gullfoss",
-        detail: "Use the main viewing platforms; skip the lower spray-soaked path if it's wet or windy.",
+        time: "2:30–3:20",
+        title: "Back to Þórsgata",
+        detail: "The drive is the toddler's nap. Everyone showered, warm and slightly wrecked in a good way.",
       },
       {
-        time: "3:00–5:00",
-        title: "Return to Reykjavík",
-        detail: "The 90-minute drive back is the built-in toddler nap. Keep dinner easy and close to the hotel.",
+        time: "3:30–5:30",
+        title: "Pick one, gently",
+        detail:
+          "Perlan's ice cave and observation deck, Whales of Iceland if the sky turns, or simply Sundhöllin — the neighbourhood pool eight minutes' walk away, with a kids' pool and rooftop hot pots.",
+      },
+      {
+        time: "5:30 PM",
+        title: "Early dinner, early night",
+        detail: "Saturday is the trip's longest drive and leaves at 8:00. Protect tonight's sleep.",
       },
     ],
     stops: [
-      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Leave 8:30 AM" },
-      { name: "Þingvellir", lat: 64.256, lng: -21.13, note: "9:15–10:30 · one short walk" },
-      { name: "Geysir / Strokkur", lat: 64.311, lng: -20.302, note: "11:30–12:30 + lunch" },
-      { name: "Gullfoss", lat: 64.327, lng: -20.121, note: "2:00–3:00 · main overlooks" },
-      { name: "Reykjavík (return)", lat: 64.1437, lng: -21.933, note: "Back ~5:00 PM" },
+      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Free morning · leave 11:00" },
+      { name: "Blue Lagoon", lat: 63.88, lng: -22.449, note: "12:00 entry · out by 2:30" },
+      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Back ~3:20" },
+      { name: "Perlan", lat: 64.129, lng: -21.919, note: "Afternoon option · 7 min from the hotel" },
     ],
-    mapNote: "A clean loop — about 230 km / 3.5 hours of total driving.",
-    driveSummary: "Reykjavík → Þingvellir ~45 min · → Geysir ~50 min · → Gullfoss ~10 min · → home ~1 hr 50",
+    mapNote: "Out and back on the same road — no other driving today.",
+    driveSummary: "Reykjavík → Blue Lagoon ~50 min each way",
     notes: [
       {
-        title: "Do not add",
-        detail: "Kerið crater, a second lagoon, or an evening tour. The day is calibrated; extras break the nap math.",
+        title: "Kids at the lagoon",
+        detail:
+          "Minimum age is 2, so both are in — the 2-year-old just makes it. Under-8s must wear the provided floaties and stay within arm's reach; the water is milky-opaque and you cannot see the bottom.",
+        tone: "family",
+      },
+      {
+        title: "Leave by 11:00, not 11:20",
+        detail:
+          "Fifty minutes of driving plus parking and check-in. You have already lost this booking once — this is the one time today worth being strict about.",
         tone: "tip",
       },
       {
-        title: "Weather rule",
-        detail: "Friday and Saturday are swappable — give the South Coast the better forecast, it needs it more.",
+        title: "Don't add a second thing",
+        detail:
+          "The afternoon option is one item, not two. Tomorrow is 380 km and Sunday is the Golden Circle; today's job is to make those possible.",
       },
     ],
   },
@@ -936,9 +958,9 @@ export const days: PlanDay[] = [
     weekday: "Sat",
     date: "Aug 29",
     title: "Measured South Coast day",
-    badge: "Full day 2 · longest",
+    badge: "Longest drive · rain likely",
     intro:
-      "The longest outing of the trip, kept deliberately selective: two big waterfalls, a real sit-down lunch near Vík, and one elevated coastal viewpoint — then home.",
+      "The longest outing of the trip, kept deliberately selective: two big waterfalls, a real sit-down lunch near Vík, and one elevated coastal viewpoint — then home. Expect rain today; the waterfalls soak you regardless, so it changes comfort more than plans.",
     flowSpan: "Saturday · out 8:00 AM → home ~6:00 PM, early night",
     flow: [
       { kind: "flexible", label: "Breakfast · load car", short: "Breakfast", from: "7:30", to: "8:00", pct: 4 },
@@ -963,13 +985,13 @@ export const days: PlanDay[] = [
       {
         time: "8:00 AM",
         title: "Leave Reykjavík",
-        detail: "Earlier start than Friday. Full snack kit, waterproofs, and spare clothes within reach.",
+        detail: "Full waterproofs today, not just jackets. Snack kit, spare socks, and dry clothes within reach in the car.",
       },
       {
         time: "9:45–10:45",
         title: "Seljalandsfoss",
         detail:
-          "See it from the front; the walk behind the falls is optional and often too wet and slippery with a toddler.",
+          "See it from the front; the walk behind the falls is optional and will be genuinely soaking in this weather with a toddler.",
       },
       {
         time: "11:15–12:15",
@@ -980,18 +1002,18 @@ export const days: PlanDay[] = [
       {
         time: "1:00–2:00 PM",
         title: "Lunch near Vík",
-        detail: "A true seated reset, not a rushed refuel — this is what keeps the afternoon pleasant.",
+        detail: "A proper seated reset and a chance to dry off — worth an hour, especially if the morning was wet.",
       },
       {
         time: "2:20–3:15",
         title: "Dyrhólaey viewpoint",
         detail:
-          "Elevated black-sand and sea-arch views without putting the children anywhere near the surf.",
+          "Elevated black-sand and sea-arch views without putting the children near the surf. Gusts near 32 km/h up there — hold hats and hands.",
       },
       {
         time: "3:15–6:00",
         title: "Return to Reykjavík",
-        detail: "One restroom/snack stop max. Dinner casual and close to the hotel; everyone down early.",
+        detail: "One restroom stop max. Dinner casual and close to the hotel; everyone down early.",
       },
     ],
     stops: [
@@ -1000,7 +1022,7 @@ export const days: PlanDay[] = [
       { name: "Skógafoss", lat: 63.532, lng: -19.511, note: "11:15–12:15 · base viewpoint" },
       { name: "Vík (lunch)", lat: 63.419, lng: -19.006, note: "1:00–2:00 PM · seated reset" },
       { name: "Dyrhólaey", lat: 63.402, lng: -19.126, note: "2:20–3:15 · viewpoint from above" },
-      { name: "Reykjavík (return)", lat: 64.1437, lng: -21.933, note: "Back ~6:00 PM" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Back ~6:00 PM" },
     ],
     mapNote: "About 380 km round trip — the trip's longest drive, paced around one proper lunch.",
     driveSummary: "Reykjavík → Seljalandsfoss ~1 hr 45 · → Skógafoss ~30 min · → Vík ~35 min · Dyrhólaey → home ~2 hr 40",
@@ -1012,14 +1034,14 @@ export const days: PlanDay[] = [
         tone: "safety",
       },
       {
-        title: "The family version",
+        title: "Rain plan, not a rain cancellation",
         detail:
-          "Dyrhólaey from above is the planned coastal stop; Reynisfjara itself is an optional extra only if conditions are clearly green.",
+          "Roughly 1.5 mm with a 43% chance. Waterfalls are a wet activity anyway; the difference is comfort. Dry socks in the car and a long lunch turn a damp day into a good one.",
         tone: "family",
       },
       {
         title: "Optional cut",
-        detail: "If the family is fading after lunch, drop the coastal stop entirely and head home — two waterfalls is already a great day.",
+        detail: "If the family is fading after lunch, drop the coastal stop and head home — two waterfalls is already a great day.",
         tone: "tip",
       },
     ],
@@ -1028,78 +1050,96 @@ export const days: PlanDay[] = [
     id: "day-sun",
     weekday: "Sun",
     date: "Aug 30",
-    title: "Perlan, harbour & pool — Reykjavík day",
-    badge: "Full day 3 · local",
+    title: "Golden Circle",
+    badge: "Moved from Friday",
     intro:
-      "The pressure-release day the Monday flight makes possible: an indoor museum morning, a real nap, one easy outing, and a calm pack-up — no long driving at all.",
-    flowSpan: "Sunday · local all day, kids down by 8:00 PM",
+      "The classic loop, now on the last full day: broad landscape change, low decision fatigue, and the return drive as the toddler's nap. Home by five so the evening can absorb fuelling the car and packing for a 5:45 AM start.",
+    flowSpan: "Sunday · out 8:15 AM → home ~5:00 PM, pack tonight",
     flow: [
-      { kind: "flexible", label: "Slow breakfast", short: "Breakfast", from: "8:00", to: "9:30", pct: 12 },
-      { kind: "sightseeing", label: "Perlan", from: "9:30", to: "12:00", pct: 19 },
-      { kind: "flexible", label: "Lunch", from: "12:00", to: "1:30", pct: 12 },
-      { kind: "sleep", label: "Nap + packing reset", short: "Nap + packing", from: "1:30", to: "3:30", pct: 15 },
-      { kind: "sightseeing", label: "Harbour walk or pool", short: "Harbour / pool", from: "3:30", to: "5:30", pct: 15 },
-      { kind: "flexible", label: "Early dinner", from: "5:30", to: "6:30", pct: 8 },
-      { kind: "flexible", label: "Stage bags · fuel car", short: "Stage bags", from: "6:30", to: "8:00", pct: 12 },
-      { kind: "sleep", label: "Everyone down early", short: "Down early", from: "8:00", to: "9:00", pct: 7 },
+      { kind: "flexible", label: "Breakfast", from: "7:45", to: "8:15", pct: 4 },
+      { kind: "transfer", label: "Drive", from: "8:15", to: "9:00", pct: 6 },
+      { kind: "sightseeing", label: "Þingvellir", from: "9:00", to: "10:15", pct: 10 },
+      { kind: "transfer", label: "Drive", from: "10:15", to: "11:15", pct: 8 },
+      { kind: "sightseeing", label: "Geysir + lunch", from: "11:15", to: "1:15", pct: 15 },
+      { kind: "transfer", label: "Drive", from: "1:15", to: "1:45", pct: 4 },
+      { kind: "sightseeing", label: "Gullfoss", from: "1:45", to: "2:45", pct: 8 },
+      { kind: "transfer", label: "Return — car nap", short: "Return · car nap", from: "2:45", to: "5:00", pct: 17 },
+      { kind: "flexible", label: "Fuel · pack · dinner", short: "Fuel · pack", from: "5:00", to: "7:30", pct: 19 },
+      { kind: "sleep", label: "Early night", short: "Night", from: "7:30", to: "9:00", pct: 9 },
     ],
     photos: [
-      { file: "iceland-perlan", caption: "The view from Perlan's observation deck — city, bay, and Esja" },
-      { file: "iceland-harpa", caption: "Harpa's honeycomb glass — anchor of the Old Harbour walk" },
-      { file: "iceland-sun-voyager", caption: "Sun Voyager on the waterfront — five minutes from Harpa" },
-      { file: "iceland-laugardalslaug", caption: "Laugardalslaug — Reykjavík's big geothermal pool, the kids-favorite option" },
+      { file: "iceland-thingvellir", caption: "Þingvellir — walk the rift between two tectonic plates" },
+      { file: "iceland-geysir", caption: "Strokkur erupts every few minutes — the fastest kid payoff in Iceland" },
+      { file: "iceland-gullfoss", caption: "Gullfoss — the two-step waterfall that ends the loop" },
+      { file: "iceland-guide-kerid", caption: "Kerið — the optional crater on the way home, if energy allows" },
     ],
     schedule: [
       {
-        time: "9:30 AM–12:00",
-        title: "Perlan",
+        time: "8:15 AM",
+        title: "Leave Reykjavík",
         detail:
-          "Indoor ice cave, volcano and nature exhibits, the 360° observation deck, and a convenient café — the best weather-proof anchor in town.",
+          "Earlier than it feels like you need, because tonight has jobs in it. Carrier, compact stroller, waterproof layers and snacks.",
       },
       {
-        time: "12:15 PM",
-        title: "Lunch",
-        detail: "Eat at Perlan or head downtown, depending entirely on toddler energy.",
-      },
-      {
-        time: "1:30–3:30",
-        title: "Nap + packing reset",
-        detail: "Pack most bags, confirm the flight, and stage everything for Monday while the 2-year-old sleeps.",
-      },
-      {
-        time: "3:30–5:30",
-        title: "Choose one finale",
+        time: "9:00–10:15",
+        title: "Þingvellir",
         detail:
-          "Old Harbour + Harpa + Sun Voyager walk in good weather; Laugardalslaug's slides and warm pools if the kids need one last active outing; Whales of Iceland if it rains.",
+          "One short developed walk — Almannagjá down from the visitor centre — instead of trying to cover the park. Öxarárfoss is a 15-minute add-on if the mood is good.",
       },
       {
-        time: "5:30–6:30",
-        title: "Early final dinner",
-        detail: "Back to the hotel early — protect sleep before the 5:45 AM wake-up.",
+        time: "11:15–12:15",
+        title: "Geysir",
+        detail: "Strokkur erupts every 5–10 minutes. Stand upwind, let the kids call the burst, watch two or three.",
+      },
+      {
+        time: "12:15–1:15",
+        title: "Lunch at the Geysir centre",
+        detail:
+          "Fast and predictable, right across the road. Friðheimar is the memorable alternative but needs a reservation — call ahead this morning if you want it.",
+      },
+      {
+        time: "1:45–2:45",
+        title: "Gullfoss",
+        detail: "Upper platform for the full two-step canyon view; skip the lower path if it's wet or windy.",
+      },
+      {
+        time: "2:45–5:00",
+        title: "Home, via Kerið if you like",
+        detail:
+          "The drive back is the nap. Kerið's red crater is a 15-minute stop on Route 35 if everyone's still bright — otherwise straight home.",
+      },
+      {
+        time: "5:00 PM onward",
+        title: "Fuel, pack, early dinner",
+        detail:
+          "Fill the tank tonight, not tomorrow. Stage every bag by the door, lay out airport clothes, and pack a breakfast bag for the car.",
       },
     ],
     stops: [
-      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Base for the day" },
-      { name: "Perlan", lat: 64.129, lng: -21.919, note: "9:30–12:00 · ice cave + deck" },
-      { name: "Old Harbour / Harpa", lat: 64.15, lng: -21.932, note: "Afternoon option 1" },
-      { name: "Laugardalslaug", lat: 64.145, lng: -21.878, note: "Afternoon option 2 · pool" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Leave 8:15 AM" },
+      { name: "Þingvellir", lat: 64.256, lng: -21.13, note: "9:00–10:15 · one short walk" },
+      { name: "Geysir / Strokkur", lat: 64.311, lng: -20.302, note: "11:15–12:15 + lunch" },
+      { name: "Gullfoss", lat: 64.327, lng: -20.121, note: "1:45–2:45 · main overlooks" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Back ~5:00 PM to pack" },
     ],
-    mapNote: "Everything within a 10-minute drive of the hotel — zero highway time.",
-    driveSummary: "Hotel → Perlan ~7 min · Perlan → harbour ~8 min · harbour → Laugardalslaug ~9 min",
+    mapNote: "A clean loop — about 230 km, and the shortest way home of the two nature days.",
+    driveSummary: "Reykjavík → Þingvellir ~45 min · → Geysir ~50 min · → Gullfoss ~10 min · → home ~1 hr 50",
     notes: [
       {
-        title: "Why this day matters",
-        detail: "It keeps the trip from being a chain of driving days — and it's the day the kids will actually remember fondly.",
+        title: "Why this day moved here",
+        detail:
+          "The lagoon owns Friday noon, and the Golden Circle is the shorter drive home of the two big days — so it belongs on the night you have to pack, not the South Coast.",
+        tone: "tip",
+      },
+      {
+        title: "Tomorrow starts at 5:45 AM",
+        detail:
+          "Everything that can be done tonight should be: fuel, bags by the door, airport clothes out, breakfast packed. The morning is then just driving.",
         tone: "family",
       },
       {
-        title: "Poor-weather version",
-        detail: "Perlan expands to fill the morning and Whales of Iceland or the pool covers the afternoon — the day never depends on sky.",
-      },
-      {
-        title: "Monday prep tonight",
-        detail: "Fuel the car, stage all luggage by the door, pack a grab-bag breakfast, and lay out airport clothes for everyone.",
-        tone: "tip",
+        title: "Sunday hours",
+        detail: "Check Friðheimar and the Fontana rye-bread times before counting on either — Sunday schedules differ.",
       },
     ],
   },
@@ -1119,7 +1159,7 @@ export const days: PlanDay[] = [
       { kind: "flight", label: "FI 685 → SEA · lands 11:45 AM", short: "FI 685 → SEA", from: "10:40", to: "6:45", pct: 62 },
     ],
     photos: [
-      { file: "iceland-old-harbour", caption: "Last look at Reykjavík — the city day belonged to Sunday, not this morning" },
+      { file: "iceland-old-harbour", caption: "Last look at Reykjavík — the city time belonged to Thursday and Friday" },
       { file: "iceland-kef-airport", caption: "Keflavík from above — car back, bags dropped, three hours of buffer" },
     ],
     schedule: [
@@ -1131,7 +1171,7 @@ export const days: PlanDay[] = [
       {
         time: "6:30 AM",
         title: "Leave Reykjavík",
-        detail: "About 45–50 minutes to KEF, then the rental return (booked window runs to 9:30 AM, so ~7:15 AM is early — check the key-drop procedure).",
+        detail: "About 45–50 minutes to KEF on wet roads, then the rental return.",
       },
       {
         time: "≈ 7:30 AM",
@@ -1153,8 +1193,9 @@ export const days: PlanDay[] = [
     driveSummary: "Reykjavík → KEF ~50 min + rental return",
     notes: [
       {
-        title: "Don't move the lagoon here",
-        detail: "A 10:40 AM flight is far too early for a pre-flight Blue Lagoon visit — it lives on Thursday for a reason.",
+        title: "Wet and dark at 6:30",
+        detail:
+          "Drizzle and gusts to 26 km/h forecast, and sunrise isn't until 06:08. Add a few minutes rather than trimming the buffer.",
         tone: "tip",
       },
       {
@@ -1171,26 +1212,24 @@ export const days: PlanDay[] = [
 export const dayRoutes: DayRoute[] = [
   {
     id: "thu",
-    name: "Thu · Arrival + Blue Lagoon",
+    name: "Thu · Arrival",
     color: "#00897b",
-    summary: "KEF → Blue Lagoon → Reykjavík",
+    summary: "KEF → Reykjavík (lagoon missed)",
     stops: [
-      { name: "KEF", lat: 63.985, lng: -22.605, note: "Land 9:25 AM" },
-      { name: "Blue Lagoon", lat: 63.88, lng: -22.449, note: "Noon entry" },
-      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Hotel + dinner" },
+      { name: "KEF", lat: 63.985, lng: -22.605, note: "Landed 9:25 AM · 2 hours at the rental desk" },
+      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Straight to town" },
     ],
   },
   {
     id: "fri",
-    name: "Fri · Golden Circle",
+    name: "Fri · Blue Lagoon + city",
     color: "#f77f00",
-    summary: "Þingvellir → Geysir → Gullfoss loop",
+    summary: "Reykjavík → Blue Lagoon → Reykjavík",
     stops: [
-      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Start / finish" },
-      { name: "Þingvellir", lat: 64.256, lng: -21.13, note: "Short walk" },
-      { name: "Geysir", lat: 64.311, lng: -20.302, note: "Strokkur + lunch" },
-      { name: "Gullfoss", lat: 64.327, lng: -20.121, note: "Main overlook" },
-      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Return" },
+      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Leave 11:00" },
+      { name: "Blue Lagoon", lat: 63.88, lng: -22.449, note: "12:00 entry · rebooked" },
+      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Back ~3:20" },
+      { name: "Perlan", lat: 64.129, lng: -21.919, note: "Afternoon option" },
     ],
   },
   {
@@ -1209,14 +1248,15 @@ export const dayRoutes: DayRoute[] = [
   },
   {
     id: "sun",
-    name: "Sun · Reykjavík local",
+    name: "Sun · Golden Circle",
     color: "#9d4edd",
-    summary: "Perlan → harbour → pool, all in town",
+    summary: "Þingvellir → Geysir → Gullfoss (moved from Friday)",
     stops: [
-      { name: "Hotel Óðinsvé", lat: 64.1437, lng: -21.933, note: "Base" },
-      { name: "Perlan", lat: 64.129, lng: -21.919, note: "Morning" },
-      { name: "Old Harbour / Harpa", lat: 64.15, lng: -21.932, note: "Afternoon" },
-      { name: "Laugardalslaug", lat: 64.145, lng: -21.878, note: "Pool option" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Start / finish" },
+      { name: "Þingvellir", lat: 64.256, lng: -21.13, note: "Short walk" },
+      { name: "Geysir", lat: 64.311, lng: -20.302, note: "Strokkur + lunch" },
+      { name: "Gullfoss", lat: 64.327, lng: -20.121, note: "Main overlook" },
+      { name: "Reykjavík", lat: 64.1437, lng: -21.933, note: "Back ~5:00 to pack" },
     ],
   },
   {
@@ -1236,14 +1276,14 @@ export const dayRoutes: DayRoute[] = [
 // ---------------------------------------------------------------------------
 export const routeFlow: RouteFlowStep[] = [
   {
-    title: "Thursday: KEF → Blue Lagoon → Reykjavík",
-    detail: "Use the lagoon's airport-side location — zero backtracking",
-    drive: "20 + 50 min",
+    title: "Thursday: KEF → Reykjavík",
+    detail: "Two hours at the rental desk cost the lagoon slot",
+    drive: "~50 min",
   },
   {
-    title: "Friday: Golden Circle loop",
-    detail: "Þingvellir → Geysir → Gullfoss",
-    drive: "~3.5 hr total",
+    title: "Friday: Reykjavík → Blue Lagoon → Reykjavík",
+    detail: "Free morning in town, rebooked noon entry",
+    drive: "50 min each way",
   },
   {
     title: "Saturday: South Coast",
@@ -1251,9 +1291,9 @@ export const routeFlow: RouteFlowStep[] = [
     drive: "Longest day",
   },
   {
-    title: "Sunday: Reykjavík only",
-    detail: "Perlan, nap, harbour or pool",
-    drive: "Minimal",
+    title: "Sunday: Golden Circle",
+    detail: "Þingvellir → Geysir → Gullfoss, home by 5 to pack",
+    drive: "~3.5 hr total",
   },
   {
     title: "Monday: Reykjavík → KEF",
@@ -1315,45 +1355,27 @@ export type DayWeather = {
 
 export const weatherMeta = {
   source: "Open-Meteo forecast",
-  fetched: "26 Aug 2026",
-  note: "Pulled per day for the place you'll actually be that day — the lagoon on Thursday, the Golden Circle on Friday, the South Coast on Saturday, Reykjavík for the city days. A six-day forecast drifts, so re-check the back half of the trip midweek; vedur.is is the Icelandic source, and road conditions live on road.is.",
+  fetched: "28 Aug 2026",
+  note: "Re-pulled after the replan, for the place you'll actually be each day — the lagoon on Friday, the South Coast on Saturday, the Golden Circle on Sunday, the airport road on Monday. Forecasts drift; vedur.is is the Icelandic source and road conditions live on road.is.",
 };
 
 export const dayWeather: DayWeather[] = [
   {
-    dayId: "day-thu",
-    weekday: "Thu",
-    date: "Aug 27",
-    place: "Blue Lagoon & Reykjavík",
-    summary: "Light drizzle, very windy",
-    high: 11,
-    low: 6,
-    feelsLike: 2,
-    precipMm: 0.1,
-    rainChance: 20,
-    wind: 29,
-    gust: 43,
-    daylight: "05:56 – 21:02",
-    verdict:
-      "Barely any rain, but the windiest day of the trip — gusts near 43 km/h at the lagoon. Warm water is no problem; the walk from the car park and the moment you get out are. Hold the car doors, and have the kids' coats ready at the exit rather than in the boot.",
-    tone: "watch",
-  },
-  {
     dayId: "day-fri",
     weekday: "Fri",
     date: "Aug 28",
-    place: "Golden Circle (Geysir)",
-    summary: "Overcast, dry, calm",
-    high: 12,
-    low: 3,
-    feelsLike: -0.4,
+    place: "Blue Lagoon & Reykjavík",
+    summary: "Dry and bright, breezy",
+    high: 11,
+    low: 4,
+    feelsLike: 0.7,
     precipMm: 0,
-    rainChance: 16,
-    wind: 11,
-    gust: 19,
+    rainChance: 4,
+    wind: 22,
+    gust: 31,
     daylight: "05:59 – 20:58",
     verdict:
-      "The best day of the week for this route: no rain, the lightest wind of the trip, and the mildest afternoon. The catch is the start — it feels below freezing first thing, so hats and gloves for the 9:15 Þingvellir walk, then peel layers off as it warms.",
+      "As good as a lagoon day gets — a 4% chance of rain. Cold first thing, so the free morning wants proper coats, and the wind still catches car doors at the lagoon car park.",
     tone: "good",
   },
   {
@@ -1361,62 +1383,62 @@ export const dayWeather: DayWeather[] = [
     weekday: "Sat",
     date: "Aug 29",
     place: "South Coast (Vík)",
-    summary: "Overcast, dry, breezy",
-    high: 11,
-    low: 5,
-    feelsLike: 3,
-    precipMm: 0,
-    rainChance: 39,
-    wind: 17,
+    summary: "Showers, windy",
+    high: 10,
+    low: 7,
+    feelsLike: 3.6,
+    precipMm: 1.5,
+    rainChance: 43,
+    wind: 20,
     gust: 32,
-    daylight: "06:02 – 20:55",
+    daylight: "05:53 – 20:40",
     verdict:
-      "Dry for the waterfalls, which is what matters — but 32 km/h gusts on an exposed coast. Dyrhólaey will be blowy at the railing, and the spray at Seljalandsfoss will find you anyway. Keep hoods up and hold onto hats and the 2-year-old.",
-    tone: "good",
+      "The wettest day of what's left, and it lands on the longest drive — but the South Coast is wet on every remaining day, and waterfalls soak you regardless. Full waterproofs, a long lunch in Vík, and hold hats at Dyrhólaey.",
+    tone: "watch",
   },
   {
     dayId: "day-sun",
     weekday: "Sun",
     date: "Aug 30",
-    place: "Reykjavík",
-    summary: "Cloudy, showers possible",
-    high: 10,
-    low: 5,
-    feelsLike: 3,
-    precipMm: 0,
-    rainChance: 53,
-    wind: 8,
-    gust: 21,
-    daylight: "06:05 – 20:51",
+    place: "Golden Circle (Geysir)",
+    summary: "Mostly dry, calm",
+    high: 11,
+    low: 4,
+    feelsLike: 1.4,
+    precipMm: 0.5,
+    rainChance: 37,
+    wind: 11,
+    gust: 22,
+    daylight: "05:57 – 20:45",
     verdict:
-      "The calmest day of the trip — barely any wind — but a coin-flip chance of a shower passing through. Perfect for the local plan: Perlan indoors in the morning, and the harbour walk or the pool whenever the sky looks friendly. Good news for staying in town: the South Coast gets 8 mm of rain today.",
-    tone: "mixed",
+      "The calmest day inland and largely dry — a good draw for the loop that moved here. Cold start again near freezing, so hats and gloves for the 9:00 Þingvellir walk.",
+    tone: "good",
   },
   {
     dayId: "day-mon",
     weekday: "Mon",
     date: "Aug 31",
     place: "Reykjavík → Keflavík",
-    summary: "Drizzle, windy",
+    summary: "Drizzle, dark start",
     high: 11,
-    low: 5,
-    feelsLike: 3,
-    precipMm: 0.8,
-    rainChance: 30,
-    wind: 21,
-    gust: 37,
+    low: 2,
+    feelsLike: -1.6,
+    precipMm: 0.6,
+    rainChance: 43,
+    wind: 10,
+    gust: 26,
     daylight: "06:08 – 20:48",
     verdict:
-      "Wet roads and gusts to 37 km/h for the 6:30 AM airport run — dark, damp and blowy, so add a few minutes to the drive rather than trimming the buffer. Wind that strong catches car doors at the rental return, too.",
+      "Wet roads for the 6:30 AM airport run, and sunrise isn't until 06:08 — you'll drive the first stretch in the dark. Add a few minutes; don't trim the buffer.",
     tone: "mixed",
   },
 ];
 
 /** Does the plan's Fri/Sat order still hold? The forecast says yes, emphatically. */
 export const weatherCall = {
-  headline: "Keep Friday and Saturday exactly as planned",
+  headline: "Why the Golden Circle moved to Sunday",
   detail:
-    "The itinerary says to give the South Coast the better forecast, so here is the check: on Friday the South Coast gets 2.9 mm of rain with a 70% chance, while Saturday there is dry at 39%. The Golden Circle is dry on both days. Swapping them would move the waterfall day into the only real rain of the week — so don't.",
+    "With the lagoon rebooked to Friday noon, the Golden Circle had to become a weekend day. The South Coast is wet whichever day it lands on (Fri 87%, Sat 43%, Sun 55%), so the deciding factor was the drive home: Gullfoss is 1 hr 50 from the hotel, Vík is 2 hr 40. Putting the shorter loop on Sunday keeps the long haul away from the night you have to pack for a 5:45 AM start.",
 };
 
 // ---------------------------------------------------------------------------
@@ -1488,7 +1510,7 @@ export const checklists: ChecklistGroup[] = [
       "Ask the hotel about parking for the rental car",
       "✅ Rental car — KEF pick-up Thu 10:30 AM, 4 days, booked",
       "⚠️ Add a SECOND child seat — the booking has only one",
-      "Perlan tickets for Sunday morning",
+      "Perlan tickets — Friday afternoon, if you choose it over the pool",
     ],
   },
   {

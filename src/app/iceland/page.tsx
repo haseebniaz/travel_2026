@@ -89,14 +89,14 @@ const bookingStatus = [
   { icon: "✈️", label: "Flights", detail: "FI 682 / FI 685 · Economy Light", href: "#flights", done: true },
   { icon: "🏨", label: "Hotel", detail: "Óðinsvé · 4 nights", href: "#base", done: true },
   { icon: "🚗", label: "Car", detail: "KEF · 4 days · 1 seat short", href: "#car", done: true, warn: true },
-  { icon: "🧖", label: "Blue Lagoon", detail: "Premium · Thu 12:00", href: "#lagoon", done: true },
+  { icon: "🧖", label: "Blue Lagoon", detail: "Premium · Fri 12:00 (rebooked)", href: "#lagoon", done: true },
 ];
 
 const stillOpen = [
   "Second child seat for the 7-year-old",
   "Checked bags + seats together (Economy Light)",
   "Room for four + cot, parking, breakfast",
-  "Perlan tickets for Sunday",
+  "Perlan tickets, if you pick it Friday",
 ];
 
 function SectionHeading({ id, title, sub }: { id: string; title: string; sub: string }) {
@@ -381,8 +381,8 @@ export default function IcelandTripPage() {
         {/* Blue Lagoon */}
         <SectionHeading
           id="lagoon"
-          title="Blue Lagoon — the one appointment"
-          sub="Booked on the Premium package for all four of you at 12:00 on arrival day. It is the only fixed time in the whole trip, and everything on Thursday is built around it."
+          title="Blue Lagoon — rebooked to Friday"
+          sub="Rebooked to Friday at 12:00 after Thursday’s rental-desk delay. It is still the only fixed time in the trip — Friday is built around it, and the Golden Circle moved to Sunday to make room."
         />
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
           <article className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-sea-900/5">
