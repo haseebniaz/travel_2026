@@ -44,12 +44,16 @@ export default function TripMap() {
       });
       mapRef.current = map;
 
+      // Public OpenStreetMap Standard raster tiles. CARTO's previous tiles
+      // now require an API key and rendered error messages over the map.
+      // Respect OSMF tile usage policy: visible attribution, browser cache,
+      // normal referer, and no tile prefetch/offline download.
       L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
           attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          maxZoom: 18,
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 19,
         }
       ).addTo(map);
 
